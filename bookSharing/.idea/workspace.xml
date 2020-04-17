@@ -14,7 +14,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1abxvVPUP8Nb1SaDp9OQmqNsxbv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -53,5 +57,9 @@
       <screen x="0" y="0" width="2560" height="1386" />
     </state>
     <state x="1353" y="418" key="SettingsEditor/0.0.2560.1386@0.0.2560.1386" timestamp="1587025471631" />
+    <state x="1334" y="501" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1587115064608">
+      <screen x="0" y="0" width="2560" height="1386" />
+    </state>
+    <state x="1334" y="501" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.2560.1386@0.0.2560.1386" timestamp="1587115064608" />
   </component>
 </project>
