@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/load/load",
+    "pages/person/person",
+    "pages/test/test",
+    "pages/circle/circle",
+    "pages/information/information",
+    "pages/book/book",
+    "pages/login/login",
+    "pages/enroll/enroll",
+    "pages/square/square",
+    "pages/mine/mine",
+    "pages/commit/commit",
+    "pages/buttom_menu/buttom_menu"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9a6a7",
+    "selectedColor": "#d81e06",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/circle/circle",
+        "text": "动态",
+        "iconPath": "images/icon/circle.png",
+        "selectedIconPath": "images/icon/circle-selected.png"
+      },
+      {
+        "pagePath": "pages/book/book",
+        "text": "书籍",
+        "iconPath": "images/icon/book.png",
+        "selectedIconPath": "images/icon/book-selected.png"
+      },
+      {
+        "pagePath": "pages/information/information",
+        "text": "消息",
+        "iconPath": "images/icon/information.png",
+        "selectedIconPath": "images/icon/information-selected.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "text": "个人",
+        "iconPath": "images/icon/person.png",
+        "selectedIconPath": "images/icon/person-selected.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

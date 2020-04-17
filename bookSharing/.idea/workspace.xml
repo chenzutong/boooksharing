@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3c7a7dad-4169-48d2-9230-11510ad2d209" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1abxvVPUP8Nb1SaDp9OQmqNsxbv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/api" />
+      <recent name="$PROJECT_DIR$/app" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3c7a7dad-4169-48d2-9230-11510ad2d209" name="Default Changelist" comment="" />
+      <created>1587018324344</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587018324344</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1404" y="520" key="FileChooserDialogImpl" timestamp="1587088373673">
+      <screen x="0" y="0" width="2560" height="1386" />
+    </state>
+    <state x="1404" y="520" key="FileChooserDialogImpl/0.0.2560.1386@0.0.2560.1386" timestamp="1587088373673" />
+    <state x="1353" y="418" key="SettingsEditor" timestamp="1587025471631">
+      <screen x="0" y="0" width="2560" height="1386" />
+    </state>
+    <state x="1353" y="418" key="SettingsEditor/0.0.2560.1386@0.0.2560.1386" timestamp="1587025471631" />
+  </component>
+</project>
