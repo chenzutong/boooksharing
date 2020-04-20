@@ -1,5 +1,20 @@
 <!--pages/commit/commit.wxml-->
-<view class='textarea'>
-   <textarea placeholder="发条树洞吧~" placeholder-style="color:#888888; font-size:38rpx;" class='textinput' maxlength='-1' bindinput ="bindTextAreaBlur"></textarea>
+<view class='bottomrow'>
+  <view class='bottomtab' bindtap="first_select">
+    <text class='bottomtabText' style='color:{{firco}}'>寻书发布</text>
+  </view>
+  <view class='bottomtab' bindtap="second_select">
+    <text class='bottomtabText' style='color:{{secco}}'>出书发布</text>
+  </view>
 </view>
-<view id='btn' class='click' bindtap='send'>发送</view>
+
+
+<view wx:if="{{temp}}"  class='textarea'>
+   <textarea placeholder="发条树洞吧~" placeholder-style="color:#888888; font-size:38rpx;" class='textinput' maxlength='-1' bindinput ="bindTextAreaBlur"></textarea>
+   <image class='touxiang'  src='{{addphoto}}' bindtap='addphoto'></image>
+</view>
+<view wx:else  class='textarea'>
+   <textarea placeholder="发条" placeholder-style="color:#888888; font-size:38rpx;" class='textinput' maxlength='-1' bindinput ="bindTextAreaBlur"></textarea>
+</view>
+
+<view id='btn' class='click' bindtap='send'>发布</view>

@@ -1,19 +1,26 @@
-// pages/commit/commit.js
+// pages/test/test.js
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    firco: "#000000",
-    secco: "#979797",
-    temp: true,
-    addphoto:"/images/icon/addphoto.png",
-    datail:"",
-  }, 
-
-  // 添加图片
-  addphoto:function(){
+    data: {
+      items: [
+        { name: 'USA', value: '美国' },
+        { name: 'CHN', value: '中国', checked: 'true' },
+        { name: 'BRA', value: '巴西' },
+        { name: 'JPN', value: '日本' },
+        { name: 'ENG', value: '英国' },
+        { name: 'TUR', value: '法国' },
+      ]
+    },
+    checkboxChange: function (e) {
+      console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+    }
+  },
+  upload() {
+    // let that = this;
     // 选择一张图片
     wx.chooseImage({
       count: 1,
@@ -29,7 +36,6 @@ Page({
       },
     })
   },
-
   //上传操作
   uploadFile(filePath) {
     wx.cloud.uploadFile({
@@ -37,9 +43,7 @@ Page({
       filePath: filePath, // 文件路径
       success: res => {
         // get resource ID
-        this.setData({
-          addphoto: res.fileID
-        })
+        console.log("res: " + res)
         console.log(res.fileID)
       },
       fail: err => {
@@ -48,53 +52,36 @@ Page({
       }
     })
   },
-  
-  // 点击寻书动态
-  first_select: function () {
-    this.setData({
-      temp: true,
-      firco: "#000000",
-      secco: "#979797",
-    })
-    // wx.redirectTo({
-    //   url: '../square/square'
-    // })
-  },
-
-  // 点击出书动态
-  second_select: function () {
-    this.setData({
-      temp: false,
-      firco: "#979797",
-      secco: "#000000",
-    })
-  },
-
-  send: function(e){
-    var that = this
-    wx.showLoading({
-      title: '发送中',
-    })
-    console.log(that.data.detail)
-
-    // 与服务器交互
-
-    setTimeout(function(){
-      wx.hideLoading()
-    }, 2000)
-  },
-
-  // 获取wxml输入信息
-  bindTextAreaBlur:function(e){
-    this.data.detail=e.detail.value
-  },
-
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    wx.cloud.downloadFile({
+      fileID: 'cloud://booksharing-riolf.626f-booksharing-riolf-1301887879/1587365100239.png', // 文件 ID
+      success: res => {
+        // 返回临时文件路径
+        console.log(res.tempFilePath)
+        this.setData({
+          ims: res.tempFilePath
+        })
+      },
+      fail: console.error
+    })
 
-    console.log(getApp().globalData)
+    wx.cloud.getTempFileURL({
+      fileList: ['cloud://booksharing-riolf.626f-booksharing-riolf-1301887879/1587365100239.png'],
+      success: res => {
+        // get temp file URL
+        console.log("********")
+        console.log(res.fileList[0].tempFileURL)
+      },
+      fail: err => {
+        // handle error
+      }
+    })
+
+
+
   },
 
   /**

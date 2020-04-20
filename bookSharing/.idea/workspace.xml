@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c7a7dad-4169-48d2-9230-11510ad2d209" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/pages/test/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/pages/test/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/pages/test/test.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/pages/test/test.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/pages/test/test.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/pages/test/test.wxss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +33,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../weixin_chat-master" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -53,14 +56,18 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1404" y="520" key="FileChooserDialogImpl" timestamp="1587088373673">
+    <state x="1404" y="520" key="FileChooserDialogImpl" timestamp="1587350900367">
       <screen x="0" y="0" width="2560" height="1386" />
     </state>
-    <state x="1404" y="520" key="FileChooserDialogImpl/0.0.2560.1386@0.0.2560.1386" timestamp="1587088373673" />
+    <state x="1404" y="520" key="FileChooserDialogImpl/0.0.2560.1386@0.0.2560.1386" timestamp="1587350900367" />
     <state x="1353" y="418" key="SettingsEditor" timestamp="1587025471631">
       <screen x="0" y="0" width="2560" height="1386" />
     </state>
     <state x="1353" y="418" key="SettingsEditor/0.0.2560.1386@0.0.2560.1386" timestamp="1587025471631" />
+    <state x="767" y="635" key="com.intellij.ide.util.TipDialog" timestamp="1587354960836">
+      <screen x="0" y="0" width="2560" height="1386" />
+    </state>
+    <state x="767" y="635" key="com.intellij.ide.util.TipDialog/0.0.2560.1386@0.0.2560.1386" timestamp="1587354960836" />
     <state x="1334" y="501" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1587115064608">
       <screen x="0" y="0" width="2560" height="1386" />
     </state>

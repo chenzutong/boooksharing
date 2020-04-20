@@ -31,7 +31,7 @@ class User(db.Model):
         return check_password_hash(self.password, pwd)
 
 
-# 寻书动态
+# 寻书动态表
 class Seekbook(db.Model):
     __tablename__ = "seekbook"
     id = db.Column(db.Integer, primary_key=True)                         # 编号
@@ -49,7 +49,7 @@ class Seekbook(db.Model):
         return '<Seekbook %r>' % self.username
 
 
-# 出借动态
+# 出借动态表
 class Lendbook(db.Model):
     __tablename__ = "lendbook"
     id = db.Column(db.Integer, primary_key=True)  # 编号

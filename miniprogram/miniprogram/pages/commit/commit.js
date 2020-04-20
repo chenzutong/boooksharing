@@ -5,15 +5,26 @@ Page({
    * Page initial data
    */
   data: {
+    switchChecked: true,
     firco: "#000000",
     secco: "#979797",
     temp: true,
-    addphoto:"/images/icon/addphoto.png",
-    datail:"",
-  }, 
+    addphotoPath: "/images/icon/addphoto.png",
+    datail: "",
+    items: [
+      { name: 'free', value: '免费',  checked: 'true'},
+      { name: 'bargaining', value: '议价'}
+    ]
+  },
+  switchChange:function(e){
+    console.log(`switch发生change事件，携带值为`, e.detail.value)
+  },
+  radioChange: function (e) {
+    console.log('radio发生change事件，携带value值为：', e.detail.value)
+  },
 
   // 添加图片
-  addphoto:function(){
+  addphoto: function () {
     // 选择一张图片
     wx.chooseImage({
       count: 1,
@@ -21,11 +32,16 @@ Page({
       sourceType: ['album', 'camera'],
       success: (res) => {
         // tempFilePath可以作为img标签的src属性显示图片
-        const tempFilePaths = res.tempFilePaths[0]
-        console.log(tempFilePaths)
+        const tempFilePath = res.tempFilePaths[0]
+        this.addphotoPath = tempFilePath
+        console.log(this.addphotoPath)
+
+        this.setData({
+          addphotoPath: tempFilePath
+        })
         // that.uploadFile(tempFilePaths) 如果这里不是=>函数
         //则使用上面的that = this
-        this.uploadFile(tempFilePaths)
+        // this.uploadFile(tempFilePaths)
       },
     })
   },
@@ -37,9 +53,6 @@ Page({
       filePath: filePath, // 文件路径
       success: res => {
         // get resource ID
-        this.setData({
-          addphoto: res.fileID
-        })
         console.log(res.fileID)
       },
       fail: err => {
@@ -48,7 +61,7 @@ Page({
       }
     })
   },
-  
+
   // 点击寻书动态
   first_select: function () {
     this.setData({
@@ -70,7 +83,8 @@ Page({
     })
   },
 
-  send: function(e){
+  send: function (e) {
+    console.log(this.addphotoPath)
     var that = this
     wx.showLoading({
       title: '发送中',
@@ -79,14 +93,14 @@ Page({
 
     // 与服务器交互
 
-    setTimeout(function(){
+    setTimeout(function () {
       wx.hideLoading()
     }, 2000)
   },
 
   // 获取wxml输入信息
-  bindTextAreaBlur:function(e){
-    this.data.detail=e.detail.value
+  bindTextAreaBlur: function (e) {
+    this.data.detail = e.detail.value
   },
 
   /**
@@ -94,7 +108,6 @@ Page({
    */
   onLoad: function (options) {
 
-    console.log(getApp().globalData)
   },
 
   /**

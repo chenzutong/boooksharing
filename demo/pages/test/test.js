@@ -1,68 +1,127 @@
-// pages/test/test.js
+var utils = require("../../utils/util.js")
 Page({
 
   /**
-   * Page initial data
-   */
+  * 页面的初始数据
+  */
   data: {
-    nbFrontColor: '#000000',
-    nbBackgroundColor: '#ffffff',
+    newsList: [],
+    input: null,
+    openid: null
   },
-  onLoad() {
-    this.setData({
-      nbTitle: '新标题',
-      nbLoading: true,
-      nbFrontColor: '#ffffff',
-      nbBackgroundColor: '#000000',
+
+  /**
+  * 生命周期函数--监听页面加载
+  */
+  onLoad: function (options) {
+    var _this = this;
+    wx.getStorage({
+      key: 'OPENID',
+      success: function (res) {
+        _this.setData({
+          openid: res.data
+        })
+      },
+    })
+    var _this = this;
+
+    console.log(options.to)
+    //建立连接
+    wx.connectSocket({
+      url: "wss://www.chat.blingfeng.cn/websocket/" + _this.data.openid + "/" + options.to,
+    })
+
+    //连接成功
+    wx.onSocketOpen(function () {
+      console.log('连接成功');
+    })
+    wx.onSocketMessage(function (res) {
+
+      var list = [];
+      list = _this.data.newsList;
+      var _data = JSON.parse(res.data);
+
+      list.push(_data);
+      console.log(list)
+      _this.setData({
+        newsList: list
+      })
+
     })
   },
 
   /**
-   * Lifecycle function--Called when page is initially rendered
-   */
+  * 生命周期函数--监听页面初次渲染完成
+  */
   onReady: function () {
 
   },
 
   /**
-   * Lifecycle function--Called when page show
-   */
+  * 生命周期函数--监听页面显示
+  */
   onShow: function () {
 
   },
 
   /**
-   * Lifecycle function--Called when page hide
-   */
+  * 生命周期函数--监听页面隐藏
+  */
   onHide: function () {
 
   },
 
   /**
-   * Lifecycle function--Called when page unload
-   */
+  * 生命周期函数--监听页面卸载
+  */
   onUnload: function () {
 
   },
 
   /**
-   * Page event handler function--Called when user drop down
-   */
+  * 页面相关事件处理函数--监听用户下拉动作
+  */
   onPullDownRefresh: function () {
 
   },
 
   /**
-   * Called when page reach bottom
-   */
+  * 页面上拉触底事件的处理函数
+  */
   onReachBottom: function () {
 
   },
 
   /**
-   * Called when user click on the top right corner to share
-   */
+  * 用户点击右上角分享
+  */
   onShareAppMessage: function () {
 
+  },
+  send: function () {
+    var _this = this;
+    if (_this.data.input) {
+      wx.sendSocketMessage({
+        data: _this.data.input,
+      })
+      var list = [];
+      list = this.data.newsList;
+      var temp = { 'message': _this.data.input, 'date': utils.formatTime(new Date()), type: 1 };
+      list.push(temp);
+      this.setData({
+        newsList: list,
+        input: null
+      })
+    }
+
+  },
+  bindChange: function (res) {
+    this.setData({
+      input: res.detail.value
+    })
+  },
+  back: function () {
+    wx.closeSocket();
+    console.log('连接断开');
   }
 })

@@ -1,0 +1,30 @@
+<!--pages/person/person.wxml-->
+
+<view class="mine-wrapper">
+  <view class="avatar-wrapper">
+    <view>
+      <view class="avatar">
+        <image style="border-radius:50%;" src="{{avatarUrl ? avatarUrl:'/images/icon/person.png'}}"></image>
+      </view>
+      <view class="text">
+        <text wx:if="{{userinfo.userName}}">{{userinfo.userName}}</text>
+        <text wx:else bindtap="toLogin">注册 / 登录</text>
+      </view>
+    </view>
+  </view>
+  <view wx:if="true" class="alllists">
+    <text class='content'>查看自己已发布的动态</text>
+    <!-- 分割线 -->
+    <view class="divLine"></view>
+  </view>
+<view class="alllists">
+    <view class='content'>编辑个人信息</view>
+  <!-- 分割线 -->
+  <view class="divLine"></view>
+</view>
+<view class="alllists">
+    <view class='content'>退出</view>
+  <!-- 分割线 -->
+  <view class="divLine"></view>
+</view>
+</view>
