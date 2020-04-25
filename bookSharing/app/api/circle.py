@@ -30,9 +30,10 @@ def commit_seek():
     """
     req = request.values  # 接收数据
 
+
     user_id = req['user_id'] if 'user_id' in req else ''  # 获取昵称
     username = req['username'] if 'username' in req else ''  # 获取昵称
-    avatar = req['avatar'] if 'avatar' in req else ''  # 获取头像
+    avatar = req['avatarUrl'] if 'avatarUrl' in req else ''  # 获取头像
     bookname = req['bookname'] if 'bookname' in req else ''  # 获取书名
     classroom = req['classroom'] if 'classroom' in req else ''  # 获取专业班级
     content = req['content'] if 'content' in req else ''  # 获取内容
@@ -48,7 +49,7 @@ def commit_seek():
             "code": 201,
             "msg": "参数不足",
             "data": {
-                "test": "user_id:" + user_id + ", username:" + username + ", avatar:" + avatar + ", bookname:" + bookname
+                "test": ", username:" + username + ", avatar:" + avatar + ", bookname:" + bookname
             }
         }
         return jsonify(result)
@@ -67,7 +68,7 @@ def commit_seek():
     token = serializer.dumps({'user_id': seekbook.user_id})  # 生成token
     # 返回结果
     result = {
-        "code": 200,
+        "code": 0,
         "msg": "发布成功",
         "data":
             {
@@ -84,10 +85,10 @@ def commit_lend():
     :return:
     """
     req = request.values  # 接收数据
-
+    print("******\n", req)
     user_id = req['user_id'] if 'user_id' in req else ''  # 获取昵称
     username = req['username'] if 'username' in req else ''  # 获取昵称
-    avatar = req['avatar'] if 'avatar' in req else ''  # 获取头像
+    avatar = req['avatarUrl'] if 'avatarUrl' in req else ''  # 获取头像
     bookname = req['bookname'] if 'bookname' in req else ''  # 获取书名
     classroom = req['classroom'] if 'classroom' in req else ''  # 获取专业班级
     content = req['content'] if 'content' in req else ''  # 获取内容
@@ -130,6 +131,7 @@ def commit_lend():
             bookname=bookname,
             content=content,
             type=type,
+            photo=photo,
         )
         db.session.add(book)
         db.session.commit()
@@ -137,7 +139,7 @@ def commit_lend():
     token = serializer.dumps({'user_id': lendbook.user_id})  # 生成token
     # 返回结果
     result = {
-        "code": 200,
+        "code": 0,
         "msg": "发布成功",
         "data":
             {
@@ -145,3 +147,59 @@ def commit_lend():
             }
     }
     return jsonify(result)
+
+
+@api.route('/circle/circle_lend', methods=['GET'])
+def circle_lend():
+    data = []
+    lendbook = Lendbook.query.filter_by().all()  # 查询书籍信息
+    for item in lendbook:
+        temp = {
+            "username": item.username,
+            "avatar": item.avatar,
+            "bookname": item.bookname,
+            "classroom": item.classroom,
+            "photo": item.photo,
+            "content": item.content,
+            "sendtime": item.sendtime,
+            "type": item.type,
+            "user_id": item.user_id,
+
+        }
+        data.append(temp)
+    result = {
+        "code": 0,
+        "msg": "请求成功",
+        "data": data[::-1]
+    }
+    return jsonify(result)
+
+
+@api.route('/circle/circle_seek', methods=['GET'])
+def circle_seek():
+    data = []
+    seekbook = Seekbook.query.filter_by().all()  # 查询书籍信息
+    for item in seekbook:
+        temp = {
+            "username": item.username,
+            "avatar": item.avatar,
+            "bookname": item.bookname,
+            "classroom": item.classroom,
+            "photo": item.photo,
+            "content": item.content,
+            "sendtime": item.sendtime,
+            "user_id": item.user_id,
+
+        }
+        data.append(temp)
+    result = {
+        "code": 0,
+        "msg": "请求成功",
+        "data": data[::-1]
+    }
+    return  jsonify(result)
+
+
+@api.route('/circle/mine', methods=['GET'])
+def mine():
+    pass

@@ -7,9 +7,9 @@ class User(db.Model):
     __tablename__ = "user"
     id = db.Column(db.Integer, primary_key=True)                         # 编号
     openid = db.Column(db.String(50),)                                   # 微信用户id
-    nickname = db.Column(db.String(100))                                 # 微信昵称
-    username = db.Column(db.String(100))                                 # 用户名
-    phone = db.Column(db.String(11), unique=True)                        # 手机号
+    nickname = db.Column(db.String(200))                                 # 微信昵称
+    username = db.Column(db.String(200))                                 # 用户名
+    phone = db.Column(db.String(12), unique=True)                        # 手机号
     wechatID = db.Column(db.String(100))                                 # 微信号
     classroom = db.Column(db.String(100))                                # 年级专业
     password = db.Column(db.String(100))                                 # 密码
@@ -41,7 +41,7 @@ class Seekbook(db.Model):
     classroom = db.Column(db.String(100))                                # 年级专业
     photo = db.Column(db.String(200))                                    # 图片
     content = db.Column(db.Text)                                         # 内容
-    sendtime = db.Column(db.DateTime, index=True, default=datetime.now)  # 注册时间
+    sendtime = db.Column(db.DateTime, index=True, default=datetime.now)  # 发布时间
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))            # 所属用户
 
@@ -75,6 +75,7 @@ class Book(db.Model):
     bookname = db.Column(db.String(100))    # 书名
     content = db.Column(db.Text)  # 内容
     type = db.Column(db.String(200))  # 类型
+    photo = db.Column(db.String(200))  # 图片
     addtime = db.Column(db.DateTime, index=True, default=datetime.now)   # 添加时间
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))  # 所属用户

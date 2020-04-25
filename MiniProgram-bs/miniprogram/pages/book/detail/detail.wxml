@@ -1,0 +1,13 @@
+<!--pages/book/detail/detail.wxml-->
+<text>pages/book/detail/detail.wxml</text>
+<text>{{data.username}}</text>
+<text>{{data.bookname}}</text>
+<text>{{data.classroom}}</text>
+<text>{{data.content}}</text>
+<text>{{data.sendtime}}</text>
+<image src="{{data.photo}}"></image>
+<block wx:if="{{data.user_id==user_id}}">
+
+</block>
+<button bindtap="toEdit">编辑</button>
+<button>删除</button>

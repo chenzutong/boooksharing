@@ -1,5 +1,5 @@
 from . import api
-from flask import request,jsonify
+from flask import request, jsonify
 from app.models import User, Seekbook
 from app.libs.MemberService import MemberService
 from werkzeug.security import generate_password_hash
@@ -9,19 +9,21 @@ from .auth import serializer
 session = db.session
 
 
-@api.route('/user/load',methods=['POST'])
+@api.route('/user/load', methods=['POST'])
 def load():
     '''
     授权登录
     '''
     req = request.values  # 接收数据
+    print("******\n", req)
     nickname = req['nickName'] if 'nickName' in req else ''  # 获取昵称
     avatar = req['avatarUrl'] if 'avatarUrl' in req else ''  # 获取头像
     # 判断code 是否存在
     code = req['code'] if 'code' in req else ''
+    print("code:", code)
     if not code or len(code) < 1:
         result = {
-            "code": 201,
+            "code": 1,
             "msg": "需要微信授权code",
             "data": {}
         }
@@ -31,7 +33,7 @@ def load():
     openid = MemberService.getWeChatOpenId(code)
     if openid is None:
         result = {
-            "code": 202,
+            "code": 2,
             "msg": "调用微信出错",
             "data": {}
         }
@@ -50,18 +52,25 @@ def load():
     token = serializer.dumps({'user_id': user.id})  # 生成token
     # 返回结果
     result = {
-        "code": 200,
+        "code": 0,
         "msg": "登录成功",
         "data":
             {"userInfo":
-                {
-                    "nickName": user.nickname,
-                    "avatarUrl": user.avatar,
-                },
-                "token": token.decode(),  # byte 转化为string
-            }
+                 {
+                    "user_id": user.id,
+                    "openid": user.openid,
+                  "nickName": user.nickname,
+                  "avatarUrl": user.avatar,
+                  "userName": user.username,
+                  "phone": user.phone,
+                  "wechatID": user.wechatID,
+                  "classroom": user.classroom
+                  },
+             "token": token.decode(),  # byte 转化为string
+             }
     }
     return jsonify(result)
+
 
 @api.route('/user/regist', methods=['POST'])
 def regist():
@@ -69,10 +78,19 @@ def regist():
     注册
     :return:
     '''
-    req = request.values    # 接收数据
+    req = request.values  # 接收数据
+    print("******\n", req)
+    openid = req['openid'] if 'openid' in req else ''
+    username = req['username'] if 'username' in req else ''
+    phone = req['phone'] if 'phone' in req else ''
+    wechatID = req['wechatID'] if 'wechatID' in req else ''
+    classroom = req['classroom'] if 'classroom' in req else ''
+    password = req['password'] if 'password' in req else ''
+    passworddack = req['passworddack'] if 'passworddack' in req else ''
+    print(phone)
 
     # 检验参数是否完整
-    if not req['username'] or not req['phone'] or not req['password'] or not req['password_again']:
+    if not openid or not username or not phone or not password or not passworddack:
         result = {
             "code": 1,
             "msg": "参数不足",
@@ -81,7 +99,7 @@ def regist():
         return jsonify(result)
 
     # 检验两次密码是否一致
-    if req['password'] != req['password_again']:
+    if password != passworddack:
         result = {
             "code": 2,
             "msg": "两次密码不一致",
@@ -90,8 +108,8 @@ def regist():
         return jsonify(result)
 
     # 检验手机号是否已经被注册
-    phone = ""      # 查找数据库
-    if phone:
+    isphone = session.query(User).filter(User.phone == phone).first()  # 查找数据库
+    if isphone:
         result = {
             "code": 3,
             "msg": "该手机号已被注册",
@@ -101,22 +119,28 @@ def regist():
     else:
         # 更新数据库
         user1 = session.query(User).filter(User.openid == req['openid']).one()
-        user1.username=req['username']
-        user1.phone = req['phone']
-        user1.password = generate_password_hash(req['password'])    # 对密码加密
-        user1.wechatID = req['wechatID']
-        user1.classroom = req['classroom']
+        user1.username = username
+        user1.phone = phone
+        user1.password = generate_password_hash(password)  # 对密码加密
+        user1.wechatID = wechatID
+        user1.classroom = classroom
         db.session.commit()
 
         result = {
             "code": 0,
             "msg": "注册成功",
             "data": {
-                "user_id": user1.id,
-                "username": user1.username,
-                "phone": user1.phone,
-                "avatarUrl": user1.avatar,
-                "wechatID":user1.wechatID
+                "userInfo":
+                    {
+                        "user_id": user1.id,
+                        "openid": user1.openid,
+                        "username": user1.username,
+                        "phone": user1.phone,
+                        "avatarUrl": user1.avatar,
+                        "wechatID": user1.wechatID,
+                        "classroom": user1.classroom
+                    },
+                # "token": token.decode(),  # byte 转化为string
             }
         }
 
@@ -129,9 +153,9 @@ def login():
     账号密码登录
     :return:
     '''
-    req = request.values    # 接收数据
+    req = request.values  # 接收数据
     # 检验参数是否完整
-    if not req['phone'] or not req['password'] :
+    if not req['phone'] or not req['password']:
         result = {
             "code": 1,
             "msg": "参数不足",
@@ -162,9 +186,3 @@ def login():
     }
 
     return jsonify(result)
-
-
-
-
-
-

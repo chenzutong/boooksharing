@@ -1,0 +1,19 @@
+<!--pages/book/edit/edit.wxml-->
+<view class='textarea'>
+<textarea placeholder="{{data.bookname}}" placeholder-style="color:#888888; font-size:38rpx;" class='bookname' maxlength='-1' bindinput="bindBookname"></textarea>
+  <textarea placeholder="{{data.content}}" placeholder-style="color:#888888; font-size:38rpx;" class='textinput' maxlength='-1' bindinput="bindContent"></textarea>
+  <image class='touxiang' src='{{data.photo}}' bindtap='addphoto'></image>
+  <view class="page">
+    <view class="page__bd">
+      <view class="section section_gap">
+        <radio-group class="radio-group" bindchange="typeChange">
+          <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+            <text>{{item.value}}</text>
+          </radio>
+        </radio-group>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view id='btn' class='click' bindtap='updateBook'>保存</view>

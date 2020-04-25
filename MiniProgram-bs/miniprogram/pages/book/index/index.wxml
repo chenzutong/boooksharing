@@ -1,0 +1,35 @@
+<!--pages/book/index/index.wxml-->
+<view wx:if="{{!donelogin}}">
+	<view bindtap="tologin">请先登录</view>
+</view>
+<view wx:else>
+	<view class='bottomrow'>
+		<view class='bottomtab' bindtap="first_select">
+			<text class='bottomtabText' style='color:{{firco}}'>个人书籍</text>
+		</view>
+		<view class='bottomtab' bindtap="second_select">
+			<text class='bottomtabText' style='color:{{secco}}'>全部书籍</text>
+		</view>
+	</view>
+
+
+<scroll-view class='scbg' scroll-y='true'>
+<block  wx:for="{{temp?list1:list2}}" wx:for-item="itemName" wx:for-index="id">
+  <view class='box' id="itemName" bindtap="showdetail" data-text="{{itemName}}">
+		<view class='secondblock'>
+			<text class='content'>{{itemName.bookname}}</text>
+			<view wx:if="{{itemName.photo}}">
+				<image class='touxiang' src="{{itemName.photo}}"></image>
+			</view>
+		</view>
+  </view>
+</block>
+<view wx:if="{{temp}}">
+<image class='touxiang' src='/images/icon/addbook.png' bindtap='addbook'></image>
+</view>
+</scroll-view>
+
+
+
+
+</view>

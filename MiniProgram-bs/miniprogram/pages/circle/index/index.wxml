@@ -1,0 +1,39 @@
+<!--pages/circle/index/index.wxml-->
+<view class='bottomrow'>
+  <view class='bottomtab' bindtap="first_select">
+    <text class='bottomtabText' style='color:{{firco}}'>寻书动态</text>
+  </view>
+  <view class='bottomtab' bindtap="second_select">
+    <text class='bottomtabText' style='color:{{secco}}'>出书动态</text>
+  </view>
+  <view class='bottomtab' bindtap="third_select">
+    <text class='bottomtabText' style=''>发布</text>
+  </view>
+</view>
+
+
+
+<scroll-view class='scbg' scroll-y='true'>
+<block  wx:for="{{temp?list1:list2}}" wx:for-item="itemName" wx:for-index="id">
+  <view class='box' id="itemName" bindtap="showdetail" data-text="{{itemName}}">
+    <view class='firstblock'>
+      <image class='touxiang' src='{{itemName.avatar}}'></image>
+      <view class='person'>
+        <view class='name'>
+          <text class='showname'>{{itemName.username}}</text>
+        </view>
+        <view class='tel'>
+          <text class='showtime'>{{itemName.sendtime}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='secondblock'>
+      <text class='content'>#{{itemName.bookname}}#</text>
+    </view>
+    <view class='secondblock'>
+      <text class='content'>{{itemName.content}}</text>
+      <view wx:if="{{itemName.photo}}"><image  class='touxiang' src="{{itemName.photo}}"></image></view>
+    </view>
+  </view>
+</block>
+</scroll-view>

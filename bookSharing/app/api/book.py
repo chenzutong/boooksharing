@@ -3,14 +3,47 @@ import uuid
 from datetime import datetime
 from . import api
 from flask import request, jsonify
-from app.models import Book
+from app.models import Book,Lendbook
 from app import db
 from .auth import serializer, token_auth
 
 session = db.session
 
 
-@api.route('/book/select_list', methods=['POST'])
+@api.route('/book/all_list', methods=['GET'])
+def all_list():
+    """
+    全部书籍
+    :return:
+    """
+
+
+
+    data = []
+
+    books = Book.query.all()  # 查询书籍信息
+    for item in books:
+        temp = {
+            "id": item.id,
+            "bookname": item.bookname,
+            "content": item.content,
+            "type": item.type,
+            "photo": item.photo,
+
+
+        }
+        data.append(temp)
+
+    print(data)
+
+    result = {
+        "code": 0,
+        "msg": "请求成功",
+        "data": data
+    }
+    return jsonify(result)
+
+@api.route('/book/person_list', methods=['POST'])
 def select_list():
     """
     添加书籍
@@ -36,14 +69,15 @@ def select_list():
             "id": item.id,
             "bookname": item.bookname,
             "content": item.content,
-            "type": item.type
+            "type": item.type,
+            "photo": item.photo,
         }
         data.append(temp)
 
     print(data)
 
     result = {
-        "code": 200,
+        "code": 0,
         "msg": "请求成功",
         "data": data
     }
@@ -57,11 +91,18 @@ def add():
     :return:
     """
     req = request.values  # 接收数据
+    print("******\n", req)
 
-    user_id = req['user_id'] if 'user_id' in req else ''  # 获取昵称
-    bookname = req['bookname'] if 'bookname' in req else ''  # 获取书名
-    content = req['content'] if 'content' in req else ''  # 获取内容描述
-    type = req['type'] if 'type' in req else ''  # 获取类型
+    user_id = req['user_id'] if 'user_id' in req else ''  #
+    bookname = req['bookname'] if 'bookname' in req else ''  #
+    content = req['content'] if 'content' in req else ''  #
+    type = req['type'] if 'type' in req else ''  #
+    photo = req['photo'] if 'photo' in req else ''  #
+    addcircle = req['addcircle'] if 'addcircle' in req else False  #
+    classroom = req['classroom'] if 'classroom' in req else ''  #
+    avatarUrl = req['avatarUrl'] if 'avatarUrl' in req else ''  #
+    username = req['username'] if 'username' in req else False  #
+    openid = req['openid'] if 'openid' in req else False  #
 
     if not user_id or not bookname or not content or not type:
         result = {
@@ -78,6 +119,7 @@ def add():
         bookname=bookname,
         content=content,
         type=type,
+        photo=photo,
     )
     db.session.add(book)
     db.session.commit()
@@ -85,13 +127,29 @@ def add():
     token = serializer.dumps({'user_id': book.user_id})  # 生成token
     # 返回结果
     result = {
-        "code": 200,
+        "code": 0,
         "msg": "添加成功",
         "data":
             {
                 "token": token.decode(),  # byte 转化为string
             }
     }
+
+    # 添加出借动态
+    if addcircle:
+        lendbook = Lendbook(
+            user_id=user_id,
+            username=username,
+            avatar=avatarUrl,
+            bookname=bookname,
+            classroom=classroom,
+            content=content,
+            photo=photo,
+            type=type,
+        )
+        db.session.add(lendbook)
+        db.session.commit()
+
     return jsonify(result)
 
 

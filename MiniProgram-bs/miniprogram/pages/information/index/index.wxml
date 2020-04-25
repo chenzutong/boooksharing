@@ -1,0 +1,8 @@
+<!--pages/information/index/index.wxml-->
+<view wx:if="{{!donelogin}}">
+<view bindtap="tologin">请先登录</view>
+</view>
+<view wx:else>
+<text>pages/information/index/index.wxml</text>
+
+</view>

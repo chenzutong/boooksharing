@@ -1,0 +1,8 @@
+<!--pages/circle/detail/detail.wxml-->
+<text>pages/circle/detail/detail.wxml</text>
+<text>{{data.username}}</text>
+<text>{{data.bookname}}</text>
+<text>{{data.classroom}}</text>
+<text>{{data.content}}</text>
+<text>{{data.sendtime}}</text>
+<image src="{{data.photo}}"></image>
