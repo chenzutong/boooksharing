@@ -120,7 +120,7 @@ Page({
     console.log(getApp().globalData.userInfo)
     
     wx.reLaunch({
-      url: '/pages/person/index/index',
+      url: '/pages/load/load',
     })
   },
 

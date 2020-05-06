@@ -20,7 +20,7 @@ App({
         "avatarUrl":""
       }, // 微信获取用户信息
       user: {},  // 后台返回用户全部信息
-      server:"www.cztblog.cn/",
+      server:"https://www.cztblog.cn/",
       circleDetail:{},
       bookDetail:{}
     }

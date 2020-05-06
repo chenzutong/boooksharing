@@ -1,6 +1,0 @@
-/* pages/test/test.wxss */
-
-.touxiang{
-  width: 130rpx;
-  height: 130rpx;
-}
