@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    firco: "#000000",
+    firco: "#436EEE",
     secco: "#979797",
     temp: true,
     list1: [],
@@ -27,7 +27,7 @@ Page({
   first_select: function () {
     this.setData({
       temp: true,
-      firco: "#000000",
+      firco: "#436EEE",
       secco: "#979797",
     })
     var that = this
@@ -60,7 +60,7 @@ Page({
     this.setData({
       temp: false,
       firco: "#979797",
-      secco: "#000000",
+      secco: "#436EEE",
     })
     var that = this
     wx.request({
