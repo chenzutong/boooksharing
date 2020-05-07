@@ -1,3 +1,5 @@
+<!-- 用来测试，改动代码部分 -->
+
 
 <!-- 需要使用 button 来授权登录 -->
 <view wx:if="{{canIUse}}"  class='mai'>
