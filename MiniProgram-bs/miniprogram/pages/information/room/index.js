@@ -1,3 +1,4 @@
+//index.js
 const app = getApp()
 
 Page({
@@ -7,10 +8,10 @@ Page({
     logged: false,
     takeSession: false,
     requestResult: '',
-    // chatRoomEnvId: 'release-f8415a',
-    chatRoomCollection: 'chatroom',
-    chatRoomGroupId: 'demo',
-    chatRoomGroupName: '聊天室',
+    chatRoomEnvId: 'release-f8415a',
+    chatRoomCollection: 'kecun',
+    chatRoomGroupId: 'tit-bricker',
+    chatRoomGroupName: '深夜话题',
 
     // functions for used in chatroom components
     onGetUserInfo: null,
@@ -18,10 +19,6 @@ Page({
   },
 
   onLoad: function() {
-    // this.chatRoomGroupId = app.globalData.userInfo.user_id
-    // this.setData({
-    //   chatRoomGroupId:this.chatRoomGroupId
-    // })
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -64,6 +61,9 @@ Page({
 
     const { result } = await wx.cloud.callFunction({
       name: 'login',
+      config: {
+        env: 'release-f8415a',
+      },
     })
 
     return result.openid
@@ -81,8 +81,8 @@ Page({
 
   onShareAppMessage() {
     return {
-      title: '即时通信 Demo',
-      path: '/pages/information/room/room',
+      title: '深夜话题',
+      path: '/pages/index/index',
     }
   },
 })
