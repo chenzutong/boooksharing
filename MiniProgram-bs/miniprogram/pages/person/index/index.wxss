@@ -48,7 +48,7 @@
   margin-left: 500rpx;
 }
 
-/*字体样式*/
+/*字体样式。*/
 .alllists {
   font-family: "微软雅黑";
   font-size: 35rpx;

@@ -17,7 +17,7 @@
 		<view class="alllists">
 			<view class="lable">
 				<image class="lable-image" src='/images/icon/lablecircle.png' ></image>
-				<text class='content'>查看自己已发布的动态</text>
+				<text class='content'>查看自己发布的动态</text>
 			</view>
 
 			<!-- 分割线 -->

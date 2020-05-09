@@ -33,7 +33,7 @@
   </view>
   <view class="page__bd">
     <view class="section section_gap">
-      <view class="section__title">存入个人书籍中</view>
+      <view class="section__title">存入个人书籍</view>
       <view class="body-view">
         <switch checked="{{addbook}}" bindchange="switchChange" />
       </view>
