@@ -11,6 +11,7 @@
     "pages/person/index/index",
     "pages/information/index/index",
     "pages/book/index/index",
+    "pages/information/room/room",
     "pages/person/login/login"
   ],
   "window": {
