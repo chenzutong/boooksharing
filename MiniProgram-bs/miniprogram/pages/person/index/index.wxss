@@ -47,4 +47,19 @@
   height: 15px;
   margin-left: 500rpx;
 }
+
+/*字体样式*/
+.alllists {
+  font-family: "微软雅黑";
+  font-size: 35rpx;
+}
+
+.lable{
+  display: flex;
+}
+
+.lable-image{
+  height: 75rpx;
+  width: 75rpx;
+}
  

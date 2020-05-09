@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    firco: "#000000",
+    firco: "#436EEE",
     secco: "#979797",
     temp: true,
     addphotoPath: "/images/icon/addphoto.png",
@@ -45,7 +45,7 @@ Page({
     this.data.temp = true
     this.setData({
       temp: true,
-      firco: "#000000",
+      firco: "#436EEE",
       secco: "#979797",
     })
   },
@@ -55,7 +55,7 @@ Page({
     this.setData({
       temp: false,
       firco: "#979797",
-      secco: "#000000",
+      secco: "#436EEE",
     })
   },
 

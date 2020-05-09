@@ -20,8 +20,8 @@
     "navigationBarTitleText": "云开发 QuickStart",
     "navigationBarTextStyle": "black"
   },"tabBar": {
-    "color": "#a9a6a7",
-    "selectedColor": "#d81e06",
+    "color": "#bfbfbf",
+    "selectedColor": "#436eee",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [

@@ -15,17 +15,27 @@
 
 	<view wx:if="{{donelogin}}">
 		<view class="alllists">
-			<text class='content'>查看自己已发布的动态</text>
+			<view class="lable">
+				<image class="lable-image" src='/images/icon/lablecircle.png' ></image>
+				<text class='content'>查看自己已发布的动态</text>
+			</view>
+
 			<!-- 分割线 -->
 			<view class="divLine"></view>
 		</view>
 		<view class="alllists">
-			<view class='content'>编辑个人信息</view>
+			<view class="lable">
+				<image class="lable-image" src='/images/icon/lableperson.png' ></image>
+				<text class='content'>编辑个人信息</text>
+			</view>
 			<!-- 分割线 -->
 			<view class="divLine"></view>
 		</view>
 		<view class="alllists">
-			<view class='content'>退出</view>
+			<view class="lable">
+				<image class="lable-image" src='/images/icon/quit.png' ></image>
+				<text class='content'>退出</text>
+			</view>
 			<!-- 分割线 -->
 			<view class="divLine"></view>
 		</view>
