@@ -71,7 +71,9 @@ Component({
 
     async initOpenID() {
       return this.try(async () => {
-        const openId = await this.getOpenID()
+        const openId = getApp().globalData.userInfo.openid
+        // const openId = await this.getOpenID()
+        // console.log("openId",openId)
 
         this.setData({
           openId,

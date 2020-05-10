@@ -1,8 +1,12 @@
 <!--pages/information/index/index.wxml-->
 <view wx:if="{{!donelogin}}">
-<view bindtap="tologin">请先登录</view>
+	<view bindtap="tologin">请先登录</view>
 </view>
 <view wx:else>
-<text>pages/information/index/index.wxml</text>
+	<view class="uploader">
+		<navigator url="../room/room" open-type="navigate" class="uploader-text">
+			<text>进入聊天室</text>
+		</navigator>
+	</view>
 
 </view>
