@@ -17,27 +17,41 @@
 		<view class="alllists">
 			<view class="lable">
 				<image class="lable-image" src='/images/icon/lablecircle.png' ></image>
-				<text class='content'>查看自己发布的动态</text>
+				<view class="lable-content">
+					<view class="content-flex">
+						<text class='content' decode="{{true}}">&nbsp;查看动态</text>
+						<view class='arrow'></view>
+					</view>
+					<!-- 分割线 -->
+					<view class="divLine"></view>
+				</view>
 			</view>
-
-			<!-- 分割线 -->
-			<view class="divLine"></view>
 		</view>
 		<view class="alllists">
 			<view class="lable">
 				<image class="lable-image" src='/images/icon/lableperson.png' ></image>
-				<text class='content'>编辑个人信息</text>
+				<view class="lable-content">
+					<view class="content-flex">
+						<text class='content' decode="{{true}}">&nbsp;编辑信息</text>
+						<view class='arrow'></view>
+					</view>
+					<!-- 分割线 -->
+					<view class="divLine"></view>
+				</view>
 			</view>
-			<!-- 分割线 -->
-			<view class="divLine"></view>
 		</view>
 		<view class="alllists">
 			<view class="lable">
 				<image class="lable-image" src='/images/icon/quit.png' ></image>
-				<text class='content'>退出</text>
+				<view class="lable-content">
+					<view class="content-flex">
+						<text class='content' decode="{{true}}">&nbsp;退出登录</text>
+						<view class='arrow'></view>
+					</view>
+					<!-- 分割线 -->
+					<view class="divLine"></view>
+				</view>
 			</view>
-			<!-- 分割线 -->
-			<view class="divLine"></view>
 		</view>
 	</view>
 	<view wx:else>
