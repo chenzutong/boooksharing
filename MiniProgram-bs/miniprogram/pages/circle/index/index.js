@@ -10,8 +10,7 @@ Page({
     secco: "#979797",
     temp: true,
     list1: [],
-    list2: []
-
+    list2: [],
   },
 
   
@@ -24,7 +23,7 @@ Page({
   },
 
   // 点击寻书动态
-  first_select: function () {
+  first_select: function (e) {
     this.setData({
       temp: true,
       firco: "#436EEE",
@@ -56,7 +55,7 @@ Page({
   },
 
   // 点击出书动态
-  second_select: function () {
+  second_select: function (e) {
     this.setData({
       temp: false,
       firco: "#979797",
