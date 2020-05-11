@@ -38,7 +38,7 @@ Page({
     this.data.type = e.detail.value
   },
 
-  //获取图片路径
+  // 添加图片
   addphoto: function () {
     // 选择一张图片
     wx.chooseImage({
@@ -49,13 +49,27 @@ Page({
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePath = res.tempFilePaths[0]
         this.data.addphotoPath = tempFilePath
+        this.data.delete = true
         console.log(this.data.addphotoPath)
+
+
         this.setData({
-          addphotoPath: tempFilePath
+          addphotoPath: tempFilePath,
+          delete:true
         })
       },
     })
   },
+
+     // 删除图片
+     deletephoto: function () {
+      this.data.addphotoPath = "/images/icon/addphoto.png"
+      this.data.delete = false
+      this.setData({
+        addphotoPath: "/images/icon/addphoto.png",
+        delete:false
+      })
+    },
 
   //上传图片
   uploadFile(filePath) {
@@ -78,6 +92,7 @@ Page({
     })
     
   },
+
   
   //添加书籍
   async addAsync() {
@@ -85,6 +100,7 @@ Page({
     wx.showLoading({
       title: '添加中',
     })
+    
     // 获取图片url
     if (that.data.addphotoPath != "/images/icon/addphoto.png") {
       that.data.photo = await that.uploadFile(that.data.addphotoPath);

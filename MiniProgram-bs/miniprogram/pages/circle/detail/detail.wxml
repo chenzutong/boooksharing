@@ -1,5 +1,4 @@
 <!--pages/circle/detail/detail.wxml-->
-<text>pages/circle/detail/detail.wxml</text>
 <text>{{data.username}}</text>
 <text>{{data.bookname}}</text>
 <text>{{data.classroom}}</text>

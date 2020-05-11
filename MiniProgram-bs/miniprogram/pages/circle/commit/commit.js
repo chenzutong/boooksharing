@@ -16,6 +16,7 @@ Page({
     photo:"",
     type:"free",
     addbook:true,
+    delete:false,
     items: [{
         name: 'free',
         value: '免费',
@@ -70,13 +71,25 @@ Page({
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePath = res.tempFilePaths[0]
         this.data.addphotoPath = tempFilePath
+        this.data.delete = true
         console.log(this.data.addphotoPath)
 
 
         this.setData({
-          addphotoPath: tempFilePath
+          addphotoPath: tempFilePath,
+          delete:true
         })
       },
+    })
+  },
+
+  // 删除图片
+  deletephoto: function () {
+    this.data.addphotoPath = "/images/icon/addphoto.png"
+    this.data.delete = false
+    this.setData({
+      addphotoPath: "/images/icon/addphoto.png",
+      delete:false
     })
   },
 

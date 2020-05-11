@@ -37,7 +37,7 @@ page{
   height: 100rpx;
   line-height: 100rpx;
   margin: auto;
-  margin-top: 770rpx;
+  margin-top: 800rpx;
   margin-left: 8%;
   margin-right: 8%;
   border-radius: 12px;
@@ -72,7 +72,17 @@ page{
   color: #979797;
 }
 
-.touxiang{
-  width: 130rpx;
-  height: 130rpx;
+.addphoto .photo{
+  margin: 10rpx;
+  width: 140rpx;
+  height: 140rpx;
+  position: relative;
+}
+
+.addphoto .deletephoto{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 320rpx;
+  right: 580rpx;
 }

@@ -218,8 +218,8 @@ Component({
             sendTime: new Date(),
             sendTimeTS: Date.now(), // fallback
           }
-
           this.setData({
+
             chats: [
               ...this.data.chats,
               {

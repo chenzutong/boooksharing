@@ -14,8 +14,6 @@
   </view>
 </view>
 
-
-
 <scroll-view class='scbg' scroll-y='true'>
 <block  wx:for="{{temp?list1:list2}}" wx:for-item="itemName" wx:for-index="id">
   <view class='box' id="itemName" bindtap="showdetail" data-text="{{itemName}}">
@@ -27,7 +25,7 @@
           <text class='showname'>{{itemName.username}}</text>
         </view>
         <view>
-          <view class='content'>找一本#{{itemName.bookname}}#\n</view>  
+          <view class='content'>#{{itemName.bookname}}#\n</view>  
           <view class='content'>{{itemName.content}}</view>
           <view wx:if="{{itemName.photo}}"><image  class='Info-image' src="{{itemName.photo}}"></image></view>
         </view>
