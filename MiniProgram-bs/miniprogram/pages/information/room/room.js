@@ -10,7 +10,7 @@ Page({
     // chatRoomEnvId: 'release-f8415a',
     chatRoomCollection: 'chatroom',
     chatRoomGroupId: 'demo',
-    chatRoomGroupName: '聊天室',
+    chatRoomGroupName: '聊天房间',
 
     // functions for used in chatroom components
     onGetUserInfo: null,
@@ -18,6 +18,9 @@ Page({
   },
 
   onLoad: function() {
+    this.setData({
+      chatRoomGroupName:"hello"
+    })
     // this.chatRoomGroupId = app.globalData.userInfo.user_id
     // this.setData({
     //   chatRoomGroupId:this.chatRoomGroupId

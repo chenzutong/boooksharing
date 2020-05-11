@@ -15,6 +15,12 @@ Page({
     })
   },
 
+  toChatroom:function(){
+    wx.navigateTo({
+      url: '../room/room',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
