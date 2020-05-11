@@ -18,8 +18,14 @@ Page({
   },
 
   onLoad: function() {
+    var id1 = app.globalData.circleDetail.user_id
+    var id2 = app.globalData.userInfo.user_id
+    var groupid = id1*id1*id1 + id2*id2*id2
+    this.data.chatRoomGroupId = groupid
+
     this.setData({
-      chatRoomGroupName:"hello"
+      chatRoomGroupName:app.globalData.circleDetail.username,
+      chatRoomGroupId: groupid
     })
     // this.chatRoomGroupId = app.globalData.userInfo.user_id
     // this.setData({

@@ -8,6 +8,13 @@ Page({
 
   },
 
+  // 聊天
+  toChatroom:function(){
+    wx.navigateTo({
+      url: "/pages/information/room/room",
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
