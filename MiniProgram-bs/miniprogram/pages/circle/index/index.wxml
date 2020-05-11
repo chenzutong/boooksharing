@@ -1,4 +1,5 @@
 <!--pages/circle/index/index.wxml-->
+<wxs src="timeformat.wxs" module="filters"/>
 <view class='bottomrow'>
   <view class='bottomtab' bindtap="first_select">
     <text class='bottomtabText' style='color:{{firco}};border-bottom:4rpx solid' wx:if="{{temp}}">寻书动态</text>
@@ -19,22 +20,23 @@
 <block  wx:for="{{temp?list1:list2}}" wx:for-item="itemName" wx:for-index="id">
   <view class='box' id="itemName" bindtap="showdetail" data-text="{{itemName}}">
     <view class='firstblock'>
-      <image class='touxiang' src='{{itemName.avatar}}'></image>
       <view class='person'>
+        <image src="{{itemName.avatar}}" class="touxiang"></image>
+        <view class="Info">
         <view class='name'>
           <text class='showname'>{{itemName.username}}</text>
         </view>
+        <view>
+          <view class='content'>找一本#{{itemName.bookname}}#\n</view>  
+          <view class='content'>{{itemName.content}}</view>
+          <view wx:if="{{itemName.photo}}"><image  class='Info-image' src="{{itemName.photo}}"></image></view>
+        </view>
         <view class='tel'>
-          <text class='showtime'>{{itemName.sendtime}}</text>
+          <text class="lable">#{{itemName.classroom}}</text>
+          <text class='showtime'>{{filters.formatDate(itemName.sendtime)}}</text>
+        </view>
         </view>
       </view>
-    </view>
-    <view class='secondblock'>
-      <text class='content'>#{{itemName.bookname}}#</text>
-    </view>
-    <view class='secondblock'>
-      <text class='content'>{{itemName.content}}</text>
-      <view wx:if="{{itemName.photo}}"><image  class='touxiang' src="{{itemName.photo}}"></image></view>
     </view>
   </view>
 </block>
