@@ -1,1 +1,112 @@
 /* pages/circle/detail/detail.wxss */
+.detail{
+  display: flex;
+  flex-direction: column;
+  margin-top: 40rpx;
+}
+.person{
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  display: flex;
+  padding-bottom: 30rpx;
+  border-bottom: 2rpx solid gray;
+}
+.touxiang{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+}
+.person-name{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+.name{
+  font-size: 35rpx;
+  color: #436eee;
+}
+.classroom{
+  margin-top: 10rpx;
+  font-size: 25rpx;
+  color: gray;
+}
+.type{
+  margin-top:60rpx;
+  color: red;
+  font-size: 35rpx;
+}
+.book{
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+}
+.text{
+  margin-top: 10rpx;
+  font-size: 40rpx;
+}
+.content{
+  margin-top: 40rpx;
+  font-size: 30rpx;
+}
+.image{
+  height: none;
+  width: none;
+}
+.time{
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 25rpx;
+  color: gray;
+}
+.price{
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+.round-click{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: fixed;
+  bottom: 2px;
+  display: flex;
+  align-items: center;
+  z-index: 9;
+  background-color: white;
+  border-top: 2rpx solid white;
+}
+.button{
+  font-size: 25rpx;
+  margin-right: 20rpx;
+  border-radius: 30px;
+  background: linear-gradient(to right,orange, red);
+  color: white;
+  padding: 5rpx 50rpx;
+}
+.img-button{
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-radius: 0;
+  text-align: center;
+}
+.but-img{
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.but-text{
+  font-size: 20rpx;
+  text-align: center;
+  color: gray;
+}
+.img{
+  display: flex;
+  flex-direction: row;
+}
+.line{
+  margin-left: 350rpx;
+  
+}

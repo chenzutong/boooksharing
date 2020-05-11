@@ -1,7 +1,42 @@
 <!--pages/circle/detail/detail.wxml-->
-<text>{{data.username}}</text>
-<text>{{data.bookname}}</text>
-<text>{{data.classroom}}</text>
-<text>{{data.content}}</text>
-<text>{{data.sendtime}}</text>
-<image src="{{data.photo}}"></image>
+<wxs src="timeformat.wxs" module="filters"/>
+<view>
+<scroll-view scroll-y='true' class="detail">
+  <view class="person">
+    <image src="{{data.avatar}}" class="touxiang"></image>
+    <view class="person-name">
+      <text class="name">{{data.username}}</text>
+      <text class="classroom">{{data.classroom}}</text>
+    </view>
+  </view>
+  <view class="price">
+    <text wx:if="{{data.type=='free'}}" class="type">\n¥免费出售</text>
+    <text wx:if="{{data.type=='bargaining'}}" class="type">\n¥议价出售</text>
+  </view>
+  <view class="book">
+    <text wx:if="{{data.bookname}}" class="text">{{data.bookname}}\n</text>
+    <text wx:if="{{data.content}}" class="content">{{data.content}}</text>
+    <view wx:if="{{data.photo}}">
+      <text>\n</text>
+      <image src="{{data.photo}}"></image> 
+    </view>
+    <text wx:if="{{data.sendtime}}" class="time">\n\n{{filters.formatDate(data.sendtime)}}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</text>
+  </view>
+</scroll-view>
+<!--圆形点击框  -->
+<view class="round-click">
+  <view class="img">
+    <button class="img-button">
+      <image class="but-img" src="/images/icon/like.png"></image>
+      <text class="but-text">喜欢</text>
+    </button>
+    <button class="img-button">
+      <image class="but-img" src="/images/icon/collect.png"></image>
+      <text class="but-text">收藏</text>
+    </button>
+  </view>
+   <view class="line">
+    <button class="button">联系Ta</button>
+  </view>
+</view>
+</view>
