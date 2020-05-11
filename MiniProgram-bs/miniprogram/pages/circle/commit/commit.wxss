@@ -36,12 +36,12 @@ page{
   width: 84%;
   height: 100rpx;
   line-height: 100rpx;
-  border-radius: 10rpx;
   margin: auto;
   margin-top: 770rpx;
   margin-left: 8%;
   margin-right: 8%;
-  background-color: #F76968;
+  border-radius: 12px;
+  background-color: #436eee;
   text-align: center;
   color: white;
   font-size: 33rpx;

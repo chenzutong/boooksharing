@@ -10,7 +10,7 @@
   <input id='wechatID' placeholder='微信号' placeholder-class='plass' class='inputs' type='text' bindinput='wechatIDInput'> </input>
 </view>
 <view class='second'>
-  <input id='classroom' placeholder='年纪专业' placeholder-class='plass' class='inputs' type='text' bindinput='classroomInput'> </input>
+  <input id='classroom' placeholder='年级专业' placeholder-class='plass' class='inputs' type='text' bindinput='classroomInput'> </input>
 </view>
 <view class='second'>
   <input id='password' placeholder='登录密码' placeholder-class='plass' class='inputs' type='password' bindinput='passwordInput'> </input>

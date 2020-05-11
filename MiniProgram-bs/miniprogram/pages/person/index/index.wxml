@@ -15,19 +15,43 @@
 
 	<view wx:if="{{donelogin}}">
 		<view class="alllists">
-			<text class='content'>查看自己已发布的动态</text>
-			<!-- 分割线 -->
-			<view class="divLine"></view>
+			<view class="lable">
+				<image class="lable-image" src='/images/icon/lablecircle.png' ></image>
+				<view class="lable-content">
+					<view class="content-flex">
+						<text class='content' decode="{{true}}">&nbsp;查看动态</text>
+						<view class='arrow'></view>
+					</view>
+					<!-- 分割线 -->
+					<view class="divLine"></view>
+				</view>
+			</view>
 		</view>
 		<view class="alllists">
-			<view class='content'>编辑个人信息</view>
-			<!-- 分割线 -->
-			<view class="divLine"></view>
+			<view class="lable">
+				<image class="lable-image" src='/images/icon/lableperson.png' ></image>
+				<view class="lable-content">
+					<view class="content-flex">
+						<text class='content' decode="{{true}}">&nbsp;编辑信息</text>
+						<view class='arrow'></view>
+					</view>
+					<!-- 分割线 -->
+					<view class="divLine"></view>
+				</view>
+			</view>
 		</view>
 		<view class="alllists">
-			<view class='content'>退出</view>
-			<!-- 分割线 -->
-			<view class="divLine"></view>
+			<view class="lable">
+				<image class="lable-image" src='/images/icon/quit.png' ></image>
+				<view class="lable-content">
+					<view class="content-flex">
+						<text class='content' decode="{{true}}">&nbsp;退出登录</text>
+						<view class='arrow'></view>
+					</view>
+					<!-- 分割线 -->
+					<view class="divLine"></view>
+				</view>
+			</view>
 		</view>
 	</view>
 	<view wx:else>
