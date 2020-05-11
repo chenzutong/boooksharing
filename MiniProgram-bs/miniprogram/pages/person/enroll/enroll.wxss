@@ -47,14 +47,15 @@ page{
 }
 
 .click{
-  width: 90%;
+  width: 84%;
   height: 100rpx;
   line-height: 100rpx;
   margin: auto;
-  margin-top: 100rpx;
-  margin-left: 5%;
-  margin-right: 5%;
-  background-color: #F76968;
+  margin-top: 770rpx;
+  margin-left: 8%;
+  margin-right: 8%;
+  border-radius: 12px;
+  background-color: #436eee;
   text-align: center;
   color: white;
   font-size: 33rpx;

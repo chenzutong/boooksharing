@@ -137,6 +137,14 @@ page{
 }
 
 .touxiang{
-  width: 130rpx;
-  height: 130rpx;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width:  60rpx;
+  height: 60rpx;
+}
+
+.photo{
+  width: 150rpx;
+  height: 150rpx;
 }

@@ -14,7 +14,7 @@ var formatDate = function (datetime) {
   if(date.getHours()<8){  //由于时区会被修正为00时，所以得进行调整
     day=day-1;
   }
-  var hour=date.getHours()+16;
+  var hour=date.getHours()-8;
   var min=date.getMinutes();
 
   var now=getDate();
