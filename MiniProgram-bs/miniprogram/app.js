@@ -22,7 +22,8 @@ App({
       user: {},  // 后台返回用户全部信息
       server:"https://www.cztblog.cn/",
       circleDetail:{},
-      bookDetail:{}
+      bookDetail:{},
+      chatuser:{}
     }
   },
   getCache:function( key ){
