@@ -1,28 +1,27 @@
 /* pages/circle/index/index.wxss */
 
 
-page{
+page {
   background-color: #EFEFEF;
 }
 
-.scbg{
+.scbg {
   background-color: #EFEFEF;
-  width: 100%;
+  width: 94%;
   height: 91%;
-  left: 0rpx;
-  right: 0rpx;
-  top: 9%;
+  left: 3%;
+  top: 10%;
   position: absolute;
 }
 
-.box{
+.box {
   width: 100%;
   background-color: white;
-  padding-top: 30rpx;
-  border-bottom: 20rpx solid #EFEFEF;
+  padding-top: 25rpx;
+  border-bottom: 15rpx solid #EFEFEF;
 }
 
-.firstblock{
+.firstblock {
   height: 150rpx;
   width: 92%;
   margin-left: 4%;
@@ -32,19 +31,19 @@ page{
   align-items: flex-start;
 }
 
-.touxiang{
+.touxiang {
   width: 130rpx;
   height: 130rpx;
 }
 
-.person{
+.person {
   width: 75%;
   height: 130rpx;
   margin-left: 30rpx;
   margin-top: 10rpx;
 }
 
-.name{
+.name {
   display: flex;
   justify-content: flex-start;
   margin-top: 10rpx;
@@ -53,41 +52,58 @@ page{
 }
 
 
-.tel{
+.tel {
   display: flex;
   justify-content: flex-start;
-  margin-top: 35rpx;
+  margin-top: 45rpx;
+  margin-left: 350rpx;
   flex-direction: row;
 }
 
-.showname{
+.showname {
   font-size: 34rpx;
   color: #3F51B5;
   font-family: PingFangSC-regular;
   font-weight: bold;
 }
 
-.showtime{
-  font-size: 25rpx;
+.showtime {
+  font-size: 20rpx;
   color: #5E5D5D;
   font-family: PingFangSC-regular;
 }
 
-.secondblock{
+.secondblock {
+  display: flex;
   margin-top: 10rpx;
   margin-left: 4%;
   margin-right: 4%;
   padding-bottom: 20rpx;
-  border-bottom: 5rpx solid #BBBBBB;
+  border-bottom: 3rpx solid #CFCFCF;
 }
 
-.content{
-  font-size: 29rpx;
-  color: #101010;
+.book-box {
+  display: flex;
+  flex-flow: column;
+}
+
+.bookname {
+  font-size: 32rpx;
+  color: #F57123;
+  font-family: PingFangSC-regular;
   word-break: break-all;
 }
 
-.thirdblock{
+.content {
+  font-size: 28rpx;
+  color: black;
+  font-family: PingFangSC-regular;
+  word-break: break-all;
+  padding-top: 5rpx;
+  padding-left: 5rpx;
+}
+
+.thirdblock {
   height: 100rpx;
   margin-left: 4%;
   margin-right: 4%;
@@ -95,14 +111,14 @@ page{
   justify-content: flex-start;
 }
 
-.like{
+.like {
   margin-top: 20rpx;
   margin-left: 20rpx;
   width: 50rpx;
   height: 50rpx;
 }
 
-.num{
+.num {
   height: 50rpx;
   line-height: 50rpx;
   margin-top: 25rpx;
@@ -111,7 +127,7 @@ page{
   color: #101010;
 }
 
-.bottomrow{
+.bottomrow {
   background-color: white;
   width: 100%;
   height: 9%;
@@ -123,7 +139,7 @@ page{
   align-items: center;
 }
 
-.bottomtab{
+.bottomtab {
   width: 30%;
   display: flex;
   flex-direction: column;
@@ -131,20 +147,20 @@ page{
   justify-content: center;
 }
 
-.bottomtabText{
+.bottomtabText {
   font-size: 35rpx;
   color: #979797;
 }
 
-.touxiang{
+.touxiang {
   position: absolute;
   top: 10px;
   right: 10px;
-  width:  60rpx;
+  width: 60rpx;
   height: 60rpx;
 }
 
-.photo{
+.photo {
   width: 150rpx;
   height: 150rpx;
 }

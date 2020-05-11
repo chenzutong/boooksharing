@@ -1,10 +1,11 @@
 <!--pages/book/index/index.wxml-->
+<wxs src="./timeformat.wxs" module="filters" ></wxs>
 <view wx:if="{{!donelogin}}">
 	<view bindtap="tologin">请先登录</view>
 </view>
 <view wx:else>
 	<view class='bottomrow'>
-		<view class='bottomtab' bindtap="first_select">
+		<view class='bottomtab' bindtap="first_select"> 
 			<text class='bottomtabText' style='color:{{firco}};border-bottom:4rpx solid' wx:if="{{temp}}">个人书籍</text>
 			<text class='bottomtabText' style='color:{{firco}}' wx:if="{{!temp}}">个人书籍</text>
 		</view>
@@ -22,9 +23,15 @@
 		<block wx:for="{{temp?list1:list2}}" wx:for-item="itemName" wx:for-index="id">
 			<view class='box' id="itemName" bindtap="showdetail" data-text="{{itemName}}">
 				<view class='secondblock'>
-					<text class='content'>{{itemName.bookname}}</text>
 					<view wx:if="{{itemName.photo}}">
 						<image class='photo' src="{{itemName.photo}}"></image>
+					</view>
+					<view class="book-box">
+						<text class='bookname'>《{{itemName.bookname}}》</text>
+						<view class='content'>描述：{{itemName.content}}</view>
+						<view class='tel'>
+							<text class='showtime'>{{filters.formatDate(itemName.sendtime)}}</text>
+						</view>
 					</view>
 				</view>
 			</view>
