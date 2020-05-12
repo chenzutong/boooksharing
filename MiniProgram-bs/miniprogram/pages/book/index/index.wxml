@@ -1,5 +1,5 @@
 <!--pages/book/index/index.wxml-->
-<wxs src="./timeformat.wxs" module="filters" ></wxs>
+<wxs src="timeformat.wxs" module="filters" />
 <view wx:if="{{!donelogin}}">
 	<view bindtap="tologin">请先登录</view>
 </view>
@@ -18,26 +18,26 @@
 		</view>
 	</view>
 
-
-	<scroll-view class='scbg' scroll-y='true'>
+	<scroll-view class="scbg" scroll-y="true" enable-flex="true">
 		<block wx:for="{{temp?list1:list2}}" wx:for-item="itemName" wx:for-index="id">
 			<view class='box' id="itemName" bindtap="showdetail" data-text="{{itemName}}">
 				<view class='secondblock'>
+					<image src="{{itemName.avatar}}" class="touxiang"></image>
+       		<view class='name'>
+          <text class='showname'>{{itemName.username}}</text>
+        	</view>
 					<view wx:if="{{itemName.photo}}">
 						<image class='photo' src="{{itemName.photo}}"></image>
 					</view>
 					<view class="book-box">
 						<text class='bookname'>《{{itemName.bookname}}》</text>
-						<view class='content'>描述：{{itemName.content}}</view>
-						<view class='tel'>
-							<text class='showtime'>{{filters.formatDate(itemName.sendtime)}}</text>
-						</view>
+						<view class='content'>{{itemName.content}}</view>
+						<text class="showtime">{{filters.formatDate(itemName.sendtime)}}</text>
 					</view>
 				</view>
 			</view>
 		</block>
 	</scroll-view>
-
 
 
 
