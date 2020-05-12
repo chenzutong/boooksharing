@@ -7,27 +7,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    roomlist:[{
+    roomlist: [{
       "fromName": "value.nickName",
       "fromUser": "value.toUser"
     }]
 
   },
 
-  tologin:function(){
+  tologin: function () {
     wx.reLaunch({
       url: '/pages/person/login/login'
     })
   },
 
-  toChatroom:function(e){
+  toChatroom: function (e) {
+    console.log(e.currentTarget.dataset.text)
     var chatperson = {
-      "username": e.currentTarget.dataset.text.fromName,
+      "username": e.currentTarget.dataset.text.nickName,
       "user_id": e.currentTarget.dataset.text.fromUser
     }
     getApp().globalData.circleDetail = chatperson
-    console.log( getApp().globalData.circleDetail)
-    
+    console.log(getApp().globalData.circleDetail)
+
     wx.navigateTo({
       url: '../room/room',
     })
@@ -44,7 +45,7 @@ Page({
       })
     }
     this.setData({
-      donelogin:getApp().globalData.userInfo.userName
+      donelogin: getApp().globalData.userInfo.userName
     })
 
   },
@@ -56,49 +57,53 @@ Page({
 
   },
 
-  chatInfo(){
-    return new Promise(function(resolvs){
+  chatInfo() {
+    return new Promise(function (resolvs) {
       //获取聊天的数据库
-db.collection("chatroom").where({
-  toUser: app.globalData.userInfo.user_id,
-}).get({
-  success:function(res){
-    if (res.data != null){
-      var templist = []
-      var tempdict = {}
-      res.data.forEach(function(value, key){
-        
-        tempdict = {
-          "fromName": value.nickName,
-          "fromUser": value.toUser
-        }
-        templist.push(tempdict)
-        console.log(tempdict)
-        // templist.add(tempdict)
-        // console.log(key, value);
-      })
-      for(let i = 0; i < templist.length-1; i ++){
-        for(var j =i+1;j < templist.length;j++){
-          if (templist[i]["fromUser"] == templist[j]["fromUser"]){
-            templist.splice(j,1);
-            j--;
+      db.collection("chatroom").where({
+        toUser: app.globalData.userInfo.user_id,
+      }).get({
+        success: function (res) {
+          if (res.data != null) {
+            var templist = []
+            var tempdict = {}
+            // console.log(res.data)
+            res.data.forEach(function (value, key) {
+
+             tempdict[key] = {
+                "fromName": value.nickName,
+                "fromUser": value.toUser
+              }
+              templist.push(tempdict)
+              
+              // templist.add(tempdict)
+              // console.log(key, value);
+            })
+            // console.log(templist)
+            templist = res.data
+            for (let i = 0; i < templist.length - 1; i++) {
+              console.log(templist[i])
+              for (var j = i + 1; j < templist.length; j++) {
+                if (templist[i]["fromUser"] == templist[j]["fromUser"]) {
+                  templist.splice(j, 1);
+                  j--;
+                }
+              }
+            }
+            resolvs(templist)
           }
         }
-      }
-      resolvs(templist)
-    }
-  }
-})
+      })
     })
 
   },
-  
-  async getChat(){
+
+  async getChat() {
     let that = this
     that.data.roomlist = await that.chatInfo()
     console.log(that.data.roomlist)
     that.setData({
-      roomlist:that.data.roomlist
+      roomlist: that.data.roomlist
     })
   },
 
@@ -108,8 +113,8 @@ db.collection("chatroom").where({
   onShow: function () {
     let that = this
     that.getChat()
-    
-    
+
+
 
   },
 
