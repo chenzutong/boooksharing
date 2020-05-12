@@ -5,9 +5,9 @@
 <text>{{data.classroom}}</text>
 <text>{{data.content}}</text>
 <text>{{data.sendtime}}</text>
+<text>{{data.addtime}}</text>
 <image src="{{data.photo}}"></image>
 <block wx:if="{{data.user_id==user_id}}">
-
-</block>
 <button bindtap="toEdit">编辑</button>
 <button>删除</button>
+</block>
