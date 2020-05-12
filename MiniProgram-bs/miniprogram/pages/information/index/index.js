@@ -61,7 +61,7 @@ Page({
     return new Promise(function (resolvs) {
       //获取聊天的数据库
       db.collection("chatroom").where({
-        toUser: app.globalData.userInfo.user_id,
+        toUser: app.globalData.userInfo.user_id
       }).get({
         success: function (res) {
           if (res.data != null) {
@@ -82,7 +82,7 @@ Page({
             // console.log(templist)
             templist = res.data
             for (let i = 0; i < templist.length - 1; i++) {
-              console.log(templist[i])
+              // console.log(templist[i])
               for (var j = i + 1; j < templist.length; j++) {
                 if (templist[i]["fromUser"] == templist[j]["fromUser"]) {
                   templist.splice(j, 1);
@@ -100,8 +100,32 @@ Page({
 
   async getChat() {
     let that = this
-    that.data.roomlist = await that.chatInfo()
-    console.log(that.data.roomlist)
+    var roomlist1 = await that.chatInfo()
+    var roomlist2 = []
+    try {
+      var value = wx.getStorageSync('chatPerson')
+      if (value) {
+        roomlist2 = value
+      }
+    } catch (e) {
+      // Do something when catch error
+    }
+    // console.log("roomlist1",roomlist1);
+    // console.log("roomlist2",roomlist2);
+    
+    var room = []
+    room = roomlist1.concat(roomlist2)
+    for (let i = 0; i < room.length - 1; i++) {
+      // console.log(room[i])
+      for (var j = i + 1; j < room.length; j++) {
+        if (room[i]["fromUser"] == room[j]["fromUser"]) {
+          room.splice(j, 1);
+          j--;
+        }
+      }
+    }
+    that.data.roomlist = room
+    // console.log(that.data.roomlist)
     that.setData({
       roomlist: that.data.roomlist
     })
