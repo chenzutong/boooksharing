@@ -21,7 +21,8 @@ Page({
     }
      var datadict = {
       "nickName":getApp().globalData.circleDetail.username,
-      "fromUser": getApp().globalData.circleDetail.user_id
+      "fromUser": getApp().globalData.circleDetail.user_id,
+      "avatar": getApp().globalData.circleDetail.avatar
      }
      datalist.push(datadict)
      for (let i = 0; i < datalist.length - 1; i++) {

@@ -6,6 +6,7 @@
 	<block wx:for="{{roomlist}}" wx:for-item="itemName" wx:for-index="id">
 		<view class="uploader">
 			<view bindtap="toChatroom"  data-text="{{itemName}}" class="uploader-text">
+			<image src="{{itemName.avatar}}" class="touxiang"></image>
 				<text>和{{itemName.nickName}}进行聊天</text>
 			</view>
 		</view>
