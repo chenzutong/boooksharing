@@ -164,6 +164,9 @@ Component({
 
         const doc = {
           _id: `${Math.random()}_${Date.now()}`,
+          fromUser: getApp().globalData.userInfo.user_id,
+          toUser:getApp().globalData.circleDetail.user_id,
+          toName: getApp().globalData.circleDetail.username,
           groupId: this.data.groupId,
           avatar: this.data.userInfo.avatarUrl,
           nickName: this.data.userInfo.nickName,
@@ -212,6 +215,9 @@ Component({
           const doc = {
             _id: `${Math.random()}_${Date.now()}`,
             groupId: this.data.groupId,
+            fromUser: getApp().globalData.userInfo.user_id,
+            toUser:getApp().globalData.circleDetail.user_id,
+            toName: getApp().globalData.circleDetail.username,
             avatar: this.data.userInfo.avatarUrl,
             nickName: this.data.userInfo.nickName,
             msgType: 'image',

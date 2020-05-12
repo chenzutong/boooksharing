@@ -3,10 +3,13 @@
 	<view bindtap="tologin">请先登录</view>
 </view>
 <view wx:else>
-	<view class="uploader">
-		<view bindtap="toChatroom" class="uploader-text">
-			<text>进入聊天室</text>
+	<block wx:for="{{roomlist}}" wx:for-item="itemName" wx:for-index="id">
+		<view class="uploader">
+			<view bindtap="toChatroom"  data-text="{{itemName}}" class="uploader-text">
+				<text>和{{itemName.fromName}}进行聊天</text>
+			</view>
 		</view>
-	</view>
+	</block>
+
 
 </view>
