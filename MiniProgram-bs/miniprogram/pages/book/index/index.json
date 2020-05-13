@@ -1,6 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarBackgroundColor": "#F57123",
+  "navigationBarBackgroundColor": "#436eee",
   "navigationBarTitleText": "书籍",
-  "navigationBarTextStyle": "black"
+  "navigationBarTextStyle": "white"
 }

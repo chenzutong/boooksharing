@@ -9,9 +9,6 @@
     <text class='bottomtabText' style='color:{{secco}};border-bottom:4rpx solid' wx:if="{{!temp}}">出书动态</text>
     <text class='bottomtabText' style='color:{{secco}}' wx:if="{{temp}}">出书动态</text>
   </view>
-  <view class='bottomtab' bindtap="third_select">
-    <text class='bottomtabText' style=''>发布</text>
-  </view>
 </view>
 
 <scroll-view class='scbg' scroll-y='true'>

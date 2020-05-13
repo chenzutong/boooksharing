@@ -31,31 +31,9 @@ var formatDate = function (datetime) {
   if(year1!=year||month1!=month){
     return year+"-"+month+"-"+day;
   }
-  else if((day1-day>1)||((day1-day==1)&&(hour<=hour1))){
-    if((day1-day)<7){
-      return ((day1-day)+"天前");
-    }
-    if((day1-day)>=7){
-      num=(day1-day)/7;
-      return (num.toFixed(0)+"周前");
-    }
-  }
-  else if((hour-hour1==1)&&(min1>min)||((hour-hour1)>1)){
-    if(date.getHours()<8){
-      return (24-hour+hour1)+"小时前";
-    }
-    else{
-      return ((hour-hour1)+"小时前");
-    }
-  }
-  else if((hour1==hour)&&(min1>min)){
-    return ((min1-min)+"分钟前");
-  }
-  else if((hour1-hour==1)&&(min1<=min)){
-    return ((60+min1-min)+"分钟前");
-  }
+  
   else{
-   return "刚刚";
+    return year+"-"+month+"-"+day;
   }
 }
 module.exports = {
