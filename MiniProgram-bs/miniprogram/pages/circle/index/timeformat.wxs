@@ -19,6 +19,7 @@ var formatDate = function (datetime) {
     var hour=date.getHours();
   }
   var min=date.getMinutes();
+
   var now=getDate();
   var year1=now.getFullYear();
   var month1=now.getMonth()+1;
@@ -39,8 +40,13 @@ var formatDate = function (datetime) {
       return (num.toFixed(0)+"周前");
     }
   }
-  else if((hour1-hour==1)&&(min1>min)||((hour1-hour)>1)){
-    return ((hour1-hour)+"小时前");
+  else if((hour-hour1==1)&&(min1>min)||((hour-hour1)>1)){
+    if(date.getHours()<8){
+      return (24-hour+hour1)+"小时前";
+    }
+    else{
+      return ((hour-hour1)+"小时前");
+    }
   }
   else if((hour1==hour)&&(min1>min)){
     return ((min1-min)+"分钟前");

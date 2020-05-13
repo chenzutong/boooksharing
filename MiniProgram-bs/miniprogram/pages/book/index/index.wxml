@@ -32,7 +32,7 @@
 					<view class="book-box">
 						<text class='bookname'>《{{itemName.bookname}}》</text>
 						<view class='content'>{{itemName.content}}</view>
-						<text class="showtime">{{filters.formatDate(itemName.sendtime)}}</text>
+						<view class="showtime">{{filters.formatDate(itemName.addtime)}}</view>
 					</view>
 				</view>
 			</view>

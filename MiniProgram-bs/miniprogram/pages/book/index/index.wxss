@@ -7,7 +7,6 @@ page {
 
 
 .scbg {
-  height: 90%;
   top: 11%;
   position: absolute;
   background-color: #EFEFEF;
@@ -70,9 +69,9 @@ page {
 
 .showtime {
   padding-top: 55rpx;
-  padding-left: 135rpx;
+  padding-left: 200rpx;
   font-size: 20rpx;
-  color: #5E5D5D;
+  color: gray;
   font-family: PingFangSC-regular;
 }
 
