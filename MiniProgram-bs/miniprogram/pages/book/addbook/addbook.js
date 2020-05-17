@@ -10,6 +10,7 @@ Page({
     content: "",
     photo: "",
     type: "free",
+    category:"教材",
     addphotoPath: "/images/icon/addphoto.png",
     items: [{
         name: 'free',
@@ -22,7 +23,17 @@ Page({
       }
     ],
     addcircle: true,
+    array: ['教材', '小说', '课外学习', '其他'],
+    index: 0,
 
+  },
+  bindPickerChange: function(e) {
+    // console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+    this.data.category = this.data.array[e.detail.value]
+    console.log(this.data.category)
   },
   // 获取wxml输入信息
   bindBookname: function (e) {
@@ -122,13 +133,14 @@ Page({
         "classroom": getApp().globalData.userInfo.classroom,
         "bookname": that.data.bookname,
         "type": that.data.type,
+        "category": that.data.category,
         "content": that.data.content,
         "photo": that.data.photo,
         "addcircle": that.data.addcircle,
       },
       success: function (res) { // 请求成功后操作
         console.log(res.data)
-        if (res.data.code = 0) {
+        if (res.data.code != 200) {
           wx.showToast({
             title: res.data.msg,
             icon: 'none'

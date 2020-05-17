@@ -15,6 +15,7 @@ Page({
     content: "",
     photo:"",
     type:"free",
+    category:"教材",
     addbook:true,
     delete:false,
     items: [{
@@ -26,7 +27,35 @@ Page({
         name: 'bargaining',
         value: '议价'
       }
-    ]
+    ],
+    array: ['教材', '小说', '课外学习', '其他'],
+    objectArray: [
+      {
+        id: 0,
+        name: '教材'
+      },
+      {
+        id: 1,
+        name: '小说'
+      },
+      {
+        id: 2,
+        name: '课外学习'
+      },
+      {
+        id: 3,
+        name: '其他'
+      }
+    ],
+    index: 0,
+  },
+  bindPickerChange: function(e) {
+    // console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+    this.data.category = this.data.array[e.detail.value]
+    console.log(this.data.category)
   },
   // 获取wxml输入信息
   bindBookname: function (e) {
@@ -151,16 +180,21 @@ Page({
         },
         success: function (res) { // 请求成功后操作
           console.log(res.data)
-          if (res.data.code = 0) {
+          if (res.data.code == 200) {
             wx.showToast({
-              title: res.data.msg,
+              title: "发布成功",
               icon: 'none'
             });
+            wx.reLaunch({
+              url: '/pages/circle/index/index',
+            })
             return;
           }
-          wx.reLaunch({
-            url: '/pages/circle/index/index'
-          })
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          });
+          
         }
       })
     } else {
@@ -179,34 +213,48 @@ Page({
           "classroom": getApp().globalData.userInfo.classroom,
           "bookname": that.data.bookname,
           "type": that.data.type,
+          "category": that.data.category,
           "content": that.data.content,
           "photo": that.data.photo,
           "addbook": that.data.addbook,
         },
         success: function (res) { // 请求成功后操作
           console.log(res.data)
-          if (res.data.code = 0) {
+          if (res.data.code == 200) {
             wx.showToast({
-              title: res.data.msg,
+              title: "发布成功",
               icon: 'none'
             });
+            wx.reLaunch({
+              url: '/pages/circle/index/index',
+            })
             return;
           }
-          wx.reLaunch({
-            url: '/pages/circle/index/index'
-          })
+          wx.showToast({
+            title:res.data.msg,
+            icon: 'none'
+          });
         }
       })
+      
     }
-
+    console.log("***********")  
     setTimeout(function () {
       wx.hideLoading()
     }, 2000)
+    
   },
 
   send: function (e) {
     let that = this
     that.sendAsync()
+    
+  },
+
+  tologin:function(){
+    wx.navigateTo({
+      url: '/pages/person/login/login'
+    })
   },
 
 
@@ -214,6 +262,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      donelogin:getApp().globalData.userInfo.userName
+    })
     console.log(getApp().globalData.userInfo)
 
 

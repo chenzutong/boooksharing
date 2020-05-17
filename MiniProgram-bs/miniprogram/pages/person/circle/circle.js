@@ -1,61 +1,20 @@
-// pages/book/detail/detail.js
+// pages/person/circle/circle.js
 var server = getApp().globalData.server
 Page({
+
 
   /**
    * 页面的初始数据
    */
   data: {
-
-  },
-
-  toEdit:function(){
-    wx.navigateTo({
-      url: '../edit/edit',
-    })
-  },
-
-  // 删除书籍
-  deleteBook:function(){
-    wx.showLoading({
-      title: '删除中',
-    })
-
-    wx.request({
-      url: server + 'api/book/delete',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      method: 'POST', // 请求方式
-      data:{
-        id:getApp().globalData.bookDetail.id
-      },
-      success: function (res) { // 请求成功后操作
-        console.log(res.data)
-        if (res.data.code != 200) {
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none'
-          });
-          setTimeout(function () {
-            wx.hideLoading()
-          }, 2000)
-          return;
-        }
-        setTimeout(function () {
-          wx.hideLoading()
-        }, 2000)
-        wx.switchTab({
-          url: "/pages/book/index/index",
-        })
-      }
-    })
+    circleList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
 
   },
 
@@ -70,13 +29,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log("getApp().globalData.bookDetail",getApp().globalData.bookDetail);
-    
-    
-    this.setData({
-      data:getApp().globalData.bookDetail,
-      user_id:getApp().globalData.userInfo.user_id
+    var that = this
+    wx.request({
+      url: server + 'api/circle/mine',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST', // 请求方式
+      data:{
+        user_id:getApp().globalData.userInfo.user_id
+      },
+      success: function (res) { // 请求成功后操作
+        console.log(res.data)
+        if (res.data.code != 200) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          });
+          return;
+        }
+        that.data.circleList = res.data.data
+        console.log(that.data.circleList)
+        that.setData({
+          circleList:that.data.circleList
+        })
+      }
     })
+
   },
 
   /**

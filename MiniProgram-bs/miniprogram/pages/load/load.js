@@ -53,7 +53,7 @@ Page({
                       },
                       success: function (res) { // 请求成功后操作
                         console.log(res.data)
-                        if (res.data.code != 0) {
+                        if (res.data.code != 200) {
                           wx.showToast({
                             title: res.data.msg,
                             icon: 'none'
@@ -82,6 +82,7 @@ Page({
     
   },
   bindGetUserInfo(e) {
+    var that =  this
     if (e.detail.userInfo == undefined) {
 
     } else {
@@ -103,7 +104,7 @@ Page({
 
             success: function (res) { // 请求成功后操作
               console.log(res.data)
-              if (res.data.code != 0) {
+              if (res.data.code != 200) {
                 wx.showToast({
                   title: res.data.msg,
                   icon: 'none'
@@ -112,7 +113,7 @@ Page({
               }
               getApp().globalData.userInfo = res.data.data.userInfo; // 写入全局变量
               getApp().setCache('token', res.data.data.token); // 写入缓存
-              this.next(); // 跳转到首页
+              that.next(); // 跳转到首页
             }
 
 

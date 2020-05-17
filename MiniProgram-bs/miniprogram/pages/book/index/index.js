@@ -47,7 +47,7 @@ Page({
       },
       success: function (res) { // 请求成功后操作
         console.log(res.data)
-        if (res.data.code != 0) {
+        if (res.data.code != 200) {
           wx.showToast({
             title: res.data.msg,
             icon: 'none'
@@ -78,7 +78,7 @@ Page({
       method: 'GET', // 请求方式
       success: function (res) { // 请求成功后操作
         console.log(res.data)
-        if (res.data.code != 0) {
+        if (res.data.code != 200) {
           wx.showToast({
             title: res.data.msg,
             icon: 'none'
@@ -133,7 +133,7 @@ Page({
       },
       success: function (res) { // 请求成功后操作
         console.log(res.data)
-        if (res.data.code != 0) {
+        if (res.data.code != 200) {
           wx.showToast({
             title: res.data.msg,
             icon: 'none'

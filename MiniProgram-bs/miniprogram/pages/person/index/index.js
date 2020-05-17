@@ -13,6 +13,13 @@ Page({
     })
   },
 
+  // 查看自己发布的动态
+  lookmine: function(){
+    wx.navigateTo({
+      url: '/pages/person/circle/circle',
+    })
+  },
+
   /**
    * Lifecycle function--Called when page load
    */

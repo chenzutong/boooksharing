@@ -8,6 +8,7 @@
     "pages/person/enroll/enroll",
     "pages/circle/commit/commit",
     "pages/circle/index/index",
+    "pages/person/circle/circle",
     "pages/person/index/index",
     "pages/information/index/index",
     "pages/book/index/index",

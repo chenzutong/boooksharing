@@ -17,7 +17,7 @@
 		<view class="alllists">
 			<view class="lable">
 				<image class="lable-image" src='/images/icon/lablecircle.png' ></image>
-				<view class="lable-content">
+				<view class="lable-content" bindtap="lookmine">
 					<view class="content-flex">
 						<text class='content' decode="{{true}}">&nbsp;查看动态</text>
 						<view class='arrow'></view>

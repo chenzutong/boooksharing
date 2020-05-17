@@ -15,10 +15,6 @@ Page({
 
   }, // 注册
   regist: function (e) {
-    wx.showLoading({
-      title: '注册中',
-    })
-
     var that = this
     var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})(17[0-9]{1}))+\d{8})$/;
     if (that.data.username == "") {
@@ -26,7 +22,8 @@ Page({
         title: '提示',
         content: '请输入用户名!',
         showCancel: false,
-        success(res) {}
+        success(res) {
+        }
       })
     } else if (that.data.phonenumber == "") {
       wx.showModal({
@@ -71,6 +68,9 @@ Page({
         success(res) {}
       })
     } else {
+      wx.showLoading({
+        title: '注册中',
+      })
       //发起网络请求
       wx.request({
         url: server + 'api/user/regist',
@@ -88,8 +88,11 @@ Page({
           "passworddack": that.data.passworddack,
         },
         success: function (res) {
+          setTimeout(function () {
+            wx.hideLoading()
+          }, 1000)
           console.log(res.data)
-          if (res.data.code != 0) {
+          if (res.data.code != 200) {
             wx.showToast({
               title: res.data.msg,
               icon: 'none'
@@ -98,14 +101,16 @@ Page({
           }
           getApp().globalData.userInfo = res.data.data.userInfo // 写入全局变量
           // getApp().setCache('token', res.data.data.token) // 写入缓存
-          that.next() // 跳转到首页
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          });
         }
 
       })
-      setTimeout(function () {
-        wx.hideLoading()
-      }, 1000)
+      
       console.log("regist success")
+      that.next() // 跳转到首页
     }
 
   },
