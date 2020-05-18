@@ -15,6 +15,41 @@ Page({
     })
   },
 
+  // 收藏书籍
+  collect:function(){
+    wx.showLoading({
+      title: '收藏中',
+    })
+    // 与服务器交互
+    wx.request({
+      url: server + 'api/book/collect_add',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST', // 请求方式
+      data: {
+        "user_id": getApp().globalData.userInfo.user_id,
+        "book_id": getApp().globalData.bookDetail.id,
+      },
+      success: function (res) { // 请求成功后操作
+        console.log(res.data)
+        if (res.data.code != 200) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          });
+          setTimeout(function () {
+            wx.hideLoading()
+          }, 2000)
+          return;
+        }
+      }
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
+  },
+
   // 删除书籍
   deleteBook:function(){
     wx.showLoading({

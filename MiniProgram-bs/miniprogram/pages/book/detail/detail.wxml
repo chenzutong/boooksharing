@@ -12,3 +12,6 @@
 <button bindtap="toEdit">编辑</button>
 <button bindtap="deleteBook">删除</button>
 </block>
+<block wx:else>
+<button bindtap="collect">收藏</button>
+</block>

@@ -10,6 +10,8 @@
     "pages/circle/index/index",
     "pages/person/circle/circle",
     "pages/person/index/index",
+    "pages/person/collect/collect",
+    "pages/person/update/update",
     "pages/information/room/room",
     "pages/information/index/index",
     "pages/book/index/index",

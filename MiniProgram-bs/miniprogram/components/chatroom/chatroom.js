@@ -32,11 +32,10 @@ Component({
     sendnum:function(e){
       console.log()
       e.detail.value = "这是我的电话：" + getApp().globalData.userInfo.phone
-      // this.onConfirmSendText(e)
+      this.onConfirmSendText(e)
     },
     sendwx:function(e){
       console.log(e.detail.value)
-      
       e.detail.value = "这是我的微信：" + getApp().globalData.userInfo.wechatID
       this.onConfirmSendText(e)
     },

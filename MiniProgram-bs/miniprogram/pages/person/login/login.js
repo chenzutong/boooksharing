@@ -7,12 +7,12 @@ Page({
    */
   data: {
     is_disabled: false,
-    username: "",
+    phone: "",
     password: "",
 
   },
-  usernameInput: function (e) {
-    this.data.username = e.detail.value
+  phoneInput: function (e) {
+    this.data.phone = e.detail.value
   },
 
   passwordInput: function (e) {
@@ -47,14 +47,36 @@ Page({
       //发起网络请求
       wx.request({
         url: server + 'api/user/login',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        method: 'POST', // 请求方式
         data: {
-          code: res.code,
-          nickName: res.userInfo.nickName,
-          avatarUrl: res.userInfo.avatarUrl
+          "phone": that.data.phone,
+          "password": that.data.password,
+        },
+        success: function (res) {
+          setTimeout(function () {
+            wx.hideLoading()
+          }, 1000)
+          console.log(res.data)
+          if (res.data.code != 200) {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none'
+            });
+            return;
+          }
+          getApp().globalData.userInfo = res.data.data // 写入全局变量
+          // getApp().setCache('token', res.data.data.token) // 写入缓存
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          });
         }
       })
-      wx.redirectTo({
-        url: "/pages/ciecle/index/index"
+      wx.reLaunch({
+        url: "/pages/load/load"
       })
     }
   },

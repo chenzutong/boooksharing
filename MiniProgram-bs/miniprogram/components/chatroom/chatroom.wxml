@@ -9,8 +9,8 @@
 	</view>
 
 	<view class='topinfo'>
-      <textarea value="发电话"  class='dianhua' bindtap="sendnum" ></textarea>
-      <textarea value="发微信"  class='weixin' bindtap="sendwx"></textarea>
+	<view class='dianhua' bindtap="sendnum">发电话</view>
+	<view class='weixin' bindtap="sendwx">发微信</view>
 	</view>
 
 	<!-- chats -->

@@ -12,6 +12,26 @@ Page({
       url: '/pages/person/login/login',
     })
   },
+  lookcollect:function(){
+    wx.navigateTo({
+      url: '/pages/person/collect/collect',
+    })
+  },
+  // 修改信息
+  updatainfo:function(){
+    wx.navigateTo({
+      url: '/pages/person/update/update',
+    })
+  },
+
+  // 退出登录
+  exitlogin:function(){
+    getApp().globalData.userInfo = {}
+    this.data.donelogin = false
+    this.setData({
+      donelogin:false
+    })
+  },
 
   // 查看自己发布的动态
   lookmine: function(){

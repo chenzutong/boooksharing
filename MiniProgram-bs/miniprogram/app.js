@@ -20,8 +20,8 @@ App({
         "avatarUrl":""
       }, // 微信获取用户信息
       user: {},  // 后台返回用户全部信息
-      // server:"https://www.cztblog.cn/",
-      server:"https://127.0.0.1:5000/",
+      server:"https://www.cztblog.cn/",
+      // server:"https://127.0.0.1:5000/",
       circleDetail:{},
       bookDetail:{},
       chatuser:{}
