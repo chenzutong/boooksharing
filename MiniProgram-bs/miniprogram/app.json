@@ -10,9 +10,9 @@
     "pages/circle/index/index",
     "pages/person/circle/circle",
     "pages/person/index/index",
+    "pages/information/room/room",
     "pages/information/index/index",
     "pages/book/index/index",
-    "pages/information/room/room",
     "pages/person/login/login"
   ],
   "window": {

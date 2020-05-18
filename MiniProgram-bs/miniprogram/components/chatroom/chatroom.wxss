@@ -6,14 +6,16 @@
 }
 
 .chatroom .header {
+  margin-top: -20px;
   flex-basis: fit-content;
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid #ddd;
-  padding: 20rpx 0 30rpx;
-  font-size: 30rpx;
-  /* background: rgb(34, 187, 47);
-  color: rgba(255, 255, 255, 1) */
+  padding: 10rpx 0 30rpx;
+  font-size: 40rpx;
+  
+  /* background: rgb(34, 187, 47); */
+  /* color: rgba(255, 255, 255, 1) */ 
   /* font-family: 'Microsoft YaHei' */
 }
 
@@ -22,12 +24,28 @@
 }
 
 .chatroom .header .middle {
+
   flex: 2;
   text-align: center;
 }
 
 .chatroom .header .right {
   flex: 1;
+}
+.chatroom .topinfo{
+  display: flex;
+  height: 38rpx;
+  flex-direction: row;
+  padding: 30rpx 0 40rpx;
+  font-size: 30rpx;
+}
+.chatroom .topinfo .dianhua{
+  width: 50%;
+  text-align: center;
+}
+.chatroom .topinfo .weixin{
+  width: 50%;
+  text-align: center;
 }
 
 .chatroom .body {
