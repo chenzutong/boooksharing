@@ -29,7 +29,7 @@
 		</view>
 		<view class="alllists">
 			<view class="lable">
-				<image class="lable-image" src='/images/icon/lableperson.png' ></image>
+				<image class="lable-image" src='/images/icon/lablebook.png' ></image>
 				<view class="lable-content" bindtap="lookcollect">
 					<view class="content-flex">
 						<text class='content' decode="{{true}}">&nbsp;书籍收藏</text>

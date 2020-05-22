@@ -7,8 +7,35 @@
   align-content: space-between;
 }
 
+.first-block{
+  display: flex;
+  align-items:center;
+}
+
 .touxiang{
   width: 80rpx;
   height: 80rpx;
   border-radius: 10rpx;
+  margin-right: 30rpx;
+}
+
+.tel{
+  display: flex;
+  flex-direction: column;
+}
+
+.showname{
+  color: black;
+}
+
+.lastword{
+  margin-top:6rpx;
+  font-size: 24rpx;
+  color: #bfbfbf;
+}
+
+.showtime{
+  margin-top:18rpx;
+  font-size: 20rpx;
+  color: #bfbfbf;
 }

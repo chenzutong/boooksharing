@@ -56,13 +56,11 @@ page {
 }
 
 
-.tel {}
 
 .showname {
-  font-size: 34rpx;
+  font-size: 32rpx;
   color: #3F51B5;
   font-family: PingFangSC-regular;
-  font-weight: bold;
 }
 
 .showtime {

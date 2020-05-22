@@ -1,16 +1,26 @@
 <!--pages/information/index/index.wxml-->
+<wxs src="timeformat.wxs" module="filters"/>
 <view wx:if="{{!donelogin}}">
 	<view bindtap="tologin">请先登录</view>
 </view>
 <view wx:else>
 	<block wx:for="{{roomlist}}" wx:key="key" wx:for-item="itemName" wx:for-index="id">
 		<view class="uploader">
-			<view bindtap="toChatroom"  data-text="{{itemName}}" class="uploader-text">
-			<image src="{{itemName.avatar}}" class="touxiang"></image>
-				<text>和{{itemName.nickName}}进行聊天</text>
+			<view bindtap="toChatroom" data-text="{{itemName}}">
+				<view class="first-block">
+					<image src="{{itemName.avatar}}" class="touxiang"></image>
+					<view class="tel">
+						<text class="showname">{{itemName.nickName}}</text>
+						<text class="lastword">这是最后一句话</text>
+						<text class='showtime'>{{filters.formatDate(itemName.sendtime)}}</text>
+					</view>
+					<view wx:if="{{itemName.photo}}" class="showphoto">
+					<image src="{{itemName.photo}}"></image>
+					</view>
+				</view>
 			</view>
 		</view>
 	</block>
 
-`
+	`
 </view>

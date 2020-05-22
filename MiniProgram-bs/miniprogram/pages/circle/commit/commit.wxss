@@ -86,3 +86,7 @@ page{
   top: 320rpx;
   right: 580rpx;
 }
+
+.picker{
+  border: 1px solid #ccc;
+}
