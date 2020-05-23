@@ -11,8 +11,8 @@
 					<image src="{{itemName.avatar}}" class="touxiang"></image>
 					<view class="tel">
 						<text class="showname">{{itemName.nickName}}</text>
-						<text class="lastword">这是最后一句话</text>
-						<text class='showtime'>{{filters.formatDate(itemName.sendtime)}}</text>
+						<text class="lastword">{{itemName.textContent}}</text>
+						<text class='showtime'>{{filters.formatDate(itemName.sendTimeTS)}}</text>
 					</view>
 					<view wx:if="{{itemName.photo}}" class="showphoto">
 					<image src="{{itemName.photo}}"></image>

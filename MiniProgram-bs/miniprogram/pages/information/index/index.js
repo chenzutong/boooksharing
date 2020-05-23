@@ -67,7 +67,7 @@ Page({
           if (res.data != null) {
             var templist = []
             var tempdict = {}
-            // console.log(res.data)
+            console.log(res.data)
             res.data.forEach(function (value, key) {
 
              tempdict[key] = {
@@ -79,8 +79,10 @@ Page({
               // templist.add(tempdict)
               // console.log(key, value);
             })
-            // console.log(templist)
-            templist = res.data
+            console.log(templist)
+            templist = res.data.reverse()
+            // console.log("templist",templist)
+            // console.log("templist",templist.reverse())
             for (let i = 0; i < templist.length - 1; i++) {
               // console.log(templist[i])
               for (var j = i + 1; j < templist.length; j++) {
@@ -115,6 +117,7 @@ Page({
     
     var room = []
     room = roomlist1.concat(roomlist2)
+    // room = room.reverse()
     for (let i = 0; i < room.length - 1; i++) {
       // console.log(room[i])
       for (var j = i + 1; j < room.length; j++) {
@@ -124,8 +127,17 @@ Page({
         }
       }
     }
+    // for (let i = room.length - 1; i >=0; i--) {
+    //   // console.log(room[i])
+    //   for (var j = room.length; j > 0; j--) {
+    //     if (room[i]["fromUser"] == room[j]["fromUser"]) {
+    //       room.splice(j, 1);
+    //       j++;
+    //     }
+    //   }
+    // }
     that.data.roomlist = room
-    // console.log(that.data.roomlist)
+    console.log(that.data.roomlist)
     that.setData({
       roomlist: that.data.roomlist
     })
