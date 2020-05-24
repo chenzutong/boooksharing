@@ -8,8 +8,9 @@ page{
 .textarea{
   width: 100%;
   background-color: #fff;
-  top:9%;
   position: fixed;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
 }
 
 .textinput{
@@ -37,7 +38,7 @@ page{
   height: 100rpx;
   line-height: 100rpx;
   margin: auto;
-  margin-top: 800rpx;
+  margin-top: 900rpx;
   margin-left: 8%;
   margin-right: 8%;
   border-radius: 12px;
@@ -85,4 +86,8 @@ page{
   position: absolute;
   top: 320rpx;
   right: 580rpx;
+}
+.section{
+  margin-top: 35rpx;
+  font-size: 35rpx;
 }

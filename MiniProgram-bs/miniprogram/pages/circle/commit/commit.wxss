@@ -36,8 +36,7 @@ page{
   width: 84%;
   height: 100rpx;
   line-height: 100rpx;
-  margin: auto;
-  margin-top: 800rpx;
+  margin-top: 950rpx;
   margin-left: 8%;
   margin-right: 8%;
   border-radius: 12px;
@@ -89,4 +88,12 @@ page{
 
 .picker{
   border: 1px solid #ccc;
+}
+.section{
+  margin-top: 35rpx;
+  font-size: 30rpx;
+}
+.flex{
+  display: flex;
+  flex-direction: column;
 }

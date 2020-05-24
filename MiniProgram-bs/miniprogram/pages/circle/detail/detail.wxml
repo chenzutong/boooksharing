@@ -1,6 +1,5 @@
 <!--pages/circle/detail/detail.wxml-->
 <wxs src="timeformat.wxs" module="filters"/>
-<view>
 <scroll-view scroll-y='true' class="detail">
   <view class="person">
     <image src="{{data.avatar}}" class="touxiang"></image>
@@ -25,18 +24,17 @@
 </scroll-view>
 <!--圆形点击框  -->
 <view class="round-click">
-  <view class="img">
-    <button class="img-button">
-      <image class="but-img" src="/images/icon/like.png"></image>
-      <text class="but-text">喜欢</text>
-    </button>
+  <view wx:if="{{data.user_id!=user_id}}" class="img">
     <button class="img-button">
       <image class="but-img" src="/images/icon/collect.png"></image>
-      <text class="but-text">收藏</text>
+    </button>
+  </view>
+  <view wx:else class="img">
+    <button class="img-button">
+      <image class="but-img"></image>
     </button>
   </view>
    <view class="line">
     <button class="button" bindtap="toChatroom">联系Ta</button>
   </view>
-</view>
 </view>

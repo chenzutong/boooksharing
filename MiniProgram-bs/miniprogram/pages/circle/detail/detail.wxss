@@ -94,8 +94,8 @@
 .but-img{
   padding-left: 30rpx;
   padding-right: 30rpx;
-  width: 40rpx;
-  height: 40rpx;
+  width: 50rpx;
+  height: 50rpx;
 }
 .but-text{
   font-size: 20rpx;
@@ -107,6 +107,6 @@
   flex-direction: row;
 }
 .line{
-  margin-left: 350rpx;
-  
+  margin-left: 425rpx;
+  margin-bottom: 10rpx;
 }

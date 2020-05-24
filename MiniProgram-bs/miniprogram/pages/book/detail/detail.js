@@ -15,6 +15,42 @@ Page({
     })
   },
 
+  // 聊天
+  toChatroom:function(){
+    var datalist = []
+    try {
+      var value = wx.getStorageSync('chatPerson')
+      if (value) {
+        datalist = value
+      }
+    } catch (e) {
+      // Do something when catch error
+    }
+     var datadict = {
+      "nickName":getApp().globalData.circleDetail.username,
+      "fromUser": getApp().globalData.circleDetail.user_id,
+      "avatar": getApp().globalData.circleDetail.avatar
+     }
+     datalist.push(datadict)
+     for (let i = 0; i < datalist.length - 1; i++) {
+      // console.log(datalist[i])
+      for (var j = i + 1; j < datalist.length; j++) {
+        if (datalist[i]["fromUser"] == datalist[j]["fromUser"]) {
+          datalist.splice(j, 1);
+          j--;
+        }
+      }
+    }
+    try{
+      wx.setStorageSync('chatPerson', datalist)
+    }catch (e) { }
+    // console.log(datalist)
+    
+    wx.navigateTo({
+      url: "/pages/information/room/room",
+    })
+  },
+
   // 收藏书籍
   collect:function(){
     wx.showLoading({

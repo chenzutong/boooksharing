@@ -4,7 +4,6 @@
 
 <view  wx:else>
 
-
 <view class='bottomrow'>
 	<view class='bottomtab' bindtap="first_select">
 		<text class='bottomtabText' style='color:{{firco}};border-bottom:4rpx solid' wx:if="{{temp}}">寻书发布</text>
@@ -15,7 +14,6 @@
 		<text class='bottomtabText' style='color:{{secco}}' wx:if="{{temp}}">出书发布</text>
 	</view>
 </view>
-
 
 <view wx:if="{{temp}}" class='textarea'>
 	<textarea placeholder="输入书名" placeholder-style="color:#888888; font-size:38rpx;" class='bookname' maxlength='-1' bindinput="bindBookname"></textarea>
@@ -59,7 +57,6 @@
 		</view>
 	</view>
 </view>
-
 <view id='btn' class='click' bindtap='send'>发布</view>
 
 </view>
