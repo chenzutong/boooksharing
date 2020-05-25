@@ -14,7 +14,7 @@
 			<text class='bottomtabText' style='color:{{secco}}' wx:if="{{temp}}">全部书籍</text>
 		</view>
 		<view wx:if="{{temp}}">
-			<image class='touxiang' src='/images/icon/addbook.png' bindtap='addbook'></image>
+			<image class='addbook' src='/images/icon/addbook.png' bindtap='addbook'></image>
 		</view>
 	</view>
 
@@ -22,17 +22,17 @@
 		<block wx:for="{{temp?list1:list2}}" wx:for-item="itemName" wx:for-index="id">
 			<view class='box' id="itemName" bindtap="showdetail" data-text="{{itemName}}">
 				<view class='secondblock'>
-					<image src="{{itemName.avatar}}" class="touxiang"></image>
        		<view class='name'>
+					<image src="{{itemName.avatarUrl}}" class="touxiang"></image>
           <text class='showname'>{{itemName.username}}</text>
         	</view>
-					<view wx:if="{{itemName.photo}}">
-						<image class='photo' src="{{itemName.photo}}"></image>
-					</view>
 					<view class="book-box">
-						<text class='bookname'>《{{itemName.bookname}}》</text>
-						<view class='content'>{{itemName.content}}</view>
-						<view class="showtime">{{filters.formatDate(itemName.addtime)}}</view>
+						<view wx:if="{{itemName.photo}}">
+							<image class='photo' src="{{itemName.photo}}"></image>
+						</view>
+							<text class='bookname'>《{{itemName.bookname}}》</text>
+							<view class='content'>{{itemName.content}}</view>
+							<view class="showtime">{{filters.formatDate(itemName.addtime)}}</view>
 					</view>
 				</view>
 			</view>
