@@ -108,11 +108,12 @@ Page({
     this.data.wechatID = getApp().globalData.userInfo.wechatID
     this.data.classroom = getApp().globalData.userInfo.classroom
     this.setData({
+      avatarUrl: getApp().globalData.userInfo.avatarUrl,
       data: getApp().globalData.userInfo
     }
     )
   },
-
+ 
   /**
    * 生命周期函数--监听页面隐藏
    */

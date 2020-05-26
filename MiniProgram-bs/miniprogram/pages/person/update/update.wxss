@@ -1,5 +1,56 @@
 /* pages/enroll/enroll.wxss */
 
+.first{
+  text-align: center;
+}
 
+.first-text{
+  font-size: 33rpx;
+}
 
+.inputs {
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 33rpx;
+  border-radius: 12px;
+  border: 1px solid #c8cccf;
+  color: #6a6f77;
+  display: block;
+  outline: 0;
+  padding: 0 1em;
+  width: 84%;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 40rpx;
+}
 
+#btn1 {
+  width: 50%;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-left: auto;
+  margin-top: 80rpx;
+  border-radius: 12px;
+  background-color: #436eee;
+  text-align: center;
+  color: white;
+  font-size: 33rpx;
+}
+
+.avatar{
+  margin-top: 2%;
+  margin-left: 8%;
+  margin-right: 8%;
+  border-bottom: 1px solid #cfcfcf;
+  padding-bottom: 2%;
+}
+
+.touxiang{
+  height: 120rpx;
+  width: 120rpx;
+  vertical-align:middle;
+}
+
+.avatar-text{
+  margin-left: 8rpx;
+}
