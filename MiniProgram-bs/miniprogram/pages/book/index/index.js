@@ -9,10 +9,96 @@ Page({
     firco: "#436EEE",
     secco: "#979797",
     temp: true,
-    list1:[],
-    list2:[],
-
+    booklist:[],
+    showtab: 0, //顶部选项卡索引
+    tabnav: {
+     tabnum: 5,
+     tabitem: [
+     {
+      "id": 0,
+      "text": "全部"
+     },
+     {
+      "id": 1,
+      "text": "教材"
+     },
+     {
+      "id": 2,
+      "text": "课外学习"
+     },
+     {
+      "id": 3,
+      "text": "小说"
+     },
+     {
+      "id": 4,
+      "text": "其他"
+     },
+     ]
+    },
+    productList: [],
   },
+  setTab: function (e) {
+    var that = this
+    const edata = e.currentTarget.dataset;
+    var categ = that.data.tabnav.tabitem[edata.tabindex]
+    console.log(categ)
+    that.setData({
+     showtab: edata.tabindex,
+    })
+    if (categ.id == 0){
+      wx.request({
+        url: server + 'api/book/all_list',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        method: 'GET', // 请求方式
+        success: function (res) { // 请求成功后操作
+          console.log(res.data)
+          if (res.data.code != 200) {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none'
+            });
+            return;
+          }
+          that.data.booklist = res.data.data
+          console.log(that.data.booklist)
+          that.setData({
+            booklist:that.data.booklist
+          })
+        }
+      })
+    }
+    if (categ.id >=1 && categ.id <5){
+      wx.request({
+        url: server + 'api/book/select',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        method: 'POST', // 请求方式
+        data:{
+          category:categ.text
+        },
+        success: function (res) { // 请求成功后操作
+          console.log(res.data)
+          if (res.data.code != 200) {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none'
+            });
+            return;
+          }
+          that.data.booklist = res.data.data
+          console.log(that.data.booklist)
+          that.setData({
+            booklist:that.data.booklist
+          })
+        }
+      })
+    }
+    },
+
   showdetail: function (e) {
     console.log(e.currentTarget.dataset.text)
     getApp().globalData.bookDetail = e.currentTarget.dataset.text
@@ -21,76 +107,10 @@ Page({
     })
   },
 
-  // 添加书籍
-  addbook:function(){
+  // 去查找页面
+  selectbook:function(){
     wx.navigateTo({
-      url: '../addbook/addbook'
-    })
-  },
-
-  first_select: function () {
-    this.data.temp = true
-    this.setData({
-      temp: true,
-      firco: "#436EEE",
-      secco: "#979797",
-    })
-    var that = this
-    wx.request({
-      url: server + 'api/book/person_list',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      method: 'POST', // 请求方式
-      data:{
-        user_id:getApp().globalData.userInfo.user_id
-      },
-      success: function (res) { // 请求成功后操作
-        console.log(res.data)
-        if (res.data.code != 200) {
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none'
-          });
-          return;
-        }
-        that.data.list1 = res.data.data
-        console.log(that.data.list1)
-        that.setData({
-          list1:that.data.list1
-        })
-      }
-    })
-  },
-  second_select: function () {
-    this.data.temp = false
-    this.setData({
-      temp: false,
-      firco: "#979797",
-      secco: "#436EEE",
-    })
-    var that = this
-    wx.request({
-      url: server + 'api/book/all_list',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      method: 'GET', // 请求方式
-      success: function (res) { // 请求成功后操作
-        console.log(res.data)
-        if (res.data.code != 200) {
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none'
-          });
-          return;
-        }
-        that.data.list2 = res.data.data
-        console.log(that.data.list2)
-        that.setData({
-          list2:that.data.list2
-        })
-      }
+      url: '../select/select'
     })
   },
 
@@ -121,16 +141,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // this.setData({
+    //   temp: false,
+    //   firco: "#979797",
+    //   secco: "#436EEE",
+    // })
     var that = this
     wx.request({
-      url: server + 'api/book/person_list',
+      url: server + 'api/book/all_list',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
-      method: 'POST', // 请求方式
-      data:{
-        user_id:getApp().globalData.userInfo.user_id
-      },
+      method: 'GET', // 请求方式
       success: function (res) { // 请求成功后操作
         console.log(res.data)
         if (res.data.code != 200) {
@@ -140,10 +162,10 @@ Page({
           });
           return;
         }
-        that.data.list1 = res.data.data
-        console.log(that.data.list1)
+        that.data.booklist = res.data.data
+        console.log(that.data.booklist)
         that.setData({
-          list1:that.data.list1
+          booklist:that.data.booklist
         })
       }
     })

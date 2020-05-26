@@ -4,22 +4,23 @@
 	<view bindtap="tologin">请先登录</view>
 </view>
 <view wx:else>
-	<view class='bottomrow'>
-		<view class='bottomtab' bindtap="first_select"> 
-			<text class='bottomtabText' style='color:{{firco}};border-bottom:4rpx solid' wx:if="{{temp}}">个人书籍</text>
-			<text class='bottomtabText' style='color:{{firco}}' wx:if="{{!temp}}">个人书籍</text>
+	<scroll-view scroll-x="true" style="width: 100%;white-space:nowrap;">
+ <!-- tab -->
+ <view class="tab">
+  <view class="tab-nav" style='font-size:12px'>
+  <view wx:for="{{tabnav.tabitem}}" bindtap="setTab" data-tabindex="{{index}}" style="min-width:20%;max-width:20%;text-align:center;height: 80rpx;{{ index>4?'border-bottom: 1rpx dotted #ddd;':'' }}">{{item.text}}</view>
+  <view >
+  <view class="tab-line" style="width:{{100/tabnav.tabnum}}%;transform:translateX({{100*showtab}}%);"></view>
+  </view>
+  </view>
+	<view style="width: 20%;">
+			<image class='addbook' src='/images/icon/select.png' bindtap='selectbook'></image>
 		</view>
-		<view class='bottomtab' bindtap="second_select">
-			<text class='bottomtabText' style='color:{{secco}};border-bottom:4rpx solid' wx:if="{{!temp}}">全部书籍</text>
-			<text class='bottomtabText' style='color:{{secco}}' wx:if="{{temp}}">全部书籍</text>
-		</view>
-		<view wx:if="{{temp}}">
-			<image class='addbook' src='/images/icon/addbook.png' bindtap='addbook'></image>
-		</view>
-	</view>
+ </view>
+</scroll-view>
 
 	<scroll-view class="scbg" scroll-y="true" enable-flex="true">
-		<block wx:for="{{temp?list1:list2}}" wx:for-item="itemName" wx:for-index="id">
+		<block wx:for="{{booklist}}" wx:for-item="itemName" wx:for-index="id">
 			<view class='box' id="itemName" bindtap="showdetail" data-text="{{itemName}}">
 				<view class='secondblock'>
        		<view class='name'>

@@ -1,0 +1,26 @@
+<view class='bottomrow'>
+		<view>
+			<image class='addbook' src='/images/icon/addbook.png' bindtap='addbook'></image>
+		</view>
+	</view>	
+  
+  <scroll-view class="scbg" scroll-y="true" enable-flex="true">
+		<block wx:for="{{mybooks}}" wx:key="key" wx:for-item="itemName" wx:for-index="id">
+			<view class='box' id="itemName" bindtap="showdetail" data-text="{{itemName}}">
+				<view class='secondblock'>
+					<view class='name'>
+						<image src="{{itemName.avatarUrl}}" class="touxiang"></image>
+						<text class='showname'>{{itemName.username}}</text>
+					</view>
+					<view class="book-box">
+						<view wx:if="{{itemName.photo}}">
+							<image class='photo' src="{{itemName.photo}}"></image>
+						</view>
+						<text class='bookname'>《{{itemName.bookname}}》</text>
+						<view class='content'>{{itemName.content}}</view>
+						<view class="showtime">{{filters.formatDate(itemName.addtime)}}</view>
+					</view>
+				</view>
+			</view>
+		</block>
+	</scroll-view>

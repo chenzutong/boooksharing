@@ -1,0 +1,37 @@
+<view class="weui-search-bar">
+	<view class="weui-search-bar__form">
+		<view class="weui-search-bar__box">
+			<icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+			<input type="text" class="weui-search-bar__input" placeholder="输入书名" maxlength='10' value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+			<view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+				<icon type="clear" size="14"></icon>
+			</view>
+		</view>
+
+	</view>
+	<view class="weui-search-bar__cancel-btn" bindtap="selectbook">搜索</view>
+</view>
+
+
+
+
+	<scroll-view class="scbg" scroll-y="true" enable-flex="true">
+		<block wx:for="{{booklist}}" wx:for-item="itemName" wx:for-index="id">
+			<view class='box' id="itemName" bindtap="showdetail" data-text="{{itemName}}">
+				<view class='secondblock'>
+       		<view class='name'>
+					<image src="{{itemName.avatarUrl}}" class="touxiang"></image>
+          <text class='showname'>{{itemName.username}}</text>
+        	</view>
+					<view class="book-box">
+						<view wx:if="{{itemName.photo}}">
+							<image class='photo' src="{{itemName.photo}}"></image>
+						</view>
+							<text class='bookname'>《{{itemName.bookname}}》</text>
+							<view class='content'>{{itemName.content}}</view>
+							<view class="showtime">{{filters.formatDate(itemName.addtime)}}</view>
+					</view>
+				</view>
+			</view>
+		</block>
+	</scroll-view>

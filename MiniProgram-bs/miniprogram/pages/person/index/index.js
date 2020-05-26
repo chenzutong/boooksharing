@@ -24,6 +24,13 @@ Page({
     })
   },
 
+  // 去我的书籍页面
+  mybook:function(){
+    wx.navigateTo({
+      url: '/pages/person/mybook/mybook',
+    })
+  },
+
   // 退出登录
   exitlogin:function(){
     getApp().globalData.userInfo = {}
