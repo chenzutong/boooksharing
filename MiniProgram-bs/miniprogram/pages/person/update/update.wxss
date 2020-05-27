@@ -1,11 +1,11 @@
 /* pages/enroll/enroll.wxss */
 
 .first{
-  text-align: center;
+  margin-top: 40rpx;
 }
 
 .first-text{
-  font-size: 33rpx;
+  font-size: 35rpx;
 }
 
 .inputs {
@@ -18,10 +18,10 @@
   display: block;
   outline: 0;
   padding: 0 1em;
-  width: 84%;
   height: 80rpx;
+  width: 100%;
   line-height: 80rpx;
-  margin-top: 40rpx;
+  margin-top: 10rpx;
 }
 
 #btn1 {
@@ -38,9 +38,7 @@
 }
 
 .avatar{
-  margin-top: 2%;
-  margin-left: 8%;
-  margin-right: 8%;
+  margin-top: 5%;
   border-bottom: 1px solid #cfcfcf;
   padding-bottom: 2%;
 }
@@ -53,4 +51,11 @@
 
 .avatar-text{
   margin-left: 8rpx;
+}
+.background{
+  padding-left: 8%;
+  padding-right: 8%;
+}
+.second{
+  margin-top: 40rpx;
 }

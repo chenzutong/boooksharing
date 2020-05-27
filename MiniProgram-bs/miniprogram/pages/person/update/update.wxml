@@ -21,5 +21,5 @@
 		<text class="first-text">专业班级：</text>
 		<textarea value="{{data.classroom}}" class='inputs' type='text' bindinput='classroomInput'> </textarea>
 	</view>
+	<button type="primary" bindtap="confirm" id="btn1">确认修改</button>
 </view>
-<button type="primary" bindtap="confirm" id="btn1">确认修改</button>
