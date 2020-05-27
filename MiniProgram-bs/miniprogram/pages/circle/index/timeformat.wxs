@@ -16,7 +16,7 @@ var formatDate = function (datetime) {
     var hour=date.getHours()+16;
   }
   else{
-    var hour=date.getHours();
+    var hour=date.getHours()-8;
   }
   var min=date.getMinutes();
 

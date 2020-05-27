@@ -10,6 +10,13 @@ Page({
 
   },
 
+  showdetail: function (e) {
+    console.log(e.currentTarget.dataset.text)
+    getApp().globalData.bookDetail = e.currentTarget.dataset.text
+    wx.navigateTo({
+      url: '../detail/detail'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
