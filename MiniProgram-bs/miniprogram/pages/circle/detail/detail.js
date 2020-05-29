@@ -1,4 +1,5 @@
 // pages/circle/detail/detail.js
+var server = getApp().globalData.server
 Page({
 
   /**
@@ -44,6 +45,41 @@ Page({
     })
   },
 
+  // 收藏书籍
+  collect:function(){
+    wx.showLoading({
+      title: '收藏中',
+    })
+    // 与服务器交互
+    wx.request({
+      url: server + 'api/book/collect_add',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST', // 请求方式
+      data: {
+        "user_id": getApp().globalData.userInfo.user_id,
+        "book_id": getApp().globalData.bookDetail.id,
+      },
+      success: function (res) { // 请求成功后操作
+        console.log(res.data)
+        if (res.data.code != 200) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          });
+          setTimeout(function () {
+            wx.hideLoading()
+          }, 2000)
+          return;
+        }
+      }
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -62,10 +98,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log("getApp().globalData.bookDetail",getApp().globalData.circleDetail);
     this.setData({
-      data:getApp().globalData.circleDetail
+      data:getApp().globalData.circleDetail,
+      user_id:getApp().globalData.userInfo.user_id
     })
-
   },
 
   /**

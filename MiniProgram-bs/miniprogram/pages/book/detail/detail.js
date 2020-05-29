@@ -91,7 +91,6 @@ Page({
     wx.showLoading({
       title: '删除中',
     })
-
     wx.request({
       url: server + 'api/book/delete',
       header: {
@@ -142,8 +141,6 @@ Page({
    */
   onShow: function () {
     console.log("getApp().globalData.bookDetail",getApp().globalData.bookDetail);
-    
-    
     this.setData({
       data:getApp().globalData.bookDetail,
       user_id:getApp().globalData.userInfo.user_id

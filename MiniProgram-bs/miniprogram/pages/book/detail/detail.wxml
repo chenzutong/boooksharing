@@ -31,15 +31,10 @@
   <text>\n\n\n\n\n\n</text>
 </scroll-view>
 <!--圆形点击框  -->
-<view class="round-click">
-  <view wx:if="{{data.user_id!=user_id}}" class="img">
+<view class="round-click" wx:if="{{data.user_id!=user_id}}">
+  <view class="img">
     <button  bindtap="collect" class="img-button">
       <image class="but-img" src="/images/icon/collect.png"></image>
-    </button>
-  </view>
-  <view wx:else class="img">
-    <button class="img-button">
-      <image class="but-img"></image>
     </button>
   </view>
    <view class="line">

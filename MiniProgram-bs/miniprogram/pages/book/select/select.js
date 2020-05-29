@@ -22,6 +22,15 @@ Page({
     msg:"",
 
   },
+
+  showdetail: function (e) {
+    console.log(e.currentTarget.dataset.text)
+    getApp().globalData.bookDetail = e.currentTarget.dataset.text
+    wx.navigateTo({
+      url: '../detail/detail'
+    })
+  },
+
 //搜索
   selectbook:function(){
     var data = this.data.msg
