@@ -110,3 +110,9 @@
   margin-left: 425rpx;
   margin-bottom: 10rpx;
 }
+.button2{
+  background-color: #436eee;
+  color: aliceblue;
+  width: 80%;
+  margin-top: 30rpx;
+}
