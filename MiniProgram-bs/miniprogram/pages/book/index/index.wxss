@@ -20,7 +20,7 @@ page {
   border-radius: 12px;
   width: 45.5%;
   background-color: white;
-  border-bottom: 15px solid #EFEFEF;
+  margin-bottom: 15px;
   margin-left: 3%;
 }
 
@@ -78,7 +78,7 @@ page {
 .book-box {
   display: flex;
   flex-flow: column;
-  margin-top: 10rpx;
+  margin-top: 20rpx;
 }
 
 .bookname {
