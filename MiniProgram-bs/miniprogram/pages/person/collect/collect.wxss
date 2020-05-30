@@ -20,7 +20,7 @@ page {
   border-radius: 12px;
   width: 45.5%;
   background-color: white;
-  border-bottom: 15px solid #EFEFEF;
+  border-bottom: 15px ;
   margin-left: 3%;
 }
 

@@ -7,7 +7,7 @@ page {
 
 
 .scbg {
-  top: 10%;
+  top: 8.5%;
   position: absolute;
   background-color: #EFEFEF;
   width: 98%;
@@ -20,7 +20,7 @@ page {
   border-radius: 12px;
   width: 45.5%;
   background-color: white;
-  border-bottom: 15px solid #EFEFEF;
+  margin-bottom: 10px;
   margin-left: 3%;
 }
 
@@ -78,7 +78,7 @@ page {
 .book-box {
   display: flex;
   flex-flow: column;
-  margin-top: 10rpx;
+  margin-top: 20rpx;
 }
 
 .bookname {
@@ -144,7 +144,7 @@ page {
 }
 
 .addbook {
-  top: 20rpx;
+  top: 15rpx;
   right: 20rpx;
   width: 60rpx;
   height: 60rpx;
@@ -156,3 +156,32 @@ page {
   height: 200rpx;
   border-radius: 1px;
 }
+
+
+.tab{
+  display: flex;
+  flex-direction: column;
+ }
+ .tab-nav{
+  width: 88%;
+  height: 80rpx;
+  background: #fff;
+  border-bottom: 0.5rpx dotted #ddd;
+  display: flex;
+  line-height: 79rpx;
+  position: relative;
+ }
+   
+ .tab-line{
+  position: absolute;
+  left: 0;
+  bottom: -1rpx;
+  height: 4rpx;
+  background: #f7982a;
+  transition: all 0.3s;
+ }
+ .tab-content{
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+ }

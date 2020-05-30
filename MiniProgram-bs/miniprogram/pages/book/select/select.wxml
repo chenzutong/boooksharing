@@ -1,15 +1,15 @@
 <view class="weui-search-bar">
 	<view class="weui-search-bar__form">
 		<view class="weui-search-bar__box">
-			<icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-			<input type="text" class="weui-search-bar__input" placeholder="输入书名" maxlength='10' value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
-			<view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
-				<icon type="clear" size="14"></icon>
+			<icon class="weui-icon-search_in-box" type="search" size="20"></icon>
+			<input type="text" class="inputs" placeholder="请输入书名" maxlength='10' value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+			<view  wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+				<icon  class="weui-icon-clear" type="clear" size="20"></icon>
 			</view>
 		</view>
 
 	</view>
-	<view class="weui-search-bar__cancel-btn" bindtap="selectbook">搜索</view>
+	<view  bindtap="selectbook" class="btn">搜索</view>
 </view>
 
 

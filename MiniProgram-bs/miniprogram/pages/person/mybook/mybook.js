@@ -6,9 +6,98 @@ Page({
    * 页面的初始数据
    */
   data: {
-    mybooks:[]
-
+    firco: "#436EEE",
+    secco: "#979797",
+    temp: true,
+    booklist:[],
+    showtab: 0, //顶部选项卡索引
+    tabnav: {
+     tabnum: 5,
+     tabitem: [
+     {
+      "id": 0,
+      "text": "全部"
+     },
+     {
+      "id": 1,
+      "text": "教材"
+     },
+     {
+      "id": 2,
+      "text": "课外学习"
+     },
+     {
+      "id": 3,
+      "text": "小说"
+     },
+     {
+      "id": 4,
+      "text": "其他"
+     },
+     ]
+    },
+    productList: [],
   },
+  setTab: function (e) {
+    var that = this
+    const edata = e.currentTarget.dataset;
+    var categ = that.data.tabnav.tabitem[edata.tabindex]
+    console.log(categ)
+    that.setData({
+     showtab: edata.tabindex,
+    })
+    if (categ.id == 0){
+      wx.request({
+        url: server + 'api/book/all_list',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        method: 'POST', // 请求方式
+        success: function (res) { // 请求成功后操作
+          console.log(res.data)
+          if (res.data.code != 200) {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none'
+            });
+            return;
+          }
+          that.data.mybooks = res.data.data
+          console.log(that.data.mybooks)
+          that.setData({
+            booklist:that.data.mybooks
+          })
+        }
+      })
+    }
+    if (categ.id >=1 && categ.id <5){
+      wx.request({
+        url: server + 'api/book/select',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        method: 'POST', // 请求方式
+        data:{
+          category:categ.text
+        },
+        success: function (res) { // 请求成功后操作
+          console.log(res.data)
+          if (res.data.code != 200) {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none'
+            });
+            return;
+          }
+          that.data.booklist = res.data.data
+          console.log(that.data.booklist)
+          that.setData({
+            booklist:that.data.booklist
+          })
+        }
+      })
+    }
+    },
   // 添加书籍
   addbook:function(){
     wx.navigateTo({

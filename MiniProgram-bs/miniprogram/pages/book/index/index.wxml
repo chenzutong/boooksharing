@@ -15,7 +15,7 @@
   </view>
 	<view style="width: 20%;">
 			<image class='addbook' src='/images/icon/select.png' bindtap='selectbook'></image>
-		</view>
+	</view>
  </view>
 </scroll-view>
 

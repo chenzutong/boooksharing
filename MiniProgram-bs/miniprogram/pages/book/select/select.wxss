@@ -20,7 +20,7 @@ page {
   border-radius: 12px;
   width: 45.5%;
   background-color: white;
-  border-bottom: 15px solid #EFEFEF;
+  border-bottom: 15px ;
   margin-left: 3%;
 }
 
@@ -185,3 +185,45 @@ page {
   overflow-y: auto;
   overflow-x: hidden;
  }
+
+ .inputs {
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 33rpx;
+  border-radius: 12px;
+  border: 1px solid #c8cccf;
+  color: #6a6f77;
+  display: block;
+  outline: 0;
+  padding: 0 1em;
+  height: 80rpx;
+  width: 80%;
+  line-height: 80rpx;
+  margin-top: 20rpx;
+  margin-left: 10%;
+}
+
+.btn {
+  width: 30%;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-left: 35%;
+  margin-top: 50rpx;
+  border-radius: 12px;
+  background-color: #436eee;
+  text-align: center;
+  color: white;
+  font-size: 28rpx;
+}
+
+.weui-icon-search_in-box{
+  position: absolute;
+  top: 40rpx;
+  left: 25rpx;
+}
+
+.weui-icon-clear{
+  position: absolute;
+  top: 40rpx;
+  right: 25rpx;
+}
