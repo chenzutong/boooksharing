@@ -18,7 +18,7 @@
 		<textarea value="{{data.wechatID}}" class='inputs' type='text' bindinput='wechatIDInput'> </textarea>
 	</view>
 	<view class='second'>
-		<text class="first-text">专业班级：</text>
+		<text class="first-text">年级专业班级：</text>
 		<textarea value="{{data.classroom}}" class='inputs' type='text' bindinput='classroomInput'> </textarea>
 	</view>
 	<view class='second'>
