@@ -98,3 +98,18 @@ page{
   display: flex;
   flex-direction: column;
 }
+
+.loginimg{
+  width: 300rpx;
+  height: 300rpx;
+  margin-top: 35%;
+  margin-left: 28%;
+}
+
+.loginsign{
+  text-align: center;
+}
+
+.tologin,.signup{
+  color:#436eee;
+}

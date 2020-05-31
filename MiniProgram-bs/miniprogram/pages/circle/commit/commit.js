@@ -251,9 +251,15 @@ Page({
     
   },
 
-  tologin:function(){
+  //登录注册
+  toLogin: function () {
     wx.navigateTo({
-      url: '/pages/person/login/login'
+      url: '/pages/person/login/login',
+    })
+  },
+  signup: function () {
+    wx.navigateTo({
+      url: '/pages/person/enroll/enroll'
     })
   },
 

@@ -1,5 +1,10 @@
 <view wx:if="{{!donelogin}}">
-	<view bindtap="tologin">请先登录</view>
+		<view>
+			<image class="loginimg" src="/images/icon/login.png"></image>
+		</view>
+		<view class="loginsign">
+			请先<text bindtap="toLogin" class="tologin">登录</text>或<text bindtap="signup" class="signup">注册</text>哦！
+		</view>	
 </view>
 
 <view  wx:else>

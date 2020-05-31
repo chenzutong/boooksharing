@@ -91,6 +91,7 @@ page{
   height: 50rpx;
   margin: auto;
   margin-top: 30rpx;
-  margin-left: 5%;
+  margin-left: 27%;
   margin-right: 5%;
+  margin-bottom: 30rpx;
 }

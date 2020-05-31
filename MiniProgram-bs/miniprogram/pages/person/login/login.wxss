@@ -76,7 +76,7 @@ page {
   height: 50rpx;
   margin: auto;
   margin-top: 30rpx;
-  margin-left: 5%;
+  margin-left: 25%;
   margin-right: 5%;
 }
 
