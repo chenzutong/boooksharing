@@ -17,6 +17,11 @@ Page({
       url: '/pages/person/collect/collect',
     })
   },
+  signup: function () {
+    wx.navigateTo({
+      url: '/pages/person/enroll/enroll'
+    })
+  },
   // 修改信息
   updatainfo:function(){
     wx.navigateTo({

@@ -85,3 +85,19 @@
   transform: rotate(45deg);
   margin-top:30rpx;
   }
+
+  .loginimg{
+    width: 300rpx;
+    height: 300rpx;
+    margin-top: 20%;
+    margin-left: 28%;
+  }
+
+  .loginsign{
+    text-align: center;
+  }
+
+  .tologin,.signup{
+    color:#436eee;
+  }
+

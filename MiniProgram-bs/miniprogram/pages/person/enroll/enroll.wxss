@@ -5,60 +5,69 @@ page{
   right: 0rpx;
   background-color: white;
 }
-
 .first{
-  width: 90%;
+  margin-top: 40rpx;
+}
+
+.first-text{
+  font-size: 35rpx;
+}
+
+.inputs {
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 33rpx;
+  border-radius: 12px;
+  border: 1px solid #c8cccf;
+  color: #6a6f77;
+  display: block;
+  outline: 0;
+  padding: 0 1em;
+  height: 80rpx;
+  width: 100%;
+  line-height: 80rpx;
+  margin-top: 10rpx;
+}
+
+#btn1 {
+  width: 50%;
   height: 100rpx;
+  line-height: 100rpx;
+  margin-left: 25%;
   margin-top: 80rpx;
-  margin-left: 5%;
-  margin-right: 5%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color: #F2F2F2;
-}
-
-.plas{
-  font-size: 30rpx;
-  color: #CCCCCC;
-}
-
-.inputs{
-  line-height: 100rpx;
-  font-size: 30rpx;
-  color: #000;
-  margin: auto;
-  margin-left: 20rpx;
-  width: 100%；
-}
-
-.second{
-  width: 90%;
-  height: 100rpx;
-  margin-top: 30rpx;
-  margin-left: 5%;
-  margin-right: 5%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color: #F2F2F2;
-}
-
-.click{
-  width: 84%;
-  height: 100rpx;
-  line-height: 100rpx;
-  margin: auto;
-  margin-top: 770rpx;
-  margin-left: 8%;
-  margin-right: 8%;
   border-radius: 12px;
   background-color: #436eee;
   text-align: center;
   color: white;
   font-size: 33rpx;
+}
+
+.avatar{
+  margin-top: 5%;
+  border-bottom: 1px solid #cfcfcf;
+  padding-bottom: 2%;
+}
+
+.touxiang{
+  height: 120rpx;
+  width: 120rpx;
+  vertical-align:middle;
+}
+
+.avatar-text{
+  margin-left: 8rpx;
+}
+.background{
+  padding-left: 8%;
+  padding-right: 8%;
+}
+.second{
+  margin-top: 40rpx;
+}
+
+.plas{
+  font-size: 30rpx;
+  color: #CCCCCC;
 }
 
 .cha{
@@ -75,4 +84,13 @@ page{
   font-size: 28rpx;
   margin-left: 15rpx;
   font-family: PingFangSC-regular;
+}
+
+.cha {
+  width: 90%;
+  height: 50rpx;
+  margin: auto;
+  margin-top: 30rpx;
+  margin-left: 5%;
+  margin-right: 5%;
 }

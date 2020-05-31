@@ -14,9 +14,15 @@ Page({
 
   },
 
-  tologin: function () {
-    wx.reLaunch({
-      url: '/pages/person/login/login'
+  //登录注册
+  toLogin: function () {
+    wx.navigateTo({
+      url: '/pages/person/login/login',
+    })
+  },
+  signup: function () {
+    wx.navigateTo({
+      url: '/pages/person/enroll/enroll'
     })
   },
 

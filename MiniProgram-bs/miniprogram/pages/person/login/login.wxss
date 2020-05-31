@@ -6,54 +6,36 @@ page {
   background-color: white;
 }
 
-.first {
-  width: 90%;
-  height: 100rpx;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-top: 80rpx;
-  margin-left: 5%;
-  margin-right: 5%;
-  background-color: #f2f2f2;
+.first{
+  margin-top: 40rpx;
 }
 
-.plas {
-  font-size: 30rpx;
-  color: #CCCCCC;
+.first-text{
+  font-size: 35rpx;
 }
 
 .inputs {
-  line-height: 100rpx;
-  font-size: 30rpx;
-  color: #000;
-  margin: auto;
-  margin-left: 20rpx;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 33rpx;
+  border-radius: 12px;
+  border: 1px solid #c8cccf;
+  color: #6a6f77;
+  display: block;
+  outline: 0;
+  padding: 0 1em;
+  height: 80rpx;
   width: 100%;
+  line-height: 80rpx;
+  margin-top: 10rpx;
 }
 
-.second {
-  width: 90%;
-  height: 100rpx;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30rpx;
-  margin-left: 5%;
-  margin-right: 5%;
-  background-color: #f2f2f2;
-}
-
-.click{
-  width: 84%;
+#btn1 {
+  width: 50%;
   height: 100rpx;
   line-height: 100rpx;
-  margin: auto;
-  margin-top: 770rpx;
-  margin-left: 8%;
-  margin-right: 8%;
+  margin-left: 25%;
+  margin-top: 80rpx;
   border-radius: 12px;
   background-color: #436eee;
   text-align: center;
@@ -61,6 +43,33 @@ page {
   font-size: 33rpx;
 }
 
+.avatar{
+  margin-top: 5%;
+  border-bottom: 1px solid #cfcfcf;
+  padding-bottom: 2%;
+}
+
+.touxiang{
+  height: 120rpx;
+  width: 120rpx;
+  vertical-align:middle;
+}
+
+.avatar-text{
+  margin-left: 8rpx;
+}
+.background{
+  padding-left: 8%;
+  padding-right: 8%;
+}
+.second{
+  margin-top: 40rpx;
+}
+
+.plas {
+  font-size: 30rpx;
+  color: #CCCCCC;
+}
 
 .cha {
   width: 90%;

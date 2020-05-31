@@ -38,6 +38,18 @@ Page({
     },
     productList: [],
   },
+  //登录注册
+  toLogin: function () {
+    wx.navigateTo({
+      url: '/pages/person/login/login',
+    })
+  },
+  signup: function () {
+    wx.navigateTo({
+      url: '/pages/person/enroll/enroll'
+    })
+  },
+  
   setTab: function (e) {
     var that = this
     const edata = e.currentTarget.dataset;

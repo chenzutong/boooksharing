@@ -1,5 +1,10 @@
 @import "../../../style/guide.wxss";
 
+
+page {
+  background-color: #EFEFEF;
+}
+
 .guide .counter {
   margin-top: 50rpx;
   display: flex;
@@ -38,4 +43,20 @@
   margin-top:18rpx;
   font-size: 20rpx;
   color: #bfbfbf;
+}
+
+
+.loginimg{
+  width: 300rpx;
+  height: 300rpx;
+  margin-top: 35%;
+  margin-left: 28%;
+}
+
+.loginsign{
+  text-align: center;
+}
+
+.tologin,.signup{
+  color:#436eee;
 }

@@ -48,7 +48,7 @@ page {
 
 .showtime {
   padding-top: 55rpx;
-  padding-left: 200rpx;
+  padding-left: 190rpx;
   font-size: 20rpx;
   color: gray;
   font-family: PingFangSC-regular;
@@ -185,3 +185,19 @@ page {
   overflow-y: auto;
   overflow-x: hidden;
  }
+
+ .loginimg{
+  width: 300rpx;
+  height: 300rpx;
+  margin-top: 35%;
+  margin-left: 28%;
+}
+
+.loginsign{
+  text-align: center;
+}
+
+.tologin,.signup{
+  color:#436eee;
+}
+
