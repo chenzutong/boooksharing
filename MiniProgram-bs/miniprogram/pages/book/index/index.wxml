@@ -13,7 +13,7 @@
  <!-- tab -->
  <view class="tab">
   <view class="tab-nav" style='font-size:12px'>
-  <view wx:for="{{tabnav.tabitem}}" bindtap="setTab" data-tabindex="{{index}}" style="min-width:20%;max-width:20%;text-align:center;height: 80rpx;{{ index>4?'border-bottom: 1rpx dotted #ddd;':'' }}">{{item.text}}</view>
+  <view wx:for="{{tabnav.tabitem}}"  wx:key="key" bindtap="setTab" data-tabindex="{{index}}" style="min-width:20%;max-width:20%;text-align:center;height: 80rpx;{{ index>4?'border-bottom: 1rpx dotted #ddd;':'' }}">{{item.text}}</view>
   <view >
   <view class="tab-line" style="width:{{100/tabnav.tabnum}}%;transform:translateX({{100*showtab}}%);"></view>
   </view>
@@ -25,7 +25,7 @@
 </scroll-view>
 
 	<scroll-view class="scbg" scroll-y="true" enable-flex="true">
-		<block wx:for="{{booklist}}" wx:for-item="itemName" wx:for-index="id">
+		<block wx:for="{{booklist}}" wx:key="key" wx:for-item="itemName" wx:for-index="id">
 			<view class='box' id="itemName" bindtap="showdetail" data-text="{{itemName}}">
 				<view class='secondblock'>
        		<view class='name'>

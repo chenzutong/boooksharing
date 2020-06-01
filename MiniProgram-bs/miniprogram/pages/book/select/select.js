@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    booklist:[],
+    booklist: [],
     // 搜索框状态
     inputShowed: true,
     //显示结果view的状态
@@ -17,9 +17,12 @@ Page({
     //搜索渲染推荐数据
     catList: [],
 
+    // 清除历史
+    delectbool:false,
+
     btnWidth: 300, //删除按钮的宽度单位
     startX: "", //收支触摸开始滑动的位置
-    msg:"",
+    msg: "",
 
   },
 
@@ -31,23 +34,70 @@ Page({
     })
   },
 
-//搜索
-  selectbook:function(){
+  //搜索
+  selectbook: function () {
     var data = this.data.msg
-    console.log("data",data)
+    console.log("data", data)
     var that = this;
-    if (data == ''){
-        return;
+    if (data == '') {
+      return;
     }
-    
+    // 获取缓存
+    var select_log = [data]
+    try {
+      var value = wx.getStorageSync('select_log')
+      if (value) {
+        console.log(">>>>>>>>>>>", value)
+        select_log = select_log.concat(value)
+        console.log("select_log:", select_log)
+        if (select_log.length > 5) {
+          console.log(">>>>>>>>>>>")
+          select_log.pop()
+        }
+      }
+    } catch (e) { }
+    // 缓存
+    try {
+      wx.setStorageSync('select_log', select_log)
+    } catch (e) { }
+    that.setData({
+      select_log: select_log,
+      delectbool:true
+    })
+    that.selectapi(data)
+  },
+
+  // 历史搜索
+  stotageSelect: function (e) {
+    console.log(e.currentTarget.dataset.text)
+    this.selectapi(e.currentTarget.dataset.text)
+  },
+
+  // 删除历史缓存
+  deleteLog:function(){
+    try {
+      wx.removeStorageSync('select_log')
+    } catch (e) {
+      console.log(">>>>>>>>>>>>",e)
+      return
+    }
+    this.setData({
+      select_log:[],
+      delectbool:false
+    })
+  },
+
+  // 请求查找api
+  selectapi(data) {
+    var that = this
     wx.request({
       url: server + 'api/book/select_like',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       method: 'POST', // 请求方式
-      data:{
-        msg:data
+      data: {
+        msg: data
       },
       success: function (res) { // 请求成功后操作
         console.log(res.data)
@@ -61,7 +111,7 @@ Page({
         that.data.booklist = res.data.data
         console.log(that.data.booklist)
         that.setData({
-          booklist:that.data.booklist
+          booklist: that.data.booklist
         })
       }
     })
@@ -70,7 +120,7 @@ Page({
   // 隐藏搜索框样式
   hideInput: function () {
     this.setData({
-      booklist:[],
+      booklist: [],
       inputVal: "",
       inputShowed: false
     });
@@ -78,7 +128,7 @@ Page({
   // 清除搜索框值
   clearInput: function () {
     this.setData({
-      booklist:[],
+      booklist: [],
       inputVal: "",
     });
   },
@@ -110,6 +160,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this
+    console.log("***************")
+    wx.getStorage({
+      key: 'select_log',
+      success(res) {
+        console.log("select_log:", res.data)
+        that.setData({
+          select_log: res.data,
+          delectbool:true
+        })
+      }
+    })
 
   },
 

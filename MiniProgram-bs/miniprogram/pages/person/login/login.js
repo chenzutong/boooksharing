@@ -73,10 +73,10 @@ Page({
             title: res.data.msg,
             icon: 'none'
           });
+          wx.reLaunch({
+            url: "/pages/load/load"
+          })
         }
-      })
-      wx.reLaunch({
-        url: "/pages/load/load"
       })
     }
   },
