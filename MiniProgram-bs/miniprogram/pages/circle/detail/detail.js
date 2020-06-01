@@ -80,6 +80,42 @@ Page({
     }, 2000)
   },
 
+  // 删除动态
+  deleteCircle:function(){
+    wx.showLoading({
+      title: '删除中',
+    })
+    wx.request({
+      url: server + 'api/book/delete',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST', // 请求方式
+      data:{
+        id:getApp().globalData.bookDetail.id
+      },
+      success: function (res) { // 请求成功后操作
+        console.log(res.data)
+        if (res.data.code != 200) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          });
+          setTimeout(function () {
+            wx.hideLoading()
+          }, 2000)
+          return;
+        }
+        setTimeout(function () {
+          wx.hideLoading()
+        }, 2000)
+        wx.switchTab({
+          url: "/pages/book/index/index",
+        })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
