@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isCollect:true,
   },
 
   toEdit:function(){
@@ -51,14 +51,14 @@ Page({
     })
   },
 
-  // 收藏书籍
-  collect:function(){
+  // 取消收藏
+  collectDelete:function(){
     wx.showLoading({
-      title: '收藏中',
+      title: '取消收藏中',
     })
     // 与服务器交互
     wx.request({
-      url: server + 'api/book/collect_add',
+      url: server + 'api/book/collect_delete',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
@@ -84,6 +84,9 @@ Page({
     setTimeout(function () {
       wx.hideLoading()
     }, 2000)
+    this.setData({
+      isCollect:false
+    })
   },
 
   // 删除书籍

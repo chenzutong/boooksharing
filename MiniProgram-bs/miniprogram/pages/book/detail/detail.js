@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isCollect:false,
 
   },
 
@@ -53,6 +54,7 @@ Page({
 
   // 收藏书籍
   collect:function(){
+    var that = this
     wx.showLoading({
       title: '收藏中',
     })
@@ -79,6 +81,9 @@ Page({
           }, 2000)
           return;
         }
+        that.setData({
+          isCollect:true
+        })
       }
     })
     setTimeout(function () {

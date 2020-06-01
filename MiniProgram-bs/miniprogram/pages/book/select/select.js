@@ -83,7 +83,7 @@ Page({
     }
     this.setData({
       select_log:[],
-      delectbool:false
+      delectbool:false,
     })
   },
 

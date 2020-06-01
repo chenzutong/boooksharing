@@ -34,7 +34,8 @@
 <view class="round-click" wx:if="{{data.user_id!=user_id}}">
   <view class="img">
     <button  bindtap="collect" class="img-button">
-      <image class="but-img" src="/images/icon/collect.png"></image>
+      <image wx:if="{{isCollect}}" class="but-img" src="/images/icon/collected.png"></image>
+      <image wx:else class="but-img" src="/images/icon/collect.png"></image>
     </button>
   </view>
    <view class="line">
