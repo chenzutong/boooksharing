@@ -70,7 +70,11 @@ Page({
   // 历史搜索
   stotageSelect: function (e) {
     console.log(e.currentTarget.dataset.text)
+    this.setData({
+      inputVal:e.currentTarget.dataset.text
+    })
     this.selectapi(e.currentTarget.dataset.text)
+    
   },
 
   // 删除历史缓存
