@@ -42,7 +42,7 @@ var formatDate = function (datetime) {
   else if((day1-day==1)&&(hour>hour1)){
     return (hour1+24-hour)+"小时前";
   }
-  else if((day==day1)&&(hou1>hour)){
+  else if((day==day1)&&(hour1>hour)){
     return (hour1-hour)+"小时前";
   }
   else if((hour1==hour)&&(min1>min)){
