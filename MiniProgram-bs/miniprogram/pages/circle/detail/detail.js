@@ -129,13 +129,14 @@ Page({
       title: '删除中',
     })
     wx.request({
-      url: server + 'api/book/delete',
+      url: server + 'api/circle/delete',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       method: 'POST', // 请求方式
       data:{
-        id:getApp().globalData.circleDetail.id
+        id:getApp().globalData.circleDetail.id,
+        type:getApp().globalData.circletype
       },
       success: function (res) { // 请求成功后操作
         console.log(res.data)
@@ -153,7 +154,7 @@ Page({
           wx.hideLoading()
         }, 2000)
         wx.switchTab({
-          url: "/pages/book/index/index",
+          url: "/pages/circle/index/index",
         })
       }
     })
@@ -177,7 +178,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log("getApp().globalData.bookDetail",getApp().globalData.circleDetail);
+    console.log("getApp().globalData.circleDetail",getApp().globalData.circleDetail);
     this.setData({
       data:getApp().globalData.circleDetail,
       user_id:getApp().globalData.userInfo.user_id

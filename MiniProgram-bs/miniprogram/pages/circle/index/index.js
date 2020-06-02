@@ -24,6 +24,7 @@ Page({
 
   // 点击寻书动态
   first_select: function (e) {
+    getApp().globalData.circletype = "seek"
     this.setData({
       temp: true,
       firco: "#436EEE",
@@ -56,6 +57,7 @@ Page({
 
   // 点击出书动态
   second_select: function (e) {
+    getApp().globalData.circletype = "lend"
     this.setData({
       temp: false,
       firco: "#979797",
@@ -115,6 +117,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    getApp().globalData.circletype = "seek"
     var that = this
     wx.request({
       url: server + 'api/circle/circle_seek',
