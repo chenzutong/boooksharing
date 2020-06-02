@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isCollected:false,
+    colectlist:[]
   },
 
   // 聊天
@@ -45,8 +46,47 @@ Page({
     })
   },
 
+ // 取消收藏
+ collectDelete:function(){
+  wx.showLoading({
+    title: '取消收藏中',
+  })
+  // 与服务器交互
+  wx.request({
+    url: server + 'api/book/collect_delete',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    method: 'POST', // 请求方式
+    data: {
+      "user_id": getApp().globalData.userInfo.user_id,
+      "book_id": getApp().globalData.circleDetail.id,
+    },
+    success: function (res) { // 请求成功后操作
+      console.log(res.data)
+      if (res.data.code != 200) {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none'
+        });
+        setTimeout(function () {
+          wx.hideLoading()
+        }, 2000)
+        return;
+      }
+    }
+  })
+  setTimeout(function () {
+    wx.hideLoading()
+  }, 2000)
+  this.setData({
+    isCollected:false
+  })
+},
+
   // 收藏书籍
   collect:function(){
+    console.log(getApp().globalData.circleDetail.id)
     wx.showLoading({
       title: '收藏中',
     })
@@ -59,7 +99,7 @@ Page({
       method: 'POST', // 请求方式
       data: {
         "user_id": getApp().globalData.userInfo.user_id,
-        "book_id": getApp().globalData.bookDetail.id,
+        "book_id": getApp().globalData.circleDetail.id,
       },
       success: function (res) { // 请求成功后操作
         console.log(res.data)
@@ -78,6 +118,9 @@ Page({
     setTimeout(function () {
       wx.hideLoading()
     }, 2000)
+    this.setData({
+      isCollected:true
+    })
   },
 
   // 删除动态
@@ -92,7 +135,7 @@ Page({
       },
       method: 'POST', // 请求方式
       data:{
-        id:getApp().globalData.bookDetail.id
+        id:getApp().globalData.circleDetail.id
       },
       success: function (res) { // 请求成功后操作
         console.log(res.data)
@@ -139,6 +182,42 @@ Page({
       data:getApp().globalData.circleDetail,
       user_id:getApp().globalData.userInfo.user_id
     })
+
+    var that = this
+    wx.request({
+      url: server + 'api/book/collect_list',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST', // 请求方式
+      data:{
+        user_id:getApp().globalData.userInfo.user_id
+      },
+      success: function (res) { // 请求成功后操作
+        console.log(res.data)
+        if (res.data.code != 200) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          });
+          return;
+        }
+        that.data.colectlist = res.data.data
+        console.log(that.data.colectlist)
+        that.setData({
+          colectlist:that.data.colectlist
+        })
+        for(var i in that.data.colectlist){
+          if(that.data.colectlist[i].id==getApp().globalData.circleDetail.id){
+            that.setData({
+              isCollected:true
+            })
+          }
+        }
+      }
+    })
+
+
   },
 
   /**

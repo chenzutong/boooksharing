@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isCollect:false,
-
+    isCollected:false,
+    colectlist:[]
   },
 
   toEdit:function(){
@@ -52,6 +52,44 @@ Page({
     })
   },
 
+  // 取消收藏
+  collectDelete:function(){
+    wx.showLoading({
+      title: '取消收藏中',
+    })
+    // 与服务器交互
+    wx.request({
+      url: server + 'api/book/collect_delete',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST', // 请求方式
+      data: {
+        "user_id": getApp().globalData.userInfo.user_id,
+        "book_id": getApp().globalData.bookDetail.id,
+      },
+      success: function (res) { // 请求成功后操作
+        console.log(res.data)
+        if (res.data.code != 200) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          });
+          setTimeout(function () {
+            wx.hideLoading()
+          }, 2000)
+          return;
+        }
+      }
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
+    this.setData({
+      isCollected:false
+    })
+  },
+
   // 收藏书籍
   collect:function(){
     var that = this
@@ -82,7 +120,7 @@ Page({
           return;
         }
         that.setData({
-          isCollect:true
+          isCollected:true
         })
       }
     })
@@ -149,6 +187,40 @@ Page({
     this.setData({
       data:getApp().globalData.bookDetail,
       user_id:getApp().globalData.userInfo.user_id
+    })
+
+    var that = this
+    wx.request({
+      url: server + 'api/book/collect_list',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST', // 请求方式
+      data:{
+        user_id:getApp().globalData.userInfo.user_id
+      },
+      success: function (res) { // 请求成功后操作
+        console.log(res.data)
+        if (res.data.code != 200) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          });
+          return;
+        }
+        that.data.colectlist = res.data.data
+        console.log(that.data.colectlist)
+        that.setData({
+          colectlist:that.data.colectlist
+        })
+        for(var i in that.data.colectlist){
+          if(that.data.colectlist[i].id==getApp().globalData.bookDetail.id){
+            that.setData({
+              isCollected:true
+            })
+          }
+        }
+      }
     })
   },
 
