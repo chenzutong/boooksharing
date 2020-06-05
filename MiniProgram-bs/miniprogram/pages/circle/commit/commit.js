@@ -20,12 +20,12 @@ Page({
     delete:false,
     items: [{
         name: 'free',
-        value: '免费',
+        value: '免费送出　',
         checked: 'true'
       },
       {
         name: 'bargaining',
-        value: '议价'
+        value: '议价出售'
       }
     ],
     array: ['教材', '小说', '课外学习', '其他'],

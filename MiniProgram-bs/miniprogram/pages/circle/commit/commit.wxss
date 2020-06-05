@@ -87,8 +87,17 @@ page{
   right: 580rpx;
 }
 
+.picker-box{
+  display: flex;
+  margin-top: 20rpx;
+}
+
 .picker{
-  border: 1px solid #ccc;
+  position: absolute;
+  top: 64.6%;
+  width: auto;
+  border: 1px solid #515151;
+  border-radius: 5px;
 }
 .section{
   margin-top: 35rpx;
@@ -112,4 +121,8 @@ page{
 
 .tologin,.signup{
   color:#436eee;
+}
+
+.switch{
+  zoom: 0.8;
 }

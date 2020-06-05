@@ -7,7 +7,7 @@ page {
 
 
 .scbg {
-  top: 8.5%;
+  top: 3%;
   position: absolute;
   background-color: #EFEFEF;
   width: 98%;
@@ -16,7 +16,15 @@ page {
   flex-wrap: wrap;
 }
 
-.box {
+.box{
+  border-radius: 12px;
+  width: 45.5%;
+  background-color: white;
+  margin-bottom: 10px;
+  margin-left: 3%;
+}
+
+.addbox{
   border-radius: 12px;
   width: 45.5%;
   background-color: white;
@@ -184,4 +192,18 @@ page {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
+ }
+
+
+ .addmybook{
+  margin-top: 30%;
+  margin-left: 20%;
+  height: 200rpx;
+  width: 200rpx;
+ }
+
+ .addtxt{
+   font-weight: big;
+   color: #515151;
+   margin-left: 30%;
  }

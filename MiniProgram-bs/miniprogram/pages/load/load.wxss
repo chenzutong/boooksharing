@@ -1,9 +1,14 @@
 /* pages/load/load.wxss */
 
+
+page {
+  background-color: #EFEFEF;
+}
+
 .mai{
   width: 80%;
   height: 300rpx;
-  margin-top: 350rpx;
+  margin-top: 20%;
   margin-left: 10%;
   margin-right: 10%;
 }
@@ -11,15 +16,15 @@
 .but{
   width: 70%;
   height:80rpx;
-  background-color: #04be01;
-  border-radius: 10rpx;
-  align-content: center;
-  text-align: center;
   margin-left: 15%;
   margin-right: 15%;
+  margin: auto;
+  border-radius: 12px;
+  background-color: #436eee;
   color: white;
-  font-size: 37rpx;
-  font-weight: bold;
+  font-size: 33rpx;
+  vertical-align:middle;
+  text-align: center;
 }
 
 .med{
@@ -36,4 +41,20 @@
   font-weight: 10rpx;
   margin-top: 10rpx;
   margin: auto;
+}
+
+.logotxt{
+  width: 92%;
+  color: black;
+  font-size: 40rpx;
+  font-weight: 15rpx;
+  margin-left: 38%;
+  margin-bottom: 20%;
+}
+
+.logo{
+  height: 300rpx;
+  width: 300rpx;
+  border-radius: 36px;
+  margin-left: 25%;
 }

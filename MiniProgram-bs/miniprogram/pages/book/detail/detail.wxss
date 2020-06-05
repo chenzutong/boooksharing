@@ -76,14 +76,7 @@
   background-color: white;
   border-top: 2rpx solid white;
 }
-.button{
-  font-size: 25rpx;
-  margin-right: 20rpx;
-  border-radius: 30px;
-  background: linear-gradient(to right,orange, red);
-  color: white;
-  padding: 5rpx 50rpx;
-}
+
 .img-button{
   display: flex;
   flex-direction: column;
@@ -111,8 +104,10 @@
   margin-bottom: 10rpx;
 }
 .button2{
-  background-color: #436eee;
-  color: aliceblue;
   margin-top: 30rpx;
-  width: 80%;
+  width: 60rpx;
+  height:60rpx;
+  position: absolute;
+  top: -1.5%;
+  right: 10%;
 }

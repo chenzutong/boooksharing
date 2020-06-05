@@ -22,7 +22,7 @@
     <text wx:if="{{data.sendtime}}" class="time">\n\n{{filters.formatDate(data.sendtime)}}\n\n\n</text>
   </view>
   <view wx:if="{{data.user_id==user_id}}">
-    <button class="button2" bindtap="deleteCircle">删除</button>
+    <image class="button2" bindtap="deleteBook" src="/images/icon/deletecircle.png"></image>
   </view>
   <text>\n\n\n\n\n\n</text>
 </scroll-view>

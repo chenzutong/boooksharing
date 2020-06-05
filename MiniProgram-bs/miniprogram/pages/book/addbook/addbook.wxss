@@ -9,8 +9,6 @@ page{
   width: 100%;
   background-color: #fff;
   position: fixed;
-  padding-top: 30rpx;
-  padding-bottom: 30rpx;
 }
 
 .textinput{
@@ -25,20 +23,21 @@ page{
 
 .bookname{
   width: 96%;
-  height: 50rpx;
+  height: 60rpx;
+  text-align: left;
   margin-left: 2%;
   margin-right: 2%;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
   font-size: 38rpx;
+  margin-top: 2%;
 }
 
 .click{
   width: 84%;
   height: 100rpx;
   line-height: 100rpx;
-  margin: auto;
-  margin-top: 900rpx;
+  margin-top: 950rpx;
   margin-left: 8%;
   margin-right: 8%;
   border-radius: 12px;
@@ -87,7 +86,43 @@ page{
   top: 320rpx;
   right: 580rpx;
 }
+
+.picker-box{
+  display: flex;
+  margin-top: 20rpx;
+}
+
+.picker{
+  position: absolute;
+  top: 64.6%;
+  width: auto;
+  border: 1px solid #436eee;
+  border-radius: 5px;
+}
 .section{
   margin-top: 35rpx;
-  font-size: 35rpx;
+  font-size: 30rpx;
+}
+.flex{
+  display: flex;
+  flex-direction: column;
+}
+
+.loginimg{
+  width: 300rpx;
+  height: 300rpx;
+  margin-top: 35%;
+  margin-left: 28%;
+}
+
+.loginsign{
+  text-align: center;
+}
+
+.tologin,.signup{
+  color:#436eee;
+}
+
+.switch{
+  zoom: 0.8;
 }

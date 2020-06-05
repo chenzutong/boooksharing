@@ -52,7 +52,7 @@ Page({
         header: {
           'content-type': 'application/x-www-form-urlencoded'
         },
-        method: 'POST', // 请求方式
+        method: 'GET', // 请求方式
         success: function (res) { // 请求成功后操作
           console.log(res.data)
           if (res.data.code != 200) {
