@@ -7,18 +7,17 @@
 				<icon class="weui-icon-clear" type="clear" size="20"></icon>
 			</view>
 		</view>
-		<view wx:for="{{select_log}}" wx:key="key">
-			<view bindtap="stotageSelect"  data-text="{{item}}">{{item}}</view>
+		<view wx:if="{{ifshowhistory}}">
+			<scroll-view class="scbg" enable-flex="true">
+				<view  wx:for="{{select_log}}" wx:key="key">
+					<view  class="historybtn" bindtap="stotageSelect"  data-text="{{item}}">{{item}}</view>
+				</view>
+			</scroll-view>
+			<view class="deletehistory" wx:if="{{delectbool}}" bindtap="deleteLog">清除历史记录</view>
+			<view bindtap="selectbook" class="btn">搜索</view>
 		</view>
-		<view wx:if="{{delectbool}}" bindtap="deleteLog">清除历史记录</view>
 	</view>
-	<view bindtap="selectbook" class="btn">搜索</view>
 </view>
-
-
-
-
-
 
 <scroll-view class="scbg" scroll-y="true" enable-flex="true">
 	<block wx:for="{{booklist}}" wx:key="key" wx:for-item="itemName" wx:for-index="id">

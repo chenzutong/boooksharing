@@ -7,10 +7,7 @@ page {
 
 
 .scbg {
-  top: 10%;
-  position: absolute;
-  background-color: #EFEFEF;
-  width: 98%;
+  margin-top: 20rpx;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -226,4 +223,29 @@ page {
   position: absolute;
   top: 40rpx;
   right: 25rpx;
+}
+.history{
+  display: flex;
+  flex-direction: row;
+}
+.historybtn{
+  font-size: 35rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-bottom: 10rpx;
+  padding-top: 10rpx;
+  border-radius: 30rpx;
+  background-color: Azure;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+.deletehistory{
+  margin-top: 30rpx;
+  padding: 10rpx;
+  color: blue;
+  background-color: GhostWhite;
+  border-radius: 20rpx;
+  font-size: 30rpx;
+  margin-right: 520rpx;
+  margin-left: 30rpx;
 }

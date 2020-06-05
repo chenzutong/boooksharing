@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    ifshowhistory: true,
     booklist: [],
     // 搜索框状态
     inputShowed: true,
@@ -61,6 +62,7 @@ Page({
       wx.setStorageSync('select_log', select_log)
     } catch (e) { }
     that.setData({
+      ifshowhistory:false,
       select_log: select_log,
       delectbool:true
     })
@@ -71,6 +73,7 @@ Page({
   stotageSelect: function (e) {
     console.log(e.currentTarget.dataset.text)
     this.setData({
+      ifshowhistory:false,
       inputVal:e.currentTarget.dataset.text
     })
     this.selectapi(e.currentTarget.dataset.text)
@@ -132,6 +135,7 @@ Page({
   // 清除搜索框值
   clearInput: function () {
     this.setData({
+      ifshowhistory:true,
       booklist: [],
       inputVal: "",
     });
