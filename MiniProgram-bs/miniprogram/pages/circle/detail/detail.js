@@ -86,6 +86,7 @@ Page({
 
   // 收藏书籍
   collect:function(){
+    var that=this;
     console.log(getApp().globalData.circleDetail.id)
     wx.showLoading({
       title: '收藏中',
@@ -102,7 +103,12 @@ Page({
         "book_id": getApp().globalData.circleDetail.id,
       },
       success: function (res) { // 请求成功后操作
-        console.log(res.data)
+        // console.log(res.data);
+        if (res.data.code == 200) {
+          that.setData({
+            isCollected:true
+          })
+        }
         if (res.data.code != 200) {
           wx.showToast({
             title: res.data.msg,
@@ -118,9 +124,6 @@ Page({
     setTimeout(function () {
       wx.hideLoading()
     }, 2000)
-    this.setData({
-      isCollected:true
-    })
   },
 
   // 删除动态

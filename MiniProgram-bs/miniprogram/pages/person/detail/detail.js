@@ -94,7 +94,6 @@ Page({
     wx.showLoading({
       title: '删除中',
     })
-
     wx.request({
       url: server + 'api/book/delete',
       header: {
@@ -120,7 +119,7 @@ Page({
           wx.hideLoading()
         }, 2000)
         wx.switchTab({
-          url: "/pages/book/index/index",
+          url: "/pages/person/index/index",
         })
       }
     })
