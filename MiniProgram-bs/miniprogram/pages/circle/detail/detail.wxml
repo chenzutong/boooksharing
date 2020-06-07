@@ -37,6 +37,6 @@
     </button>
   </view>
    <view class="line">
-    <button class="button" bindtap="toChatroom">联系Ta</button>
+    <button class="but-line" bindtap="toChatroom">联系Ta</button>
   </view>
 </view>

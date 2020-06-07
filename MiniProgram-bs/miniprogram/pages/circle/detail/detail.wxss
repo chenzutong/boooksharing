@@ -111,3 +111,14 @@
   top: -1.5%;
   right: 10%;
 }
+.but-line{
+  font-size: 25rpx;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  border-radius: 50rpx;
+  color: azure;
+  background: linear-gradient(red, orange);
+  margin-left: 50rpx;
+}
