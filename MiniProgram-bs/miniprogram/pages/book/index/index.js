@@ -114,6 +114,7 @@ Page({
   showdetail: function (e) {
     console.log(e.currentTarget.dataset.text)
     getApp().globalData.bookDetail = e.currentTarget.dataset.text
+    getApp().globalData.circleDetail = e.currentTarget.dataset.text
     wx.navigateTo({
       url: '../detail/detail'
     })
