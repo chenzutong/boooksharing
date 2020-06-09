@@ -94,9 +94,9 @@ page{
 
 .picker{
   position: absolute;
-  top: 64.6%;
+  top: 64.4%;
   width: auto;
-  border: 1px solid #515151;
+  border: 1px solid #436eee;
   border-radius: 5px;
 }
 .section{

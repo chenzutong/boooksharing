@@ -20,13 +20,13 @@
 <!-- </scroll-view> -->
 	<!-- tab -->
  <view class="tabscr">
- <scroll-view scroll-x class="navbar" scroll-with-animation scroll-left="{{scrollLeft}}rpx">
+ <scroll-view scroll-x class="navbar" scroll-with-animation scroll-left="{{scrollLeft}}rpx" >
   <view class="nav-item" wx:for="{{tabs}}" wx:key="id" bindtap="tabSelect" data-id="{{index}}">
     <view class="nav-text {{index==tabCur?'tab-on':''}}">{{item.text}}</view>
   </view>
-</scroll-view>
-	<view style="width: 17%;background: #fff;">
-			<image class='addbook' src='/images/icon/select.png' bindtap='selectbook'></image>
+	</scroll-view>
+	<view style="width: 17%;background: #fff;position: fixed;top: 0;z-index: 1;">
+			<image class='addbook' src='/images/icon/select.png' bindtap='selectbook' ></image>
 	</view>
  </view>
 

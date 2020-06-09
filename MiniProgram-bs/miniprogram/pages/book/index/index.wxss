@@ -145,10 +145,10 @@ page {
 
 .addbook {
   top: 15rpx;
-  right: 40rpx;
+  right: 25rpx;
   width: 70rpx;
   height: 70rpx;
-  position: absolute;
+  position: fixed;
 }
 
 .photo {
@@ -203,25 +203,28 @@ page {
   width:100%;
   height: 90rpx;
   background: #fff;
-  display: flex;
-  flex-direction: column;
+  /* 顶部固定 */
+  position: fixed;
+  top: 0;
+  z-index: 1;
  }
 
 .navbar {
   width:83%;
-   height: 90rpx;
+  height: 90rpx;
   /* 文本不换行 */
   white-space: nowrap;
-  display: flex;
   box-sizing: border-box;
   border-bottom: 1rpx solid #eee;
   background: #fff;
   align-items: center;
   /* 固定在顶部 */
   position: fixed;
-  left: 0rpx;
-  top: 0rpx;
+  left: 0;
+  top: 0;
+  z-index: 1;
 }
+
 
 .nav-item {
   padding-left: 25rpx;
@@ -243,9 +246,9 @@ page {
 }
 
 .tab-on {
-  color: #fbbd08;
+  color: #436eee;
   /* 选中放大 */
   font-size: 38rpx !important;
   font-weight: 600;
-  border-bottom: 4rpx solid #fbbd08 !important;
+  border-bottom: 4rpx solid #436eee !important;
 }
