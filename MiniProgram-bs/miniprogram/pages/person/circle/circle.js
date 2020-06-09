@@ -10,6 +10,16 @@ Page({
     circleList:[]
   },
 
+  // 跳转到详情页面
+  showdetail: function (e) {
+    console.log("e.currentTarget.dataset.text",e.currentTarget.dataset.text)
+    getApp().globalData.circletype = e.currentTarget.dataset.text.circleType
+    getApp().globalData.circleDetail = e.currentTarget.dataset.text
+    wx.navigateTo({
+      url: '/pages/circle/detail/detail'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

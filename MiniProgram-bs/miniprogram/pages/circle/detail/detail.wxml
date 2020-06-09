@@ -22,19 +22,19 @@
     <text wx:if="{{data.sendtime}}" class="time">\n\n{{filters.formatDate(data.sendtime)}}\n\n\n</text>
   </view>
   <view wx:if="{{data.user_id==user_id}}">
-    <image class="button2" bindtap="deleteBook" src="/images/icon/deletecircle.png"></image>
+    <image class="button2" bindtap="deleteCircle" src="/images/icon/deletecircle.png"></image>
   </view>
   <text>\n\n\n\n\n\n</text>
 </scroll-view>
 <!--圆形点击框  -->
 <view class="round-click" wx:if="{{data.user_id!=user_id}}">
   <view  class="img">
-    <button wx:if="{{isCollected}}" bindtap="collectDelete" class="img-button">
+    <!-- <button wx:if="{{isCollected}}" bindtap="collectDelete" class="img-button">
       <image class="but-img" src="/images/icon/collected.png"></image>
     </button>
     <button wx:else bindtap="collect" class="img-button">
       <image class="but-img" src="/images/icon/collect.png"></image>
-    </button>
+    </button> -->
   </view>
    <view class="line">
     <button class="but-line" bindtap="toChatroom">联系Ta</button>
