@@ -140,3 +140,8 @@ page{
   font-size: 25rpx;
   color: blue;
 }
+
+.bottomline{
+  font-size: 20rpx;
+  text-align:center;
+}
