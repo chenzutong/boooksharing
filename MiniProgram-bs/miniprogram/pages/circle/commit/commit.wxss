@@ -71,6 +71,13 @@ page{
   font-size: 35rpx;
   color: #979797;
 }
+  /* 选中放大 */
+  .bottomtabTextOn{
+    color: #436eee;
+    font-size: 38rpx !important;
+    font-weight: 600;
+    border-bottom: 4rpx solid #436eee !important;
+  }
 
 .addphoto .photo{
   margin: 10rpx;
@@ -94,9 +101,9 @@ page{
 
 .picker{
   position: absolute;
-  top: 64.6%;
+  top: 64.4%;
   width: auto;
-  border: 1px solid #515151;
+  border: 1px solid #436eee;
   border-radius: 5px;
 }
 .section{
