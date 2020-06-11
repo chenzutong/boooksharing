@@ -11,13 +11,15 @@
 <view wx:else>
 	<block wx:for="{{roomlist}}" wx:key="key" wx:for-item="itemName" wx:for-index="id">
 		<view class="uploader">
-			<view bindtap="toChatroom" data-text="{{itemName}}">
-				<view class="first-block">
+			<view class="toChatroom" bindtap="toChatroom" data-text="{{itemName}}">
 					<image src="{{itemName.avatar}}" class="touxiang"></image>
+				<view class="first-block">
 					<view class="tel">
+					<view class="nametime">
 						<text class="showname">{{itemName.nickName}}</text>
+						<text class="showtime">{{filters.formatDate(itemName.sendTimeTS)}}</text>
+					</view>
 						<text class="lastword">{{itemName.textContent}}</text>
-						<text class='showtime'>{{filters.formatDate(itemName.sendTimeTS)}}</text>
 					</view>
 					<view wx:if="{{itemName.photo}}" class="showphoto">
 					<image src="{{itemName.photo}}"></image>

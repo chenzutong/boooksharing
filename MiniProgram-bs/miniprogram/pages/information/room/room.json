@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText":"",
+  "navigationBarTitleText":"聊天室",
   "usingComponents": {
     "chatroom": "/components/chatroom/chatroom"
   }

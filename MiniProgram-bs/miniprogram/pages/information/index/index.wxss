@@ -15,34 +15,42 @@ page {
 .first-block{
   display: flex;
   align-items:center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 20rpx;
+  width:100%
 }
 
 .touxiang{
-  width: 80rpx;
+  width: 96rpx;
   height: 80rpx;
-  border-radius: 10rpx;
-  margin-right: 30rpx;
+  border-radius: 50rpx;
+  margin-right: 20rpx;
+  margin-top: 25rpx;
 }
 
 .tel{
   display: flex;
   flex-direction: column;
+  margin-top: 20rpx;
 }
 
 .showname{
   color: black;
+  font-size: 35rpx;
 }
 
 .lastword{
-  margin-top:6rpx;
+  margin-top:15rpx;
   font-size: 24rpx;
   color: #bfbfbf;
+  margin-bottom: 20rpx;
 }
 
 .showtime{
-  margin-top:18rpx;
-  font-size: 20rpx;
+  margin-top:5rpx;
+  font-size: 28rpx;
   color: #bfbfbf;
+  margin-left: 350rpx;
 }
 
 
@@ -59,4 +67,16 @@ page {
 
 .tologin,.signup{
   color:#436eee;
+}
+.nametime{
+  display: flex;
+}
+.uploader{
+  margin-top: 0;
+  border: 0;
+}
+.toChatroom{
+  display: flex;
+  width: 100%;
+  padding-top: 10rpx;
 }

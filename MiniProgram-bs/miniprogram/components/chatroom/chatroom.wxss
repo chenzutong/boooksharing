@@ -34,18 +34,19 @@
 }
 .chatroom .topinfo{
   display: flex;
-  height: 38rpx;
   flex-direction: row;
-  padding: 30rpx 0 40rpx;
   font-size: 30rpx;
 }
 .chatroom .topinfo .dianhua{
   width: 50%;
   text-align: center;
+  padding: 20rpx 0 20rpx;
+  border-right: 1px solid #ddd;
 }
 .chatroom .topinfo .weixin{
   width: 50%;
   text-align: center;
+  padding: 20rpx 0 20rpx;
 }
 
 .chatroom .body {
@@ -60,7 +61,7 @@
   display: flex;
   flex-direction: row;
   position: relative;
-  margin: 12rpx 0;
+  margin: 10rpx 0;
 }
 
 .body .message.message__self {
@@ -70,9 +71,9 @@
 .body .message .avatar {
   position: relative;
   top: 5rpx;
-  width: 60rpx;
-  height: 60rpx;
-  border-radius: 5rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
   margin: 15rpx;
 }
 
@@ -92,14 +93,46 @@
   color: #444;
 }
 
-.body .message .text-content {
-  border: 1px solid transparent;
-  border-radius: 3px;
-  background-color: #fff;
-  margin: 2px 0 0 0;
-  padding: 4px 10px;
+.body .message .text-content.left {
   font-size: 30rpx;
-  display: inline-block;
+  line-height: 70rpx;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  margin-left: 15rpx;
+}
+.body .message .text-content.left:after{
+  content: '';
+  width: 25rpx;
+  height: 25rpx;
+  position: absolute;
+  top: 6rpx;
+  left: -5rpx;
+  transform: rotate(-45deg);
+  background-color: white;
+}
+
+.body .message .text-content.right {
+  font-size: 30rpx;
+  line-height: 70rpx;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  margin-right: 15rpx;
+}
+.body .message .text-content.right:after{
+  content: '';
+  width: 25rpx;
+  height: 25rpx;
+  position: absolute;
+  top: 6rpx;
+  right: -6rpx;
+  transform: rotate(-45deg);
+  background-color: paleturquoise;
 }
 
 .body .message.message__self .text-content {
@@ -111,6 +144,7 @@
   flex-direction: row;
   align-items: center;
   max-width: 80%;
+  margin-top: 35rpx;
 }
 
 .body .message.message__self .text-wrapper .loading{
