@@ -95,3 +95,17 @@ page{
   margin-right: 5%;
   margin-bottom: 30rpx;
 }
+
+.but{
+  width: 70%;
+  height:80rpx;
+  margin-top: 180rpx;
+  margin-left: 15%;
+  margin-right: 15%;
+  border-radius: 12px;
+  background-color: #436eee;
+  color: white;
+  font-size: 33rpx;
+  vertical-align:middle;
+  text-align: center;
+}

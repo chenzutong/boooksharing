@@ -9,6 +9,7 @@ Page({
     is_disabled: false,
     phone: "",
     password: "",
+    isUserInfo: false,
 
   },
   phoneInput: function (e) {
@@ -81,11 +82,79 @@ Page({
     }
   },
 
+  // 微信授权
+  bindGetUserInfo(e) {
+    var that = this
+    if (e.detail.userInfo == undefined) {
+
+    } else {
+      console.log(e.detail.userInfo)
+      wx.login({
+        success: function (res) {
+          // 发送请求，获取用户信息
+          wx.request({
+            url: server + 'api/user/load', // 请求URL
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            method: 'POST', // 请求方式
+            data: {
+              'avatarUrl': e.detail.userInfo.avatarUrl,
+              'code': res.code,
+              'nickName': e.detail.userInfo.nickName,
+            },
+
+            success: function (res) { // 请求成功后操作
+              console.log(res.data)
+              if (res.data.code != 200) {
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'none'
+                });
+                return;
+              }
+              getApp().globalData.userInfo = res.data.data.userInfo; // 写入全局变量
+              getApp().setCache('token', res.data.data.token); // 写入缓存
+              that.data.isUserInfo = true
+              that.setData({
+                isUserInfo: true
+              })
+            }
+          });
+        }
+      });
+    }
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.login({
+      success(res) {
+        if (res.code) {
+          // 查看是否授权
+          wx.getSetting({
+            success(res) {
+              if (res.authSetting['scope.userInfo']) {
+                // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+                wx.getUserInfo({
+                  success: function (res) {
+                    that.data.isUserInfo = true
+                    that.setData({
+                      isUserInfo: true
+                    })
+                  }
+                })
+              }
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
 
   /**

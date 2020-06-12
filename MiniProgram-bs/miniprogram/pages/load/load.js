@@ -7,6 +7,7 @@ Page({
    * Page initial data
    */
   data: {
+    remind: '加载中',
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
@@ -83,51 +84,34 @@ Page({
   },
   bindGetUserInfo(e) {
     var that =  this
-    if (e.detail.userInfo == undefined) {
-
-    } else {
-      console.log(e.detail.userInfo)
-      wx.login({
-        success: function (res) {
-          // 发送请求，获取用户信息
-          wx.request({
-            url: server + 'api/user/load', // 请求URL
-            header: {
-              'content-type': 'application/x-www-form-urlencoded'
-            },
-            method: 'POST', // 请求方式
-            data: {
-              'avatarUrl': e.detail.userInfo.avatarUrl,
-              'code': res.code,
-              'nickName': e.detail.userInfo.nickName,
-            },
-
-            success: function (res) { // 请求成功后操作
-              console.log(res.data)
-              if (res.data.code != 200) {
-                wx.showToast({
-                  title: res.data.msg,
-                  icon: 'none'
-                });
-                return;
-              }
-              getApp().globalData.userInfo = res.data.data.userInfo; // 写入全局变量
-              getApp().setCache('token', res.data.data.token); // 写入缓存
-              that.next(); // 跳转到首页
-            }
-
-
-          });
-        }
-      });
-    }
+    that.next(); // 跳转到首页
   },
 
   /**
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-
+    var that = this;
+    setTimeout(function () {
+        that.setData({
+            remind: ''
+        });
+    }, 1000);
+    // 实现动画效果
+    wx.onAccelerometerChange(function (res) {
+        var angle = -(res.x * 30).toFixed(1);
+        if (angle > 14) {
+            angle = 14;
+        }
+        else if (angle < -14) {
+            angle = -14;
+        }
+        if (that.data.angle !== angle) {
+            that.setData({
+                angle: angle
+            });
+        }
+    });
   },
 
   /**
