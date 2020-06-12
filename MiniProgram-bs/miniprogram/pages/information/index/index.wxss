@@ -50,7 +50,7 @@ page {
   margin-top:5rpx;
   font-size: 26rpx;
   color: #bfbfbf;
-  position: fixed;
+  position: absolute;
   right: 30rpx;
 }
 
