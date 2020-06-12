@@ -7,7 +7,7 @@ page {
 
 
 .scbg {
-  top: 8.5%;
+  top: 9%;
   position: absolute;
   background-color: #EFEFEF;
   width: 98%;
@@ -215,7 +215,6 @@ page {
   /* 文本不换行 */
   white-space: nowrap;
   box-sizing: border-box;
-  border-bottom: 1rpx solid #eee;
   background: #fff;
   align-items: center;
   /* 固定在顶部 */

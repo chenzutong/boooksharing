@@ -25,6 +25,7 @@ page {
 }
 
 .addbox{
+  height: 450rpx;
   border-radius: 12px;
   width: 45.5%;
   background-color: white;

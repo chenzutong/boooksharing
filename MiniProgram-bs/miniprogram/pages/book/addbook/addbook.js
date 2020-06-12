@@ -10,7 +10,7 @@ Page({
     content: "",
     photo: "",
     type: "free",
-    category:"教材",
+    category: "教材",
     addphotoPath: "/images/icon/addphoto.png",
     items: [{
         name: 'free',
@@ -27,7 +27,7 @@ Page({
     index: 0,
 
   },
-  bindPickerChange: function(e) {
+  bindPickerChange: function (e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value
@@ -66,33 +66,33 @@ Page({
 
         this.setData({
           addphotoPath: tempFilePath,
-          delete:true
+          delete: true
         })
       },
     })
   },
 
-     // 删除图片
-     deletephoto: function () {
-      this.data.addphotoPath = "/images/icon/addphoto.png"
-      this.data.delete = false
-      this.setData({
-        addphotoPath: "/images/icon/addphoto.png",
-        delete:false
-      })
-    },
+  // 删除图片
+  deletephoto: function () {
+    this.data.addphotoPath = "/images/icon/addphoto.png"
+    this.data.delete = false
+    this.setData({
+      addphotoPath: "/images/icon/addphoto.png",
+      delete: false
+    })
+  },
 
   //上传图片
   uploadFile(filePath) {
 
-    return new Promise(function(resolvs, reject) {
+    return new Promise(function (resolvs, reject) {
       var photoname = (new Date()).valueOf() + '.png'
       wx.cloud.uploadFile({
         cloudPath: photoname, // 文件名
         filePath: filePath, // 文件路径
         success: res => {
           // get resource ID
-          console.log("res.fileID:"+res.fileID)
+          console.log("res.fileID:" + res.fileID)
           resolvs("https://626f-booksharing-riolf-1301887879.tcb.qcloud.la/" + photoname)
         },
         fail: err => {
@@ -101,17 +101,123 @@ Page({
         }
       })
     })
-    
+
   },
 
-  
+  async sendAsync() {
+
+    let that = this
+
+    wx.showLoading({
+      title: '发送中',
+    })
+
+    // 获取图片url
+    if (that.data.addphotoPath != "/images/icon/addphoto.png") {
+      that.data.photo = await that.uploadFile(that.data.addphotoPath);
+      console.log("this.data.photo:" + that.data.photo)
+    }
+
+    // 与服务器交互
+
+    if (that.data.temp) {
+      //发起网络请求
+      wx.request({
+        url: server + 'api/circle/commit_seek',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        method: 'POST', // 请求方式
+        data: {
+          "user_id": getApp().globalData.userInfo.user_id,
+          "openid": getApp().globalData.userInfo.openid,
+          "username": getApp().globalData.userInfo.userName,
+          "avatarUrl": getApp().globalData.userInfo.avatarUrl,
+          "classroom": getApp().globalData.userInfo.classroom,
+          "bookname": that.data.bookname,
+          "content": that.data.content,
+          "photo": that.data.photo,
+        },
+        success: function (res) { // 请求成功后操作
+          console.log(res.data)
+          if (res.data.code == 200) {
+            wx.showToast({
+              title: "发布成功",
+              icon: 'none'
+            });
+            wx.reLaunch({
+              url: '/pages/circle/index/index',
+            })
+            return;
+          }
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          });
+
+        }
+      })
+    } else {
+      //发起网络请求
+      wx.request({
+        url: server + 'api/circle/commit_lend',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        method: 'POST', // 请求方式
+        data: {
+          "user_id": getApp().globalData.userInfo.user_id,
+          "openid": getApp().globalData.userInfo.openid,
+          "username": getApp().globalData.userInfo.userName,
+          "avatarUrl": getApp().globalData.userInfo.avatarUrl,
+          "classroom": getApp().globalData.userInfo.classroom,
+          "bookname": that.data.bookname,
+          "type": that.data.type,
+          "category": that.data.category,
+          "content": that.data.content,
+          "photo": that.data.photo,
+          "addbook": that.data.addbook,
+        },
+        success: function (res) { // 请求成功后操作
+          console.log(res.data)
+          if (res.data.code == 200) {
+            wx.showToast({
+              title: "发布成功",
+              icon: 'none'
+            });
+            wx.reLaunch({
+              url: '/pages/circle/index/index',
+            })
+            return;
+          }
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          });
+        }
+      })
+
+    }
+    console.log("***********")
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
+
+  },
+
+  send: function (e) {
+    let that = this
+    that.sendAsync()
+
+  },
+
   //添加书籍
   async addAsync() {
     var that = this
     wx.showLoading({
       title: '添加中',
     })
-    
+
     // 获取图片url
     if (that.data.addphotoPath != "/images/icon/addphoto.png") {
       that.data.photo = await that.uploadFile(that.data.addphotoPath);
