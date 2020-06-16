@@ -32,6 +32,7 @@ Page({
     getApp().globalData.circletype = "seek"
     var that = this
     that.data.page = 1
+    that.data.list1 = []
     that.data.temp = true
     that.getSeekInfo()
     that.setData({
@@ -46,6 +47,7 @@ Page({
     getApp().globalData.circletype = "lend"
     var that = this
     that.data.page2 = 1
+    that.data.list2 = []
     that.data.temp = false
     that.getSeekInfo()
     this.setData({
@@ -93,22 +95,24 @@ Page({
             that.setData({
               list1:that.data.list1
             })
-            if ( contentlist.length < that.data.pageSize){
-              that.data.hasMoreSeek = false
-              that.setData({
-                hasMoreSeek:false
-              })
-            }
+            
           }else if ( contentlist.length < that.data.pageSize){
-            that.data.hasMoreSeek = false
+            that.data.list1 = contentlistTem.concat(contentlist)
             that.setData({
-              list1: contentlistTem.concat(contentlist),
-              hasMoreSeek:false
+              list1: that.data.list1,
             })
           }else{
             that.data.hasMoreSeek = true
+            that.data.list1 = contentlistTem.concat(contentlist)
             that.setData({
-              list1: contentlistTem.concat(contentlist),
+              list1: that.data.list1,
+            })
+          }
+          // 已经最后一页了
+          if ( contentlist.length < that.data.pageSize || res.data.isAll == 1){
+            that.data.hasMoreSeek = false
+            that.setData({
+              hasMoreSeek:false
             })
           }
           that.data.page = that.data.page + 1
@@ -156,14 +160,16 @@ Page({
             }
           }else if ( contentlist.length < that.data.pageSize){
             that.data.hasMoreLend = false
+            that.data.list2 = contentlistTem.concat(contentlist)
             that.setData({
-              list2: contentlistTem.concat(contentlist),
+              list2: that.data.list2,
               hasMoreLend:false
             })
           }else{
             that.data.hasMoreLend = true
+            that.data.list2 = contentlistTem.concat(contentlist)
             that.setData({
-              list2: contentlistTem.concat(contentlist),
+              list2: that.data.list2,
             })
           }
           that.data.page2 = that.data.page2 + 1
@@ -194,6 +200,7 @@ Page({
     getApp().globalData.circletype = "seek"
     var that = this
     that.data.page = 1
+    that.data.list1 = []
     that.getSeekInfo()
   },
 

@@ -25,9 +25,18 @@ Page({
 
   toChatroom: function (e) {
     console.log(e.currentTarget.dataset.text)
-    var chatperson = {
-      "username": e.currentTarget.dataset.text.nickName,
-      "user_id": e.currentTarget.dataset.text.fromUser
+    if (e.currentTarget.dataset.text.toAvatar == getApp().globalData.userInfo.avatarUrl){
+      var chatperson = {
+        "username": e.currentTarget.dataset.text.nickName,
+        "user_id": e.currentTarget.dataset.text.fromUser,
+        "avatar": e.currentTarget.dataset.text.avatar,
+      }
+    }else{
+      var chatperson = {
+        "username": e.currentTarget.dataset.text.nickName,
+        "user_id": e.currentTarget.dataset.text.fromUser,
+        "avatar": e.currentTarget.dataset.text.toAvatar,
+      }
     }
     getApp().globalData.circleDetail = chatperson
     console.log(getApp().globalData.circleDetail)
@@ -93,6 +102,9 @@ Page({
               }
               // console.log(sendInfoList)
               room = getInfoList.concat(sendInfoList)
+              room.sort(function(a, b) {
+                return b.sendTime < a.sendTime ? -1 : 1
+              })
               // console.log(room)
               for (let i = 0; i < room.length - 1; i++) {
                 // console.log(room[i])

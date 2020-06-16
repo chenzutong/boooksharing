@@ -157,7 +157,6 @@ Page({
       that.data.photo = await that.uploadFile(that.data.addphotoPath);
       console.log("this.data.photo:" + that.data.photo)
     }
-
     // 与服务器交互
 
     if (that.data.temp) {
