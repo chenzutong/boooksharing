@@ -21,16 +21,16 @@
 	</view>
 
 	<view wx:if="{{temp}}" class='textarea'>
-		<textarea placeholder="输入书名" placeholder-style="color:#888888; font-size:38rpx;" class='bookname' maxlength='-1' bindinput="bindBookname"></textarea>
-		<textarea placeholder="其它补充" placeholder-style="color:#888888; font-size:38rpx;" class='textinput' maxlength='-1' bindinput="bindContent"></textarea>
+		<textarea placeholder="请输入书籍名称" placeholder-style="color:#888888; font-size:38rpx;" class='bookname' maxlength='-1' bindinput="bindBookname"></textarea>
+		<textarea placeholder="其它补充（版本、出版社等）" placeholder-style="color:#888888; font-size:38rpx;" class='textinput' maxlength='-1' bindinput="bindContent"></textarea>
 		<view class="addphoto">
 			<image class='photo' src='{{addphotoPath}}' bindtap='addphoto'></image>
 			<image wx:if="{{delete}}" class="deletephoto" src="/images/icon/deletephoto.png" bindtap="deletephoto"></image>
 		</view>
 	</view>
 	<view wx:else class='textarea'>
-		<textarea placeholder="输入书名" placeholder-style="color:#888888; font-size:38rpx;" class='bookname' maxlength='-1' bindinput="bindBookname"></textarea>
-		<textarea placeholder="其它补充" placeholder-style="color:#888888; font-size:38rpx;" class='textinput' maxlength='-1' bindinput="bindContent"></textarea>
+		<textarea placeholder="请输入书籍名称" placeholder-style="color:#888888; font-size:38rpx;" class='bookname' maxlength='-1' bindinput="bindBookname"></textarea>
+		<textarea placeholder="其它补充（版本、出版社等）" placeholder-style="color:#888888; font-size:38rpx;" class='textinput' maxlength='-1' bindinput="bindContent"></textarea>
 		<view class="addphoto">
 			<image class='photo' src='{{addphotoPath}}' bindtap='addphoto'></image>
 			<image wx:if="{{delete}}" class="deletephoto" src="/images/icon/deletephoto.png" bindtap="deletephoto"></image>

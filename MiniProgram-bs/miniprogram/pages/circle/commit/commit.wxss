@@ -10,6 +10,7 @@ page{
   background-color: #fff;
   top:9%;
   position: fixed;
+  border-bottom: 2rpx solid #CFCFCF;
 }
 
 .textinput{
@@ -23,7 +24,7 @@ page{
 }
 
 .bookname{
-  width: 96%;
+  width: 90%;
   height: 60rpx;
   text-align: left;
   margin-left: 2%;
@@ -31,6 +32,7 @@ page{
   padding-top: 20rpx;
   padding-bottom: 20rpx;
   font-size: 38rpx;
+  border-bottom: 2rpx solid #CFCFCF;
 }
 
 .click{

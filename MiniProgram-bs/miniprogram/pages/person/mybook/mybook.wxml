@@ -16,7 +16,6 @@
 					</view>
 					<text class='bookname'>《{{itemName.bookname}}》</text>
 					<view class='content'>{{itemName.content}}</view>
-					<view class="showtime">{{filters.formatDate(itemName.addtime)}}</view>
 				</view>
 			</view>
 		</view>

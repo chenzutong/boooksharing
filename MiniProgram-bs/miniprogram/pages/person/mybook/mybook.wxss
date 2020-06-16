@@ -17,6 +17,7 @@ page {
 }
 
 .box{
+  height: 465rpx;
   border-radius: 12px;
   width: 45.5%;
   background-color: white;
@@ -95,6 +96,10 @@ page {
   color: #F57123;
   font-family: PingFangSC-regular;
   word-break: break-all;
+    /* 文本溢出省略*/
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 
 .content {

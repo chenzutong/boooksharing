@@ -17,6 +17,7 @@ page {
 }
 
 .box {
+  height: 500rpx;
   border-radius: 12px;
   width: 45.5%;
   background-color: white;
@@ -47,8 +48,9 @@ page {
 }
 
 .showtime {
-  padding-top: 55rpx;
-  padding-left: 190rpx;
+  position: absolute;
+  margin-top: 355rpx;
+  margin-left: 190rpx;
   font-size: 20rpx;
   color: gray;
   font-family: PingFangSC-regular;
@@ -86,6 +88,10 @@ page {
   color: #F57123;
   font-family: PingFangSC-regular;
   word-break: break-all;
+  /* 文本溢出省略*/
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 
 .content {
