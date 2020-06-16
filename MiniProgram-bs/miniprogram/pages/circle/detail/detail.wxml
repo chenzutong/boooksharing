@@ -9,7 +9,7 @@
     </view>
   </view>
   <view class="price">
-    <text wx:if="{{data.type=='free'}}" class="type">\n¥免费出售</text>
+    <text wx:if="{{data.type=='free'}}" class="type">\n¥免费送出</text>
     <text wx:if="{{data.type=='bargaining'}}" class="type">\n¥议价出售</text>
   </view>
   <view class="book">
