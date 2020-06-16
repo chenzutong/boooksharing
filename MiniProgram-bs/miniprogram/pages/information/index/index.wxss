@@ -44,6 +44,11 @@ page {
   font-size: 24rpx;
   color: #bfbfbf;
   margin-bottom: 20rpx;
+  width: 550rpx;
+  /* 文本溢出省略 */
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 
 .showtime{
