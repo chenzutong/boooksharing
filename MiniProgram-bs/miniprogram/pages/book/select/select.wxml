@@ -24,7 +24,7 @@
 		<view class='box' id="itemName" bindtap="showdetail" data-text="{{itemName}}">
 			<view class='secondblock'>
 				<view class='name'>
-					<image src="{{itemName.avatarUrl}}" class="touxiang"></image>
+					<image src="{{itemName.avatar}}" class="touxiang"></image>
 					<text class='showname'>{{itemName.username}}</text>
 				</view>
 				<view class="book-box">
