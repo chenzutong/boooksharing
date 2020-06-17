@@ -6,9 +6,13 @@ page{
 }
 
 .textarea{
-  width: 100%;
+  width: 95%;
   background-color: #fff;
+  top:3%;
+  left: 2.5%;
   position: fixed;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px #333333;
 }
 
 .textinput{
@@ -23,29 +27,28 @@ page{
 
 .bookname{
   width: 90%;
-  height: 60rpx;
+  height: 80rpx;
   text-align: left;
   margin-left: 2%;
   margin-right: 2%;
   padding-top: 20rpx;
-  padding-bottom: 20rpx;
   font-size: 38rpx;
-  margin-top: 2%;
   border-bottom: 2rpx solid #CFCFCF;
 }
 
 .click{
-  width: 84%;
+  width: 80%;
   height: 100rpx;
   line-height: 100rpx;
-  margin-top: 950rpx;
-  margin-left: 8%;
-  margin-right: 8%;
+  margin-top: 980rpx;
+  margin-left: 10%;
+  margin-right: 10%;
   border-radius: 12px;
   background-color: #436eee;
   text-align: center;
   color: white;
   font-size: 33rpx;
+  position: fixed;
 }
 
 .bottomrow{
@@ -72,6 +75,13 @@ page{
   font-size: 35rpx;
   color: #979797;
 }
+  /* 选中放大 */
+  .bottomtabTextOn{
+    color: #436eee;
+    font-size: 38rpx !important;
+    font-weight: 600;
+    border-bottom: 4rpx solid #436eee !important;
+  }
 
 .addphoto .photo{
   margin: 10rpx;
@@ -91,19 +101,22 @@ page{
 .picker-box{
   display: flex;
   margin-top: 20rpx;
+  margin-left: 10rpx;
 }
 
 .picker{
-  position: absolute;
-  top: 64.6%;
   width: auto;
   border: 1px solid #436eee;
   border-radius: 5px;
+  font-size: 30rpx;
 }
+
 .section{
+  margin-left: 10rpx;
   margin-top: 35rpx;
   font-size: 30rpx;
 }
+
 .flex{
   display: flex;
   flex-direction: column;
