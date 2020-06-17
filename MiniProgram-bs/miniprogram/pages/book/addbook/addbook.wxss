@@ -95,7 +95,7 @@ page{
   height: 50rpx;
   position: absolute;
   top: 320rpx;
-  right: 580rpx;
+  right: 545rpx;
 }
 
 .picker-box{

@@ -28,11 +28,11 @@ Page({
       id: 3
     },
     {
-      text: '其他',
+      text: '考试资料',
       id: 4
     },
     {
-      text: '考试资料',
+      text: '其他',
       id: 5
     }
   ],
@@ -56,8 +56,12 @@ Page({
         },
         {
           "id": 4,
-          "text": "其他"
+          "text": "考试资料"
         },
+        {
+          "id": 5,
+          "text": "其他"
+        }
       ]
     },
     productList: [],
@@ -97,7 +101,7 @@ Page({
         }
       })
     }
-    if (categ.id >= 1 && categ.id < 5) {
+    if (categ.id >= 1 && categ.id <=5) {
       wx.request({
         url: server + 'api/book/select',
         header: {
@@ -158,7 +162,7 @@ Page({
         }
       })
     }
-    if (categ.id >= 1 && categ.id < 5) {
+    if (categ.id >= 1 && categ.id <=5) {
       wx.request({
         url: server + 'api/book/select',
         header: {
