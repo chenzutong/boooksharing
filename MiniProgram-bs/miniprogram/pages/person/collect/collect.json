@@ -2,5 +2,7 @@
   "usingComponents": {},
   "navigationBarBackgroundColor": "#436eee",
   "navigationBarTitleText": "书籍收藏",
-  "navigationBarTextStyle": "white"
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark" 
 }

@@ -2,5 +2,7 @@
   "usingComponents": {},
   "navigationBarBackgroundColor": "#436eee",
   "navigationBarTitleText": "我的动态",
-  "navigationBarTextStyle": "white"
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark" 
 }

@@ -12,30 +12,30 @@ Page({
     booklist: [],
     tabCur: 0, //默认选中
     tabs: [{
-      text: '全部',
-      id: 0
-    },
-    {
-      text: '教材',
-      id: 1
-    },
-    {
-      text: '课外学习',
-      id: 2
-    },
-    {
-      text: '小说',
-      id: 3
-    },
-    {
-      text: '考试资料',
-      id: 4
-    },
-    {
-      text: '其他',
-      id: 5
-    }
-  ],
+        text: '全部',
+        id: 0
+      },
+      {
+        text: '教材',
+        id: 1
+      },
+      {
+        text: '课外学习',
+        id: 2
+      },
+      {
+        text: '小说',
+        id: 3
+      },
+      {
+        text: '考试资料',
+        id: 4
+      },
+      {
+        text: '其他',
+        id: 5
+      }
+    ],
     tabnav: {
       tabCur: 5,
       tabitem: [{
@@ -101,7 +101,7 @@ Page({
         }
       })
     }
-    if (categ.id >= 1 && categ.id <=5) {
+    if (categ.id >= 1 && categ.id <= 5) {
       wx.request({
         url: server + 'api/book/select',
         header: {
@@ -162,7 +162,7 @@ Page({
         }
       })
     }
-    if (categ.id >= 1 && categ.id <=5) {
+    if (categ.id >= 1 && categ.id <= 5) {
       wx.request({
         url: server + 'api/book/select',
         header: {
@@ -290,11 +290,28 @@ Page({
 
   },
 
+  //刷新
+  onRefresh() {
+    //在当前页面显示导航条加载动画
+    wx.showNavigationBarLoading();
+    this.getData();
+  },
+  //网络请求，获取数据
+  getData() {
+    var that = this
+    that.onShow()
+    //隐藏导航条加载动画
+    wx.hideNavigationBarLoading();
+    //停止下拉刷新
+    wx.stopPullDownRefresh();
+
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    //调用刷新时将执行的方法
+    this.onRefresh();
   },
 
   /**

@@ -25,13 +25,13 @@ Page({
 
   toChatroom: function (e) {
     console.log(e.currentTarget.dataset.text)
-    if (e.currentTarget.dataset.text.toAvatar == getApp().globalData.userInfo.avatarUrl){
+    if (e.currentTarget.dataset.text.toAvatar == getApp().globalData.userInfo.avatarUrl) {
       var chatperson = {
         "username": e.currentTarget.dataset.text.nickName,
         "user_id": e.currentTarget.dataset.text.fromUser,
         "avatar": e.currentTarget.dataset.text.avatar,
       }
-    }else{
+    } else {
       var chatperson = {
         "username": e.currentTarget.dataset.text.nickName,
         "user_id": e.currentTarget.dataset.text.fromUser,
@@ -95,14 +95,14 @@ Page({
           success: function (res) {
             if (res.data != null) {
               sendInfoList = res.data.reverse()
-              for(j = 0; j < sendInfoList.length; j++) {
+              for (j = 0; j < sendInfoList.length; j++) {
                 sendInfoList[j].fromUser = sendInfoList[j].toUser
                 sendInfoList[j].nickName = sendInfoList[j].toName
                 sendInfoList[j].avatar = sendInfoList[j].toAvatar
               }
               // console.log(sendInfoList)
               room = getInfoList.concat(sendInfoList)
-              room.sort(function(a, b) {
+              room.sort(function (a, b) {
                 return b.sendTime < a.sendTime ? -1 : 1
               })
               // console.log(room)
@@ -117,7 +117,7 @@ Page({
               }
               console.log(room);
               that.setData({
-                roomlist:room
+                roomlist: room
               })
             }
           }
@@ -127,8 +127,8 @@ Page({
 
 
 
-    
-    
+
+
 
 
 
@@ -150,24 +150,45 @@ Page({
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+  //刷新
+  onRefresh() {
+    //在当前页面显示导航条加载动画
+    wx.showNavigationBarLoading();
+    this.getData();
+  },
+  //网络请求，获取数据
+  getData() {
+    let that = this
+    var getInfoList = []
+    var sendInfoList = []
+    var room = []
+    that.onShow()
+    //隐藏导航条加载动画
+    wx.hideNavigationBarLoading();
+    //停止下拉刷新
+    wx.stopPullDownRefresh();
 
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
+/**
+ * 页面相关事件处理函数--监听用户下拉动作
+ */
+onPullDownRefresh: function () {
+  //调用刷新时将执行的方法
+  this.onRefresh();
+},
 
-  },
+/**
+ * 页面上拉触底事件的处理函数
+ */
+onReachBottom: function () {
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+},
 
-  }
+/**
+ * 用户点击右上角分享
+ */
+onShareAppMessage: function () {
+
+}
 })

@@ -218,11 +218,29 @@ Page({
 
   },
 
+//刷新
+onRefresh(){
+  //在当前页面显示导航条加载动画
+  wx.showNavigationBarLoading(); 
+  this.getData();
+},
+//网络请求，获取数据
+getData(){
+  var that = this
+  that.data.page = 1
+  that.data.list1 = []
+  that.getSeekInfo()
+  //隐藏导航条加载动画
+  wx.hideNavigationBarLoading();
+  //停止下拉刷新
+  wx.stopPullDownRefresh();
+},
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+    //调用刷新时将执行的方法
+    this.onRefresh();
   },
 
   /**

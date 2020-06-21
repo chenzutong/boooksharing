@@ -22,7 +22,7 @@ page {
   width: 45.5%;
   background-color: white;
   margin-bottom: 10px;
-  margin-left: 3%;
+  margin-left: 3.5%;
 }
 
 .touxiang {
