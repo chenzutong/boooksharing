@@ -16,6 +16,7 @@ Page({
     pageSize: 8, //根据后台每页的数据设定
     hasMoreSeek: true, //是否有更多数据文字
     hasMoreLend: true, //是否有更多数据文字
+    triggered: false,
   },
 
 
@@ -59,6 +60,11 @@ Page({
   },
   // 下拉刷新
   updateData: function () {
+    setTimeout(() => {
+      this.setData({
+        triggered: false,
+      })
+    }, 1000)
     //loading 提示框    
     wx.showLoading({
       title: '加载中',
