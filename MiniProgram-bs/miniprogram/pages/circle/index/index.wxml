@@ -11,7 +11,7 @@
   </view>
 </view>
 
-<scroll-view class='scbg' scroll-y='true' bindscrolltolower="getSeekInfo">
+<scroll-view class='scbg' scroll-y='true' bindscrolltoupper="updateData" bindscrolltolower="getSeekInfo">
 <block  wx:for="{{temp?list1:list2}}" wx:key="key" wx:for-item="itemName" wx:for-index="id">
   <view class='box' id="itemName" bindtap="showdetail" data-text="{{itemName}}">
     <view class='firstblock'>

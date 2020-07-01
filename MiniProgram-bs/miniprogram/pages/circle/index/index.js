@@ -18,7 +18,7 @@ Page({
     hasMoreLend: true, //是否有更多数据文字
   },
 
-  
+
   showdetail: function (e) {
     console.log(e.currentTarget.dataset.text)
     getApp().globalData.circleDetail = e.currentTarget.dataset.text
@@ -55,16 +55,51 @@ Page({
       firco: "#979797",
       secco: "#436EEE",
     })
-   
+
+  },
+  // 下拉刷新
+  updateData: function () {
+    //loading 提示框    
+    wx.showLoading({
+      title: '加载中',
+      icon: 'loading',
+      duration: 1000
+    });
+    //在当前页面显示导航条加载动画
+    wx.showNavigationBarLoading();
+
+    var that = this
+    if (getApp().globalData.circletype == "seek") {
+      that.data.page = 1
+      that.data.list1 = []
+      that.data.hasMoreSeek = true
+      that.setData({
+        hasMoreSeek: true
+      })
+    } else {
+      that.data.page2 = 1
+      that.data.list2 = []
+      that.data.hasMoreLend = true
+      that.setData({
+        hasMoreLend: true
+      })
+    }
+
+    that.getSeekInfo()
+    //隐藏导航条加载动画
+    wx.hideNavigationBarLoading();
+    //停止下拉刷新
+    wx.stopPullDownRefresh();
   },
 
 
+  // 下拉刷新
   // 服务器请求动态
-  getSeekInfo:function(){
+  getSeekInfo: function () {
     var that = this
 
-    if ( that.data.temp){ // 寻书动态
-      if (!that.data.hasMoreSeek){
+    if (that.data.temp) { // 寻书动态
+      if (!that.data.hasMoreSeek) {
         return;
       }
       wx.request({
@@ -73,8 +108,8 @@ Page({
           'content-type': 'application/x-www-form-urlencoded'
         },
         method: 'POST', // 请求方式
-        data:{
-          page:that.data.page,
+        data: {
+          page: that.data.page,
           pageSize: that.data.pageSize
         },
         success: function (res) { // 请求成功后操作
@@ -88,20 +123,20 @@ Page({
             return;
           }
           var contentlistTem = that.data.list1
-          
-          if (that.data.page == 1){  // 第一页
+
+          if (that.data.page == 1) { // 第一页
             that.data.list1 = res.data.data
             console.log(that.data.list1)
             that.setData({
-              list1:that.data.list1
+              list1: that.data.list1
             })
-            
-          }else if ( contentlist.length < that.data.pageSize){
+
+          } else if (contentlist.length < that.data.pageSize) {
             that.data.list1 = contentlistTem.concat(contentlist)
             that.setData({
               list1: that.data.list1,
             })
-          }else{
+          } else {
             that.data.hasMoreSeek = true
             that.data.list1 = contentlistTem.concat(contentlist)
             that.setData({
@@ -109,19 +144,17 @@ Page({
             })
           }
           // 已经最后一页了
-          if ( contentlist.length < that.data.pageSize || res.data.isAll == 1){
+          if (contentlist.length < that.data.pageSize || res.data.isAll == 1) {
             that.data.hasMoreSeek = false
             that.setData({
-              hasMoreSeek:false
+              hasMoreSeek: false
             })
           }
           that.data.page = that.data.page + 1
         }
       })
-    }
-
-    if(! that.data.temp){  // 出书动态
-      if (!that.data.hasMoreLend){
+    } else { // 出书动态
+      if (!that.data.hasMoreLend) {
         return;
       }
       wx.request({
@@ -130,8 +163,8 @@ Page({
           'content-type': 'application/x-www-form-urlencoded'
         },
         method: 'POST', // 请求方式
-        data:{
-          page:that.data.page2,
+        data: {
+          page: that.data.page2,
           pageSize: that.data.pageSize
         },
         success: function (res) { // 请求成功后操作
@@ -145,27 +178,27 @@ Page({
             return;
           }
           var contentlistTem = that.data.list2
-          
-          if (that.data.page2 == 1){  // 第一页
+
+          if (that.data.page2 == 1) { // 第一页
             that.data.list2 = res.data.data
             console.log(that.data.list2)
             that.setData({
-              list2:that.data.list2
+              list2: that.data.list2
             })
-            if ( contentlist.length < that.data.pageSize){
+            if (contentlist.length < that.data.pageSize) {
               that.data.hasMoreLend = false
               that.setData({
-                hasMoreLend:false
+                hasMoreLend: false
               })
             }
-          }else if ( contentlist.length < that.data.pageSize){
+          } else if (contentlist.length < that.data.pageSize) {
             that.data.hasMoreLend = false
             that.data.list2 = contentlistTem.concat(contentlist)
             that.setData({
               list2: that.data.list2,
-              hasMoreLend:false
+              hasMoreLend: false
             })
-          }else{
+          } else {
             that.data.hasMoreLend = true
             that.data.list2 = contentlistTem.concat(contentlist)
             that.setData({
@@ -176,14 +209,16 @@ Page({
         }
       })
     }
-   
+
   },
+
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
 
   /**
@@ -218,36 +253,36 @@ Page({
 
   },
 
-//刷新
-onRefresh(){
-  //在当前页面显示导航条加载动画
-  wx.showNavigationBarLoading(); 
-  this.getData();
-},
-//网络请求，获取数据
-getData(){
-  var that = this
-  that.data.page = 1
-  that.data.list1 = []
-  that.getSeekInfo()
-  //隐藏导航条加载动画
-  wx.hideNavigationBarLoading();
-  //停止下拉刷新
-  wx.stopPullDownRefresh();
-},
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    //调用刷新时将执行的方法
-    this.onRefresh();
-  },
+  // //刷新
+  // onRefresh(){
+  //   //在当前页面显示导航条加载动画
+  //   wx.showNavigationBarLoading(); 
+  //   this.getData();
+  // },
+  // //网络请求，获取数据
+  // getData(){
+  //   var that = this
+  //   that.data.page = 1
+  //   that.data.list1 = []
+  //   that.getSeekInfo()
+  //   //隐藏导航条加载动画
+  //   wx.hideNavigationBarLoading();
+  //   //停止下拉刷新
+  //   wx.stopPullDownRefresh();
+  // },
+  //   /**
+  //    * 页面相关事件处理函数--监听用户下拉动作
+  //    */
+  //   onPullDownRefresh: function () {
+  //     //调用刷新时将执行的方法
+  //     this.onRefresh();
+  //   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**

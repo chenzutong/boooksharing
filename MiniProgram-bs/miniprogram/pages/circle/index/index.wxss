@@ -153,3 +153,8 @@ page{
   font-size: 20rpx;
   text-align:center;
 }
+
+.scroll-view {
+  height: calc(100% + 40px);
+  transform: translateY(-40px);
+}
