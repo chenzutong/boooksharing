@@ -9,16 +9,6 @@
 		</view>
 </view>
 <view wx:else>
-	<!-- <scroll-view scroll-x="true" style="width: 100%;white-space:nowrap;"> -->
- 
-  <!-- <view class="tab-nav" style='font-size:12px'>
-  <view wx:for="{{tabnav.tabitem}}"  wx:key="key" bindtap="setTab" data-tabindex="{{index}}" style="min-width:20%;max-width:20%;text-align:center;height: 80rpx;{{ index>4?'border-bottom: 1rpx dotted #ddd;':'' }}">{{item.text}}</view>
-  <view >
-  <view class="tab-line" style="width:{{100/tabnav.tabnum}}%;transform:translateX({{100*showtab}}%);"></view>
-  </view>
-  </view> -->
-<!-- </scroll-view> -->
-	<!-- tab -->
  <view class="tabscr">
  <scroll-view scroll-x class="navbar" scroll-with-animation scroll-left="{{scrollLeft}}rpx" >
   <view class="nav-item" wx:for="{{tabs}}" wx:key="id" bindtap="tabSelect" data-id="{{index}}">
@@ -26,7 +16,7 @@
   </view>
 	</scroll-view>
 	<view style="width: 17%;background: #fff;position: fixed;top: 0;z-index: 1;">
-			<image class='addbook' src='/images/icon/select.png' bindtap='selectbook' ></image>
+			<image class='selectbook' src='/images/icon/select.png' bindtap='selectbook' ></image>
 	</view>
  </view>
 

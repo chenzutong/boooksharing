@@ -1,13 +1,14 @@
 /**app.wxss**/
 
-
-.container {
+/* 页面背景 */
+page {
+  background: #f6f6f6;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-} 
+  justify-content: flex-start;
+}
 
+/* 按钮样式 */
 button {
   background: initial;
 }
@@ -20,14 +21,15 @@ button::after{
   border: none;
 }
 
-
-page {
-  background: #f6f6f6;
+/* 内容输入 */
+.container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-}
+  align-items: center;
+  box-sizing: border-box;
+} 
 
+/* 用户信息 */
 .userinfo, .uploader, .tunnel {
   margin-top: 40rpx;
   height: 140rpx;
@@ -66,6 +68,7 @@ page {
   border: none;
 }
 
+/* uploader相关 */
 .uploader, .tunnel {
   height: auto;
   padding: 0 0 0 40rpx;
@@ -97,6 +100,7 @@ page {
   height: 360rpx;
 }
 
+/* tunnel相关 */
 .tunnel {
   padding: 0 0 0 40rpx;
 }
@@ -122,10 +126,7 @@ page {
   top: -2rpx;
 }
 
-.disable {
-  color: #888;
-}
-
+/* service相关 */
 .service {
   position: fixed;
   right: 40rpx;
@@ -148,6 +149,11 @@ page {
 
 .service:active {
   box-shadow: none;
+}
+
+/* 其他 */
+.disable {
+  color: #888;
 }
 
 .request-text {

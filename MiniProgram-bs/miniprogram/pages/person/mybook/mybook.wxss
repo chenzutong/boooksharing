@@ -1,11 +1,11 @@
 /* pages/circle/index/index.wxss */
 
-
+/* 页面背景 */
 page {
   background-color: #EFEFEF;
 }
 
-
+/* 页面布局相关 */
 .scbg {
   top: 3%;
   position: absolute;
@@ -25,6 +25,16 @@ page {
   margin-left: 3%;
 }
 
+.secondblock {
+  display: flex;
+  flex-flow: column;
+  margin-left: 4%;
+  margin-right: 4%;
+  padding-bottom: 15rpx;
+  border-radius: 12px;
+  margin-top: 0;
+}
+
 .addbox{
   height: 465rpx;
   border-radius: 12px;
@@ -34,18 +44,12 @@ page {
   margin-left: 3%;
 }
 
+/* 用户信息样式 */
 .touxiang {
   width: 60rpx;
   height: 60rpx;
   border-radius: 10px;
   margin-bottom: 5rpx;
-}
-
-.person {
-  width: 75%;
-  height: 130rpx;
-  margin-left: 30rpx;
-  margin-top: 10rpx;
 }
 
 .showname {
@@ -64,16 +68,6 @@ page {
   font-family: PingFangSC-regular;
 }
 
-.secondblock {
-  display: flex;
-  flex-flow: column;
-  margin-left: 4%;
-  margin-right: 4%;
-  padding-bottom: 15rpx;
-  border-radius: 12px;
-  margin-top: 0;
-}
-
 .name {
   display: flex;
   justify-content: flex-start;
@@ -85,6 +79,14 @@ page {
   border-bottom: 1rpx solid #CFCFCF;
 }
 
+.photo {
+  width: 220rpx;
+  height: 200rpx;
+  border-radius: 1px;
+}
+
+
+/* 书籍信息样式 */
 .book-box {
   display: flex;
   flex-flow: column;
@@ -117,90 +119,7 @@ page {
   padding-left: 14rpx;
 }
 
-.like {
-  margin-top: 20rpx;
-  margin-left: 20rpx;
-  width: 50rpx;
-  height: 50rpx;
-}
-
-.num {
-  height: 50rpx;
-  line-height: 50rpx;
-  margin-top: 25rpx;
-  margin-left: 20rpx;
-  font-size: 30rpx;
-  color: #101010;
-}
-
-.bottomrow {
-  background-color: white;
-  width: 100%;
-  height: 9%;
-  display: flex;
-  position: fixed;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.bottomtab {
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.bottomtabText {
-  font-size: 35rpx;
-  color: #979797;
-}
-
-.addbook {
-  top: 15rpx;
-  right: 20rpx;
-  width: 60rpx;
-  height: 60rpx;
-  position: absolute;
-}
-
-.photo {
-  width: 220rpx;
-  height: 200rpx;
-  border-radius: 1px;
-}
-
-
-.tab{
-  display: flex;
-  flex-direction: column;
- }
- .tab-nav{
-  width: 88%;
-  height: 80rpx;
-  background: #fff;
-  border-bottom: 0.5rpx dotted #ddd;
-  display: flex;
-  line-height: 79rpx;
-  position: relative;
- }
-   
- .tab-line{
-  position: absolute;
-  left: 0;
-  bottom: -1rpx;
-  height: 4rpx;
-  background: #f7982a;
-  transition: all 0.3s;
- }
- .tab-content{
-  flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
- }
-
-
+/* 添加书籍 */
  .addmybook{
   margin-top: 30%;
   margin-left: 20%;

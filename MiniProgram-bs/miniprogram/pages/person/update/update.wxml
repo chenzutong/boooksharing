@@ -1,7 +1,7 @@
 <!--pages/enroll/enroll.wxml-->
 <view class='background'>
 	<view class="avatar">
-		<image style="border-radius:50%;" src="{{avatarUrl ? avatarUrl:'/images/icon/person.png'}}" class="touxiang"></image>
+		<image style="border-radius:50%;" src="{{avatarUrl ? avatarUrl:'/images/icon/person.png'}}" class="avatar-img"></image>
 		<text class="avatar-text">个人信息编辑</text>
 	</view>
 

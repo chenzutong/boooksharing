@@ -1,7 +1,7 @@
 <!--pages/login/login.wxml-->
 <view class='background'>
 	<view class="avatar">
-		<image style="border-radius:50%;" src="{{avatarUrl ? avatarUrl:'/images/icon/person.png'}}" class="touxiang"></image>
+		<image style="border-radius:50%;" src="{{avatarUrl ? avatarUrl:'/images/icon/person.png'}}" class="avatar-img"></image>
 		<text class="avatar-text">用户登录</text>
 	</view>
 <block wx:if="{{isUserInfo}}">

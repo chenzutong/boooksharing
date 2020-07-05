@@ -1,70 +1,101 @@
 /* pages/circle/detail/detail.wxss */
-.detail{
+
+/* 页面样式 */
+.detail {
   display: flex;
   flex-direction: column;
   margin-top: 40rpx;
 }
-.person{
+
+/* 个人信息样式 */
+.person {
   margin-left: 40rpx;
   margin-right: 40rpx;
   display: flex;
   padding-bottom: 30rpx;
   border-bottom: 2rpx solid gray;
 }
-.touxiang{
+
+.touxiang {
   width: 80rpx;
   height: 80rpx;
   border-radius: 10rpx;
 }
-.person-name{
+
+.person-name {
   display: flex;
   flex-direction: column;
   margin-left: 20rpx;
 }
-.name{
+
+.name {
   font-size: 35rpx;
   color: #436eee;
 }
-.classroom{
+
+.classroom {
   margin-top: 10rpx;
   font-size: 25rpx;
   color: gray;
 }
-.type{
-  margin-top:60rpx;
+
+/* 价格样式 */
+.price {
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+
+.type {
+  margin-top: 60rpx;
   color: red;
   font-size: 35rpx;
 }
-.book{
+
+/* 书籍信息样式 */
+.book {
   padding-left: 40rpx;
   padding-right: 40rpx;
   display: flex;
   flex-direction: column;
   margin-top: 20rpx;
 }
-.text{
+
+.text {
   margin-top: 10rpx;
   font-size: 40rpx;
 }
-.content{
+
+.content {
   margin-top: 40rpx;
   font-size: 30rpx;
 }
-.image{
+
+/* 书籍图片样式 */
+.image {
   height: none;
   width: none;
 }
-.time{
+
+/* 时间样式 */
+.time {
   display: flex;
   flex-direction: row-reverse;
   font-size: 25rpx;
   color: gray;
 }
-.price{
-  padding-left: 40rpx;
-  padding-right: 40rpx;
+
+/* 删除按钮 */
+.button2 {
+  margin-top: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: -1.5%;
+  right: 10%;
 }
-.round-click{
+
+/* 圆形点击框 */
+.round-click {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -77,41 +108,38 @@
   border-top: 2rpx solid white;
 }
 
-.img-button{
+.img-button {
   display: flex;
   flex-direction: column;
   padding: 0;
   border-radius: 0;
   text-align: center;
 }
-.but-img{
+
+.but-img {
   padding-left: 30rpx;
   padding-right: 30rpx;
-  width:50rpx;
+  width: 50rpx;
   height: 50rpx;
 }
-.but-text{
+
+.but-text {
   font-size: 20rpx;
   text-align: center;
   color: gray;
 }
-.img{
+
+.img {
   display: flex;
   flex-direction: row;
 }
-.line{
+
+.line {
   margin-left: 425rpx;
   margin-bottom: 10rpx;
 }
-.button2{
-  margin-top: 30rpx;
-  width: 60rpx;
-  height:60rpx;
-  position: absolute;
-  top: -1.5%;
-  right: 10%;
-}
-.but-line{
+
+.but-line {
   font-size: 25rpx;
   padding-top: 5rpx;
   padding-bottom: 5rpx;

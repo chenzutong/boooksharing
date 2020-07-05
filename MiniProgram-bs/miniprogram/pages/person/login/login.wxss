@@ -1,12 +1,40 @@
-/* pages/login/login.wxss */
+/* pages/enroll/enroll.wxss */
 
-page {
+/* 页面布局相关 */
+page{
   left: 0rpx;
   right: 0rpx;
   background-color: white;
 }
 
+.background{
+  padding-left: 8%;
+  padding-right: 8%;
+}
+
+/* title信息 */
+.avatar{
+  margin-top: 5%;
+  border-bottom: 1px solid #cfcfcf;
+  padding-bottom: 2%;
+}
+
+.avatar-text{
+  margin-left: 8rpx;
+}
+
+.avatar-img{
+  height: 120rpx;
+  width: 120rpx;
+  vertical-align:middle;
+}
+
+/* 注册信息输入 */
 .first{
+  margin-top: 40rpx;
+}
+
+.second{
   margin-top: 40rpx;
 }
 
@@ -30,6 +58,30 @@ page {
   margin-top: 10rpx;
 }
 
+.plas {
+  font-size: 30rpx;
+  color: #CCCCCC;
+}
+
+/* 没有账号 */
+.cha {
+  width: 90%;
+  height: 50rpx;
+  margin: auto;
+  margin-top: 30rpx;
+  margin-left: 27%;
+  margin-right: 5%;
+  margin-bottom: 30rpx;
+}
+
+.no{
+  color: black;
+  font-size: 28rpx;
+  margin-left: 15rpx;
+  font-family: PingFangSC-regular;
+}
+
+/* 登录按钮 */
 #btn1 {
   width: 50%;
   height: 100rpx;
@@ -43,50 +95,7 @@ page {
   font-size: 33rpx;
 }
 
-.avatar{
-  margin-top: 5%;
-  border-bottom: 1px solid #cfcfcf;
-  padding-bottom: 2%;
-}
-
-.touxiang{
-  height: 120rpx;
-  width: 120rpx;
-  vertical-align:middle;
-}
-
-.avatar-text{
-  margin-left: 8rpx;
-}
-.background{
-  padding-left: 8%;
-  padding-right: 8%;
-}
-.second{
-  margin-top: 40rpx;
-}
-
-.plas {
-  font-size: 30rpx;
-  color: #CCCCCC;
-}
-
-.cha {
-  width: 90%;
-  height: 50rpx;
-  margin: auto;
-  margin-top: 30rpx;
-  margin-left: 25%;
-  margin-right: 5%;
-}
-
-.no {
-  color: black;
-  font-size: 28rpx;
-  margin-left: 15rpx;
-  font-family: "PingFangSC-regular";
-}
-
+/* 授权登录按钮 */
 .but{
   width: 70%;
   height:80rpx;

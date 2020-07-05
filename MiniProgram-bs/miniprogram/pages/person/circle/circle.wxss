@@ -1,9 +1,11 @@
-/* pages/person/circle/circle.wxss */
-page{
+/* pages/circle/index/index.wxss */
+
+/* 页面布局相关 */
+page {
   background-color: #EFEFEF;
 }
 
-.scbg{
+.scbg {
   background-color: #EFEFEF;
   width: 100%;
   height: 100%;
@@ -11,12 +13,12 @@ page{
   position: absolute;
 }
 
-.box{
+.box {
   width: 100%;
   background-color: white;
 }
 
-.firstblock{
+.firstblock {
   padding-top: 20rpx;
   width: 84%;
   margin-left: 8%;
@@ -27,7 +29,19 @@ page{
   border-bottom: 2rpx solid #CFCFCF;
 }
 
-.touxiang{
+/* 用户信息相关 */
+.person {
+  width: 100%;
+  display: flex;
+}
+
+.Info {
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.touxiang {
   min-width: 30px;
   min-height: 30px;
   width: 30px;
@@ -35,39 +49,20 @@ page{
   border-radius: 20rpx;
 }
 
-.person{
-  width: 100%;
-  display: flex;
-}
-
-.name{
+.name {
   display: flex;
   justify-content: flex-start;
   font-size: 25rpx;
 }
 
-.tel{
-  display: flex;
-  flex-direction: column;
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
-  justify-content: flex-start;
-}
-
-.showname{
+.showname {
   font-size: 30rpx;
   color: #3F51B5;
   font-family: PingFangSC-regular;
 }
 
-.showtime{
-  font-size: 20rpx;
-  color: #5E5D5D;
-  font-family: PingFangSC-regular;
-  margin-bottom: 10rpx;
-}
-
-.content{
+/* 发布信息相关 */
+.content {
   margin-top: 10rpx;
   margin-bottom: 10rpx;
   font-size: 30rpx;
@@ -75,66 +70,32 @@ page{
   word-break: break-all;
 }
 
-.thirdblock{
-  height: 100rpx;
-  margin-left: 4%;
-  margin-right: 4%;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.like{
-  margin-top: 20rpx;
-  margin-left: 20rpx;
-  width: 50rpx;
-  height: 50rpx;
-}
-
-.num{
-  height: 50rpx;
-  line-height: 50rpx;
-  margin-top: 25rpx;
-  margin-left: 20rpx;
-  font-size: 30rpx;
-  color: #101010;
-}
-
-.bottomrow{
-  background-color: white;
-  width: 100%;
-  height: 9%;
-  top: 0rpx;
-  display: flex;
-  position: fixed;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.bottomtab{
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.bottomtabText{
-  font-size: 35rpx;
-  color: #979797;
-}
-.Info{
-  margin-left: 30rpx;
-  display: flex;
-  flex-direction: column;
-}
-.Info-image{
+.Info-image {
   width: 150rpx;
   height: 150rpx;
   margin-top: 20rpx;
 }
-.lable{
+
+/* 用户班级及日期 */
+.tel {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  justify-content: flex-start;
+}
+
+.lable {
   margin-top: 10rpx;
   font-size: 25rpx;
   color: blue;
 }
+
+.showtime {
+  font-size: 20rpx;
+  color: #5E5D5D;
+  font-family: PingFangSC-regular;
+  margin-bottom: 10rpx;
+}
+
+
