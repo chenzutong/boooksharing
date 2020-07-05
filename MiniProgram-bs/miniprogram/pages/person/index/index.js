@@ -73,9 +73,17 @@ Page({
    */
   onShow: function () {
     // console.log("test"+getApp().globalData.userInfo.userName)
+    if (getApp().globalData.userInfo.userName == undefined){
+      this.setData({
+        donelogin: false
+      })
+    }else{
+      this.setData({
+        donelogin: getApp().globalData.userInfo.userName
+      })
+    }
     this.setData({
-      avatarUrl: getApp().globalData.userInfo.avatarUrl,
-      donelogin:getApp().globalData.userInfo.userName
+      avatarUrl: getApp().globalData.userInfo.avatarUrl
     })
   },
 

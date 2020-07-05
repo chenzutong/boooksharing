@@ -230,9 +230,7 @@ Page({
    */
   onLoad: function (options) {
 
-    this.setData({
-      donelogin: getApp().globalData.userInfo.userName
-    })
+    
   },
 
   /**
@@ -252,6 +250,17 @@ Page({
     //   secco: "#436EEE",
     // })
     var that = this
+    if (getApp().globalData.userInfo.userName == undefined){
+      that.setData({
+        donelogin: false
+      })
+      return
+    }else{
+      that.setData({
+        donelogin: true
+      })
+    }
+
     wx.request({
       url: server + 'api/book/all_list',
       header: {
@@ -274,6 +283,7 @@ Page({
         })
       }
     })
+    
   },
 
   /**

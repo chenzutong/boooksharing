@@ -271,9 +271,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      donelogin:getApp().globalData.userInfo.userName
-    })
+    
     console.log(getApp().globalData.userInfo)
 
 
@@ -290,7 +288,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (getApp().globalData.userInfo.userName == undefined){
+      this.setData({
+        donelogin: false
+      })
+      return
+    }else{
+      this.setData({
+        donelogin: true
+      })
+    }
   },
 
   /**
